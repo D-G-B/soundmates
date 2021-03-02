@@ -4,5 +4,4 @@ class Chatroom < ApplicationRecord
 
   has_many :messages
 
-  validates :status, presence: true, inclusion: { in: ["Pending", "Denied", "Accepted"] }
 end

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_113826) do
   enable_extension "plpgsql"
 
   create_table "chatrooms", force: :cascade do |t|
-    t.string "status"
+    t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
