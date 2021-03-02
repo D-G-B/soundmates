@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :user_chats
 
   has_many :messages
-
+  has_many :shares
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
