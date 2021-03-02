@@ -1,19 +1,19 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :create]
 
-  def create?
+  def create
     authorize @message
   end
 
-  def show?
+  def show
     authorize @message
   end
 
-  def update?
+  def update
     authorize @message
   end
 
-  def destroy?
+  def destroy
     authorize @message
   end
 end
