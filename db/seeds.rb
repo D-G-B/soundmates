@@ -7,31 +7,35 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "creating 4 users..."
 
-users = User.create([
-  { first_name: "Kevin",
+
+  User.create!(email: Faker::Internet.email(name: 'Kevin Agoh', separators: '_'), 
+  first_name: "Kevin",
   last_name: "Agoh",
   username: Faker::Internet.username(specifier: 'Keum'),
-  email: Faker::Internet.email(name: 'Kevin Agoh', separators: '_'), 
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}" },
+  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}", 
+  password: "123456")
 
-  { first_name: "Hervé",
+
+  User.create!(email: Faker::Internet.email(name: 'Herve Bonnaff', separators: '_'),
+  first_name: "Hervé",
   last_name: "Bonnaff",
   username: Faker::Internet.username(specifier: 'NRV'),
-  email: Faker::Internet.email(name: 'Herve Bonnaff', separators: '_'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}" },
-  
-  { first_name: "Dan",
+  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  password: "123456")
+
+  User.create!(email: Faker::Internet.email(name: 'Daniel Brandt', separators: '_'),
+  first_name: "Dan",
   last_name: "Gordon",
   username: Faker::Internet.username(specifier: 'DGB'),
-  email: Faker::Internet.email(name: 'Daniel Brand', separators: '_'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}" }, 
+  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  password: "123456")
 
-  { first_name: "Joleana",
+  User.create!(email: Faker::Internet.email(name: 'Joleana Shurley', separators: '_'),
+  first_name: "Joleana",
   last_name: "Shurley",
   username: Faker::Internet.username(specifier: 'Jo'),
-  email: Faker::Internet.email(name: 'Joleana Shurley', separators: '_'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}" }
-])
+  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  password: "123456")
 
 puts "...finished"
 
