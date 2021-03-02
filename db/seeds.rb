@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "cleaning database"
+User.destroy_all
+Genre.destroy_all
+Skill.destroy_all
+
 puts "creating 4 users..."
 
 
@@ -39,22 +45,24 @@ puts "creating 4 users..."
 
 puts "...finished"
 
-puts "creating 15 music genres..."
+puts "creating music genres..."
 
-15.times do
   music_genres = [ "Rock", "Electronic", "Pop", "Funk/Soul", "Jazz", "Folk, World, & Country", "Hip-Hop", "Classical", "Stage & Screen", "Reggae", "Latin", "Blues", "Non-Music", "Children's", "Brass & Military" ]
-  genres = Genre.new(name: music_genres.sample)
-  genres.save!
-end
+  
+  music_genres.each do |genre|
+    genres = Genre.new(name: genre)
+    genres.save!
+  end
 
 puts "...finished"
 
 puts  "creating skills"
 
-12.times do
   music_skills = [ "Remix", "Vocals", "Instruments", "Writing", "Arrangement", "Production", "Technical", "Visuals", "DJ Mix", "Management", "Conducting & Leading", "Acting, Literary & Spoken" ]
-  skills = Skill.new(name: music_skills.sample)
-  skills.save!
-end
+  
+  music_skills.each do |skill|
+    skills = Skill.new(name: skill)
+    skills.save!
+  end
 
 puts "...finished"
