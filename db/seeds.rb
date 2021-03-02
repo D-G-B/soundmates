@@ -30,7 +30,7 @@ users = User.create([
   last_name: "Shurley",
   username: Faker::Internet.username(specifier: 'Jo'),
   email: Faker::Internet.email(name: 'Joleana Shurley', separators: '_'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}" },
+  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}" }
 ])
 
 puts "...finished"
