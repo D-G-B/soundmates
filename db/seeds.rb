@@ -10,6 +10,7 @@ puts "cleaning database"
 User.destroy_all
 Genre.destroy_all
 Skill.destroy_all
+Chatroom.destroy_all
 
 puts "creating 4 users..."
 
@@ -66,3 +67,11 @@ puts  "creating skills"
   end
 
 puts "...finished"
+
+puts "creating chatroom(s)"
+
+  Chatroom.create!
+  Chatroom.create!(status: true)
+  Chatroom.create!(status: false)
+
+puts "3 chatrooms have been created nil,true,flase"
