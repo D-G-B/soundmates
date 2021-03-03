@@ -7,10 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "cleaning database"
-User.destroy_all
-Genre.destroy_all
-Skill.destroy_all
+UserGenre.destroy_all
+UserSkill.destroy_all
 Share.destroy_all
+Genre.destroy_all
+User.destroy_all
+Skill.destroy_all
 Chatroom.destroy_all
 
 
@@ -50,32 +52,39 @@ puts "...finished"
 
 puts "creating music genres..."
 
-Genre.create!(name: "Rock", id: 1)
-Genre.create!(name: "Electronic", id: 2)
-Genre.create!(name: "Pop", id: 3)
-Genre.create!(name: "Funk/Soul", id: 4)
-Genre.create!(name: "Jazz", id: 5)
-Genre.create!(name: "Folk, World, & Country", id: 6)
-Genre.create!(name: "Hip-Hop", id: 7)
-Genre.create!(name: "Classical", id: 8)
-Genre.create!(name: "Stage & Screen", id: 9)
-Genre.create!(name: "Reggae", id: 10)
-Genre.create!(name: "Latin", id: 11)
-Genre.create!(name: "Blues", id: 12)
-Genre.create!(name: "Non-Music", id: 13)
-Genre.create!(name: "Children's", id: 14)
-Genre.create!(name: "Brass & Military", id: 15)
+rock = Genre.create!(name: "Rock")
+electronic = Genre.create!(name: "Electronic")
+pop = Genre.create!(name: "Pop")
+funk_soul = Genre.create!(name: "Funk/Soul")
+jazz = Genre.create!(name: "Jazz")
+folk = Genre.create!(name: "Folk, World, & Country")
+hip_hop = Genre.create!(name: "Hip-Hop")
+classical = Genre.create!(name: "Classical")
+stage = Genre.create!(name: "Stage & Screen")
+reggae = Genre.create!(name: "Reggae")
+latin = Genre.create!(name: "Latin")
+blues = Genre.create!(name: "Blues")
+non_music = Genre.create!(name: "Non-Music")
+childrens = Genre.create!(name: "Children's")
+military = Genre.create!(name: "Brass & Military")
 
 puts "...finished"
 
 puts  "creating skills"
 
-  music_skills = [ "Remix", "Vocals", "Instruments", "Writing", "Arrangement", "Production", "Technical", "Visuals", "DJ Mix", "Management", "Conducting & Leading", "Acting, Literary & Spoken" ]
+remix = Skill.create!(name: "Remix")
+vocals = Skill.create!(name: "Vocals")
+instruments = Skill.create!(name: "Instruments")
+writing = Skill.create!(name: "Writing")
+arrangement = Skill.create!(name: "Arrangement")
+production = Skill.create!(name: "Production")
+technical = Skill.create!(name: "Technical")
+visuals = Skill.create!(name: "Visuals")
+dj_mix = Skill.create!(name: "DJ Mix")
+management = Skill.create!(name: "Management")
+conducting = Skill.create!(name: "Conducting & Leading")
+acting = Skill.create!(name: "Acting, Literary & Spoken")
 
-  music_skills.each do |skill|
-    skills = Skill.new(name: skill)
-    skills.save!
-  end
 
 puts "...finished"
 
@@ -84,22 +93,22 @@ puts "creating shares"
 Share.create!(link: "https://soundcloud.com/srt95",
   platform: "Soundcloud",
   user_id: kevin.id,
-  genre_id: 2)
+  genre_id: classical.id)
 
 Share.create!(link: "https://soundcloud.com/nanji-lobby",
   platform: "Soundcloud",
   user_id: herve.id,
-  genre_id: 2)
+  genre_id: electronic.id)
 
 Share.create!(link: "https://soundcloud.com/danielbrandt",
   platform: "Soundcloud",
   user_id: daniel.id,
-  genre_id: 1)
+  genre_id: jazz.id)
 
 Share.create!(link: "https://soundcloud.com/epikurmusic",
   platform: "Soundcloud",
   user_id: joleana.id,
-  genre_id: 2)
+  genre_id: rock.id)
 
 puts "...finished"
 
@@ -110,3 +119,39 @@ puts "creating chatroom(s)"
   Chatroom.create!(status: false)
 
 puts "3 chatrooms have been created nil,true,flase"
+
+puts "creating genres for users"
+
+UserGenre.create!(user_id: kevin.id,
+  genre_id: funk_soul.id)
+
+UserGenre.create!(user_id: herve.id,
+  genre_id: electronic.id)
+
+UserGenre.create!(user_id: daniel.id,
+  genre_id: jazz.id)
+
+UserGenre.create!(user_id: joleana.id,
+  genre_id: rock.id)
+
+puts "...finished"
+
+puts "creating skills for users"
+
+UserSkill.create!(user_id: kevin.id,
+  skill_id: vocals.id)
+
+UserSkill.create!(user_id: herve.id,
+  skill_id: dj_mix.id)
+
+UserSkill.create!(user_id: daniel.id,
+  skill_id: instruments.id)
+
+UserSkill.create!(user_id: joleana.id,
+  skill_id: management.id)
+
+
+puts "...finished"
+
+
+
