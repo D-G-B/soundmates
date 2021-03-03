@@ -1,0 +1,7 @@
+<div class="container justify-content-center">
+  <h1>Your Chats</h1>
+  <% @messages.each do |message| %>
+  <span><%= message.user.first_name %></span>
+  <p><%= message.content %></p>
+  <% end %>
+</div>
