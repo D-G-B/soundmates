@@ -10,8 +10,12 @@ class User < ApplicationRecord
   has_many :user_chats
   has_many :chatrooms, through: :user_chats
 
-  has_many :messages
-  has_many :shares
+  has_many :messages, dependent: :destroy
+  has_many :shares, dependent: :destroy
+
+  # cloudinary
+  # has_one_attached :photo
+  has_many_attached :photos
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

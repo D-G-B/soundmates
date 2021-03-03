@@ -23,4 +23,7 @@ class ChatroomsController < ApplicationController
   def approve
 
   end
+
 end
+
+##when createing chatroom controller talk to ANDRE!
