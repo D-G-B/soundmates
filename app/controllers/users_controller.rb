@@ -31,4 +31,10 @@ class UsersController < ApplicationController
   def funk
     @users = policy_scope(User).where(genre: "Funk/Soul")
   end
+
+  #Collections by skills, methods
+
+  def instrumentalists
+    @users = policy_scope(User).where(skill: "Funk/Soul")
+  end
 end

@@ -1,11 +1,12 @@
+/* Top cards */
+
 .card {
-  border-radius: 2px;
   -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14); 
   box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14);
 }
 
 .card-body {
-  background-color: $button-color;
+  background-color: $background-color;
   font-family: $body-font;
   color: $text-color;
 }
@@ -16,19 +17,39 @@
   object-fit: cover;
 }
 
-.card-job {
+/* Bottom cards */
+
+.circular-card {
   border-radius: 50%;
-  height: 14rem;
-  background-size: cover;
-  object-fit: cover;
-  height: 100px;
-  width: 100px;
+  width: 200px;
+  height: 200px;
+  font-family: $body-font;
+  color: $text-color;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 20px;
 }
 
-.card-img-job {
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
+#djs {
+  background-image: url("dj.jpg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5));
   background-size: cover;
   object-fit: cover;
 }
+
+#vocalists {
+  background-image: url("vocalist.jpg"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  background-size: cover;
+  object-fit: cover;
+}
+
+#instrumentalists {
+  background-image: url("instrumentalist.jpg"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  background-size: cover;
+  object-fit: cover;
+}
+
+#technicians {
+  background-image: url("technician.jpg"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  background-size: cover;
+  object-fit: cover;
+}
+
