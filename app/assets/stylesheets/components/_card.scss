@@ -1,0 +1,34 @@
+.card {
+  border-radius: 2px;
+  -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14); 
+  box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14);
+}
+
+.card-body {
+  background-color: $button-color;
+  font-family: $body-font;
+  color: $text-color;
+}
+
+.card-img-top {
+  height: 14rem;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.card-job {
+  border-radius: 50%;
+  height: 14rem;
+  background-size: cover;
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+}
+
+.card-img-job {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  object-fit: cover;
+}

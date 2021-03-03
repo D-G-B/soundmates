@@ -2,3 +2,10 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "banner";
+@import "card";
+@import "carousel";
+
+body {
+  background-color: $background-color;
+}
