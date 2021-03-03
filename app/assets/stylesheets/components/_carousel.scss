@@ -19,6 +19,8 @@
 
   &:hover {
     text-decoration: none;
+    color: $hover-button-color;
+    transition: 0.3s;
   }
 }
 
