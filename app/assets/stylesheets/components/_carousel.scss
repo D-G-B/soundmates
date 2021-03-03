@@ -1,6 +1,25 @@
 .carousel-inner { 
-  height: 40rem;
+  height: 30rem;
   width: 60rem;
   background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+}
+
+.carousel-caption a {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
   object-fit: cover;
+  margin-bottom: 80rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.carousel-image {
+  object-fit: cover;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
 }
