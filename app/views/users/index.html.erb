@@ -1,1 +1,19 @@
-<h1>SOUNDMATES</h1>
+<div class="banner">
+  <div class="container">
+    <h1><strong>SOUNDMATES</strong></h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row justify-content-between">
+    <% @users.each do |user| %>
+      <div class="col-12 col-lg-4 col-xl-3">
+        <div class="card" style="width: 18rem;">
+          <%= image_tag "person.jpg", class: "card-img-top", alt: "Card image cap"%>
+          <div class="card-body">
+            <p class="card-text"><%= user.username %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

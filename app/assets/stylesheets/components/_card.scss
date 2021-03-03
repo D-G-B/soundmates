@@ -1,0 +1,15 @@
+.card {
+  border-radius: 5px;
+}
+
+.card-body {
+  background-color: $background-color;
+  font-family: $body-font;
+  color: $text-color;
+}
+
+.card-img-top {
+  height: 14rem;
+  background-size: cover;
+  object-fit: cover;
+}
