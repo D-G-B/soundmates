@@ -14,6 +14,7 @@ Genre.destroy_all
 User.destroy_all
 Skill.destroy_all
 Chatroom.destroy_all
+Message.destroy_all
 
 
 puts "creating 4 users..."
@@ -114,9 +115,9 @@ puts "...finished"
 
 puts "creating chatroom(s)"
 
-  Chatroom.create!
-  Chatroom.create!(status: true)
-  Chatroom.create!(status: false)
+  nilchat = Chatroom.create!
+  truechat = Chatroom.create!(status: true)
+  falsechat = Chatroom.create!(status: false)
 
 puts "3 chatrooms have been created nil,true,flase"
 
@@ -153,5 +154,29 @@ UserSkill.create!(user_id: joleana.id,
 
 puts "...finished"
 
+puts "creating user_chat"
+
+  # UserChat.create!(
+  #   user_id:daniel.id,
+  #   chatroom_id: truechat.id
+  # )
+daniel.chatrooms << truechat #this is same as above
+joleana.chatrooms << truechat
+
+puts "createing messages"
+
+  Message.create!(
+    content: "Hi im Dan",
+    user_id:daniel.id,
+    chatroom_id: truechat.id
+  )
+
+  Message.create!(
+    content: "Hi im Jo",
+    user_id:joleana.id,
+    chatroom_id: truechat.id
+  )
 
 
+puts "messages created"
+puts "...finished"

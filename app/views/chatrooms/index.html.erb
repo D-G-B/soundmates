@@ -1,0 +1,8 @@
+<div class="container justify-content-center">
+  <h1>Your Chats</h1>
+  <% @chatrooms.each do |chatroom| %>
+    <%=  link_to "go to chat", chatroom_path(chatroom.id) %>
+  <% end %>
+</div>
+
+
