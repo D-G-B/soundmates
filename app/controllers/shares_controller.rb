@@ -1,19 +1,19 @@
 class SharesController < ApplicationController
 before_action :authenticate_user!, only: [ :index, :show, :create]
 
-  def create?
+  def create
     authorize @share
   end
 
-  def show?
+  def show
     authorize @share
   end
 
-  def update?
+  def update
     authorize @share
   end
 
-  def destroy?
+  def destroy
     authorize @share
   end
 end
