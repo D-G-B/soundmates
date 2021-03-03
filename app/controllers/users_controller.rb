@@ -4,10 +4,10 @@ class UsersController < ApplicationController
   def index
     @users = policy_scope(User).limit(3)
   end
-  
+
   def show
-  @user = User.find_by(username: params[:username])
-  authorize @user
+    @user = User.find_by(username: params[:username])
+    authorize @user
   end
 
   #Collections by genre, methods
@@ -35,6 +35,19 @@ class UsersController < ApplicationController
   #Collections by skills, methods
 
   def instrumentalists
-    @users = policy_scope(User).where(skill: "Funk/Soul")
+    @users = policy_scope(User).where(skill: "Instruments")
   end
+
+  def vocalists
+    @users = policy_scope(User).where(skill: "Vocals")
+  end
+
+  def technicians
+    @users = policy_scope(User).where(skill: "Technical")
+  end
+
+  def djs
+    @users = policy_scope(User).where(skill: "DJ Mix")
+  end
+
 end
