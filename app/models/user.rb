@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :messages
   has_many :shares
 
+  # cloudinary
+  # has_one_attached :photo
+  has_many_attached :photos
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
