@@ -1,13 +1,15 @@
 <div class="banner">
   <div class="container">
     <h1><strong>SOUNDMATES</strong></h1>
+    <p>Find your fellow creatives</p>
   </div>
 </div>
 <div class="container">
+
   <div class="row justify-content-between">
     <% @users.each do |user| %>
       <div class="col-12 col-lg-4 col-xl-3">
-        <div class="card" style="width: 18rem;">
+        <div class="card m-3" style="width: 18rem;">
           <%= image_tag "person.jpg", class: "card-img-top", alt: "Card image cap"%>
           <div class="card-body">
             <p class="card-text"><%= user.username %></p>
@@ -15,5 +17,29 @@
         </div>
       </div>
     <% end %>
+  </div>
+
+  <div class="row justify-content-center">
+    <div id="carouselExampleControls" class="carousel slide my-3" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag "hiphop.jpg", class: "d-block w-100", alt: "First slide"%>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "rock.jpg", class: "d-block w-100", alt: "Second slide"%>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "jazz.jpg", class: "d-block w-100", alt: "Third slide"%>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </div>
 </div>

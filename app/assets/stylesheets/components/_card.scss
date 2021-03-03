@@ -1,9 +1,11 @@
 .card {
-  border-radius: 5px;
+  border-radius: 2px;
+  -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14); 
+  box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14);
 }
 
 .card-body {
-  background-color: $background-color;
+  background-color: $button-color;
   font-family: $body-font;
   color: $text-color;
 }
