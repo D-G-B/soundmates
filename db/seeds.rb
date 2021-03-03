@@ -113,6 +113,15 @@ puts "creating chatroom(s)"
 puts "3 chatrooms have been created nil,true,flase"
 puts "...finished"
 
+puts "creating user_chat"
+
+  # UserChat.create!(
+  #   user_id:daniel.id,
+  #   chatroom_id: truechat.id
+  # )
+daniel.chatrooms << truechat #this is same as above
+joleana.chatrooms << truechat
+
 puts "createing messages"
 
   Message.create!(
