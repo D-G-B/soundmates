@@ -1,9 +1,10 @@
 class ChatroomsController < ApplicationController
 
   def index
-    @user = current_user
-    # @userchats = UserChat.all
-    @userchats = policy_scope(UserChat).order(created_at: :desc).where(user_id: @user)
+
+    @chatrooms = policy_scope(Chatroom).order(created_at: :desc)
+    # # @userchats = UserChat.all
+    # @userchats = policy_scope(UserChat).order(created_at: :desc).where(user_id: @user)
     # @userchats = UserChat.all.select { |userchat| userchat.user_id == @user  }
     # @chatrooms = @chatrooms.where(user: @user, status: true)
   end

@@ -5,7 +5,7 @@ class MessagePolicy < ApplicationPolicy
     end
   end
   def create?
-    true
+    !user.nil?
   end
 
   def show?
