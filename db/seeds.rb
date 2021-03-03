@@ -11,6 +11,8 @@ User.destroy_all
 Genre.destroy_all
 Skill.destroy_all
 Share.destroy_all
+Chatroom.destroy_all
+
 
 puts "creating 4 users..."
 
@@ -100,3 +102,11 @@ Share.create!(link: "https://soundcloud.com/epikurmusic",
   genre_id: 2)
 
 puts "...finished"
+
+puts "creating chatroom(s)"
+
+  Chatroom.create!
+  Chatroom.create!(status: true)
+  Chatroom.create!(status: false)
+
+puts "3 chatrooms have been created nil,true,flase"
