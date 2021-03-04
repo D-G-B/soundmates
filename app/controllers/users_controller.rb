@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   #Collections by genre, methods
 
   def jazz
-    @users = policy_scope(User).where(genre: "Jazz")
+    @users = policy_scope(User.genre_id).where(name: "Jazz")
   end
 
   def hiphop
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   def electronic
     @users = policy_scope(User).where(genre: "Electronic")
+    authorize @users
   end
 
   def funk
