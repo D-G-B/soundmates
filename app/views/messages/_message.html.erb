@@ -1,24 +1,25 @@
 
 <div class="message-container" id="message-<%= message.id %>">
-
-  <div class="container">
+  
+  <% if message.user == current_user %>
+    <div class="container d-flex flex-row-reverse"> 
+  <% else %> 
+    <div class="container"> 
+  <% end %>
     <div class="card-body card text-white bg-dark mb-3" style="max-width: 18rem;">
       <blockquote class="blockquote mb-0">
         <p><%= message.content %></p>
           <footer class="blockquote-footer">
             <cite title="Source Title">
               <i class="author">
-    <span><%= message.user.username %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
+                <span><%= message.user.username %></span>
+                <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              </i>
             </cite>
           </footer>
       </blockquote>
     </div>
-  </div>
-  
-
- 
-  
+  </div> 
 </div>
+
 

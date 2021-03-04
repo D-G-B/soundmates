@@ -1,13 +1,15 @@
 <div class="container justify-content-center" id="messages" data-chatroom-id="<%= @chatroom.id %>"> 
+  <div class="d-flex justify-content-center m-3">
   <h1>The chat itself</h1>
+  </div>
 
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>
   <% end %>
 
-</div>
 
-<!-- <form action="/chatrooms/1/message"></form> -->
+
+
 <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Message" %>
   <%= f.submit %>
