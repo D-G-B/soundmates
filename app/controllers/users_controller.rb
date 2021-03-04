@@ -2,7 +2,20 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :show ]
 
   def index
-    @users = policy_scope(User).limit(3)
+    if params[:query].present?
+      sql_query = "\
+      users.username @@ :query \
+      OR users.first_name @@ :query \
+      OR users.bio @@ :query \
+      OR genres.name @@ :query \
+      OR skills.name @@ :query \
+      "
+      # @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
+      @users = policy_scope(User).joins(:genres, :skills).where(sql_query, query: "%#{params[:query]}%")
+      # @users = policy_scope(User).includes(:trackable => [:genre, :skill]).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @users = policy_scope(User).limit(3)
+    end
   end
 
   def show
@@ -11,6 +24,8 @@ class UsersController < ApplicationController
   end
 
   #Collections by genre, methods
+  def search
+  end
 
   def jazz
     @users = policy_scope(User.joins(:genres).where(genres: {name: "Jazz"}))
