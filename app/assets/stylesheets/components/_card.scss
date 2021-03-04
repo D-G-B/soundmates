@@ -12,6 +12,7 @@
   &:hover {
     -webkit-box-shadow: 0px 0px 5px 4px #EE8133; 
     box-shadow: 0px 0px 5px 4px #EE8133;
+    text-decoration: none;
   }
 
 }
@@ -24,7 +25,7 @@
   border-radius: 0% 0% 20px 20px;
 }
 
-.card-user-body a {
+.card-user-body p {
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-weight: bold;
@@ -58,12 +59,14 @@
   &:hover {
     -webkit-box-shadow: 0px 0px 5px 4px #EE8133; 
     box-shadow: 0px 0px 5px 4px #EE8133;
+    text-decoration: none;
   }
 }
 
-.circular-card a {
+.circular-card p {
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 22px;
 
   &:hover {
     text-decoration: none;

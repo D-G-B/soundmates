@@ -22,7 +22,7 @@
             <div class="card-user" style="width: 18rem;">
               <%= image_tag "person.jpg", class: "card-img-top", alt: "Card image cap"%>
               <div class="card-user-body">
-                <p class="card-text"><%= link_to user.username, user_path(user.username) %></p>
+                <p class="card-text"><%= user.username %></p>
               </div>
             </div>
           <% end %>
@@ -109,28 +109,28 @@
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
         <%= link_to instrumentalists_users_path do %>
           <div class="circular-card d-flex align-items-center justify-content-center" id="instrumentalists">
-            <p><%= link_to "Instrumentalists", instrumentalists_users_path %></p>
+            <p>Instrumentalists</p>
           </div>
         <% end %>
       </div>
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
         <%= link_to vocalists_users_path do %>
           <div class="circular-card d-flex align-items-center justify-content-center" id="vocalists">
-            <p><%= link_to "Vocalists", vocalists_users_path %></p>
+            <p>Vocalists</p>
           </div>
         <% end %>
       </div>
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
         <%= link_to technicians_users_path do %>
           <div class="circular-card d-flex align-items-center justify-content-center" id="technicians">
-            <p><%= link_to "Technicians", technicians_users_path %></p>
+            <p>Technicians</p>
           </div>
         <% end %>
       </div>
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
         <%= link_to djs_users_path do %>
           <div class="circular-card d-flex align-items-center justify-content-center" id="djs">
-            <p><%= link_to "DJs", djs_users_path %></p>
+            <p>DJs</p>
           </div>
         <% end %>
       </div>
