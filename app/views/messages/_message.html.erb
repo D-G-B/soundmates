@@ -2,11 +2,16 @@
 <div class="message-container" id="message-<%= message.id %>">
   
   <% if message.user == current_user %>
-    <div class="container d-flex flex-row-reverse"> 
+  <div class="container d-flex flex-row-reverse"> 
   <% else %> 
-    <div class="container"> 
+  <div class="container"> 
   <% end %>
+
+    <% if message.user == current_user %>
+    <div class="card-body card text-white bg-dark mb-3" style="max-width: 18rem;" id="color-current-user">
+    <% else %>
     <div class="card-body card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <% end %>
       <blockquote class="blockquote mb-0">
         <p><%= message.content %></p>
           <footer class="blockquote-footer">
