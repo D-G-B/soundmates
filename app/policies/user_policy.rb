@@ -12,41 +12,41 @@ class UserPolicy < ApplicationPolicy
   
   #Collections by genre, methods
 
-  def jazz
+  def jazz?
     true 
   end
 
-  def hiphop
+  def hiphop?
     true 
   end
 
-  def rock
+  def rock?
     true
   end
 
-  def electronic
+  def electronic?
     true
   end
 
-  def funk
+  def funk?
     true
   end
 
   #Collections by skills, methods
 
-  def instrumentalists
+  def instrumentalists?
     true
   end
 
-  def vocalists
+  def vocalists?
     true
   end
 
-  def technicians
+  def technicians?
     true
   end
 
-  def djs
+  def djs?
     true
   end 
 
