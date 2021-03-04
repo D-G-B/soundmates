@@ -1,8 +1,10 @@
 <div class="container justify-content-center" id="messages" data-chatroom-id="<%= @chatroom.id %>"> 
   <h1>The chat itself</h1>
+
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>
   <% end %>
+
 </div>
 
 <!-- <form action="/chatrooms/1/message"></form> -->
@@ -11,6 +13,9 @@
   <%= f.submit %>
 <% end %>
 </div>
+
+
+
 
 
 
