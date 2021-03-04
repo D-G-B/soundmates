@@ -6,51 +6,51 @@
 </div>
 <div class="container">
 
-  <div class="row justify-content-between">
+  <div class="row my-5 justify-content-between">
     <% @users.each do |user| %>
       <div class="col-12 col-lg-4 col-xl-3">
-        <div class="card m-3" style="width: 18rem;">
+        <div class="card" style="width: 18rem;">
           <%= image_tag "person.jpg", class: "card-img-top", alt: "Card image cap"%>
           <div class="card-body">
-            <p class="card-text"><%= user.username %></p>
+            <p class="card-text"><%= link_to user.username, user_path(user.id) %></p>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 
-  <div class="row justify-content-center">
+  <div class="row my-5 justify-content-center">
     <div id="carouselExampleControls" class="carousel slide my-4" data-ride="carousel">
       <div class="carousel-inner">
 
         <div class="carousel-item active">
           <%= image_tag "hiphop.jpg", class: "d-block w-100 carousel-image", alt: "First slide"%>
           <div class="carousel-caption d-none d-md-block">
-            <h5 class="pb-6"><%= link_to "Hip-Hop heads", hiphop_users_path %></h5>
+            <h5><%= link_to "Hip-Hop heads", hiphop_users_path %></h5>
           </div>
         </div>
         <div class="carousel-item">
           <%= image_tag "rock.jpg", class: "d-block w-100 carousel-image", alt: "Second slide"%>
           <div class="carousel-caption d-none d-md-block">
-            <h5 pb-6><%= link_to "Rock heads", rock_users_path %></h5>
+            <h5><%= link_to "Rock heads", rock_users_path %></h5>
           </div>
         </div>
         <div class="carousel-item">
           <%= image_tag "jazz.jpg", class: "d-block w-100 carousel-image", alt: "Third slide"%>
           <div class="carousel-caption d-none d-md-block">
-            <h5 pb-6><%= link_to "Jazz heads", jazz_users_path %></h5>
+            <h5><%= link_to "Jazz heads", jazz_users_path %></h5>
           </div>
         </div>
         <div class="carousel-item">
           <%= image_tag "funk.jpg", class: "d-block w-100 carousel-image", alt: "Fourth slide"%>
           <div class="carousel-caption d-none d-md-block">
-            <h5 pb-6><%= link_to "Funk aficionados", funk_users_path %></h5>
+            <h5><%= link_to "Funk aficionados", funk_users_path %></h5>
           </div>
         </div>
         <div class="carousel-item">
-          <%= image_tag "electronic.jpg", class: "d-block w-100", alt: "Fifth slide"%>
-          <div class="carousel-caption d-none d-md-block carousel-image">
-            <h5 pb-6><%= link_to "Electronic music lovers", electronic_users_path %></h5>
+          <%= image_tag "electronic.jpg", class: "d-block w-100 carousel-image", alt: "Fifth slide"%>
+          <div class="carousel-caption d-none d-md-block">
+            <h5><%= link_to "Electronic music lovers", electronic_users_path %></h5>
           </div>
         </div>
     
@@ -65,25 +65,25 @@
       </a>
     </div>
   </div>
-  <div class="row">
-    <div class="col-6 col-lg-3 col-xl-3">
-      <div class="card-job m-3" style="width: 14rem;">
-        <%= image_tag "person.jpg", class: "card-img-job", alt: "Card image cap"%>
+  <div class="row justify-content-center my-5">
+    <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
+      <div class="circular-card d-flex align-items-center justify-content-center" id="instrumentalists">
+        <p><%= link_to "Instrumentalists", instrumentalists_users_path %></p>
       </div>
     </div>
-    <div class="col-6 col-lg-3 col-xl-3">
-      <div class="card-job m-3" style="width: 14rem;">
-        <%= image_tag "person.jpg", class: "card-img-job",  alt: "Card image cap"%>
+    <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
+      <div class="circular-card d-flex align-items-center justify-content-center" id="vocalists">
+        <p><%= link_to "Vocalists", vocalists_users_path %></p>
       </div>
     </div>
-    <div class="col-6 col-lg-3 col-xl-3">
-      <div class="card-job m-3" style="width: 14rem;">
-        <%= image_tag "person.jpg", class: "card-img-job", alt: "Card image cap"%>
+    <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
+      <div class="circular-card d-flex align-items-center justify-content-center" id="technicians">
+        <p><%= link_to "Technicians", technicians_users_path %></p>
       </div>
     </div>
-    <div class="col-6 col-lg-3 col-xl-3">
-      <div class="card-job m-3" style="width: 14rem;">
-        <%= image_tag "person.jpg", class: "card-img-job", alt: "Card image cap"%>
+    <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
+      <div class="circular-card d-flex align-items-center justify-content-center" id="djs">
+        <p><%= link_to "DJs", djs_users_path %></p>
       </div>
     </div>
   </div>
