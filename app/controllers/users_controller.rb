@@ -10,6 +10,14 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+  def add_photo
+    @user = User.find_by(username: params[:username])
+    authorize @user
+    @user.update(photo_params)
+    redirect_to(:controller => "users", :action => "show")
+  end
+
+
   #Collections by genre, methods
 
   def jazz
@@ -48,6 +56,12 @@ class UsersController < ApplicationController
 
   def djs
     @users = policy_scope(User).where(skill: "DJ Mix")
+  end
+
+private
+
+  def photo_params
+    params.require(:user).permit(:photo)
   end
 
 end
