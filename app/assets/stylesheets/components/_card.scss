@@ -1,20 +1,41 @@
 /* Top cards */
 
 .card {
-  -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14); 
-  box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14);
+  border-radius: 22px;
+  border: none;
+
+  &:hover {
+    -webkit-box-shadow: 0px 0px 5px 4px #EE8133; 
+    box-shadow: 0px 0px 5px 4px #EE8133;
+  }
 }
 
 .card-body {
-  background-color: $background-color;
+  background-color: $user-card-color;
   font-family: $body-font;
   color: $text-color;
+  height: 75px;
+  border-radius: 0% 0% 20px 20px;
+}
+
+.card-body a {
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 20px;
+
+  &:hover {
+    text-decoration: none;
+    color: $hover-button-color;
+    transition: 0.3s;
+  }
 }
 
 .card-img-top {
-  height: 14rem;
+  height: 225px;
   background-size: cover;
   object-fit: cover;
+  border-radius: 20px 20px 0% 0%;
 }
 
 /* Bottom cards */
@@ -27,6 +48,11 @@
   color: $text-color;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 20px;
+
+  &:hover {
+    -webkit-box-shadow: 0px 0px 5px 4px #EE8133; 
+    box-shadow: 0px 0px 5px 4px #EE8133;
+  }
 }
 
 .circular-card a {

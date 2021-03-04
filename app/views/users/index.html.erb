@@ -9,7 +9,7 @@
   <div class="row my-5 justify-content-between">
     <% @users.each do |user| %>
       <div class="col-12 col-lg-4 col-xl-3">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 300px;">
           <%= image_tag "person.jpg", class: "card-img-top", alt: "Card image cap"%>
           <div class="card-body">
             <p class="card-text"><%= link_to user.username, user_path(user.id) %></p>
