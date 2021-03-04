@@ -1,7 +1,7 @@
 /* Top cards */
 
 .card {
-  -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14); 
+  -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14);
   box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14);
 }
 
@@ -66,35 +66,38 @@
 
 /* Cards collections */
 
-.card-product {
+.card-results {
   overflow: hidden;
-  height: 120px;
+  height: 100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 30px;
+  margin-bottom: 1px;
 }
 
-.card-product img {
+.card-results img {
   height: 100%;
-  width: 120px;
+  width: 200px;
   object-fit: cover;
+  border-radius: 0px;
 }
 
-.card-product h2 {
+.card-results h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.card-results p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-results .card-results-infos {
   padding: 16px;
 }

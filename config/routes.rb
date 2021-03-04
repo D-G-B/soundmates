@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get :rock, :hiphop, :jazz, :electronic, :funk, :instrumentalists, :vocalists, :technicians, :djs
     end
   end
-  
+
   resources :chatrooms, only: [ :index, :show] do
     resources :messages, only: [:show, :create]
   end
