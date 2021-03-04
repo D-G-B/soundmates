@@ -4,11 +4,17 @@ class MessagesController < ApplicationController
   def create
       @chatroom = Chatroom.find(params[:chatroom_id])
       @message = Message.new(message_params)
-      @message.chatroom = @chatroom
       @message.user = current_user
+      @message.chatroom = @chatroom
       @message.save
       authorize @message
-      redirect_to chatroom_path(@chatroom.id)
+
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+        render_to_string(partial: "message", locals: { message: @message })
+)
+
+      # redirect_to chatroom_path(@chatroom.id)
   end
 
   private
