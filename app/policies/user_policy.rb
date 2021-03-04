@@ -9,6 +9,11 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  #method to update profile picture
+  def add_photo?
+    true
+  end
   
   #Collections by genre, methods
 
@@ -49,5 +54,4 @@ class UserPolicy < ApplicationPolicy
   def djs?
     true
   end 
-
 end
