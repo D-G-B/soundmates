@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="my-3">Jazz users</h1>
+  <% @users.each do |user| %>
+    <div class="card-product my-3">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= user.username %></h2>
+        <p><%= user.bio %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -5,86 +5,116 @@
   </div>
 </div>
 <div class="container">
+  <%= form_tag users_path, method: :get, class: "form-inline" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find creatives"%>
+    <h5><%= link_to "Search", users_path %></h5>
+  <% end %>
 
-  <div class="row my-5 justify-content-between">
-    <% @users.each do |user| %>
-      <div class="col-12 col-lg-4 col-xl-3">
-        <div class="card" style="width: 18rem;">
-          <%= image_tag "person.jpg", class: "card-img-top", alt: "Card image cap"%>
-          <div class="card-body">
-            <p class="card-text"><%= link_to user.username, user_path(user.id) %></p>
+  <!-- if no search params entered, then show our 3 user cards -->
+  <% if !params[:query] %>
+    <div class="row my-5 justify-content-between">
+      <% @users.each do |user| %>
+        <div class="col-12 col-lg-4 col-xl-3">
+          <div class="card-user" style="width: 18rem;">
+            <%= image_tag "person.jpg", class: "card-img-top", alt: "Card image cap"%>
+
+            <div class="card-user-body">
+              <p class="card-text"><%= link_to user.username, user_path(user.username) %></p>
+            </div>
           </div>
         </div>
+      <% end %>
+    </div>
+  <% end %>
+
+    <!-- if search params entered, then show our user card results to query -->
+  <% if params[:query] %>
+    <div class="row my-5 justify-content-between">
+      <% @users.each do |user| %>
+        <div class="col-12">
+          <div class="card-results">
+            <%= image_tag "person.jpg", class: "card-results img", alt: "Card image cap"%>
+              <div class="card-results-infos">
+                <p><%= user.bio %></p>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <!-- if no search params entered, show carousal and genre category links  -->
+  <% if !params[:query] %>
+    <div class="row my-5 justify-content-center">
+      <div id="carouselExampleControls" class="carousel slide my-4" data-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <%= image_tag "hiphop.jpg", class: "d-block w-100 carousel-image", alt: "First slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Hip-Hop heads", hiphop_users_path %></h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "rock.jpg", class: "d-block w-100 carousel-image", alt: "Second slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Rock heads", rock_users_path %></h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "jazz.jpg", class: "d-block w-100 carousel-image", alt: "Third slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Jazz heads", jazz_users_path %></h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "funk.jpg", class: "d-block w-100 carousel-image", alt: "Fourth slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Funk aficionados", funk_users_path %></h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "electronic.jpg", class: "d-block w-100 carousel-image", alt: "Fifth slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Electronic music lovers", electronic_users_path %></h5>
+            </div>
+          </div>
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+    </div>
+    <div class="row justify-content-center my-5">
+      <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
+        <div class="circular-card d-flex align-items-center justify-content-center" id="instrumentalists">
+          <p><%= link_to "Instrumentalists", instrumentalists_users_path %></p>
+        </div>
+      </div>
+      <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
+        <div class="circular-card d-flex align-items-center justify-content-center" id="vocalists">
+          <p><%= link_to "Vocalists", vocalists_users_path %></p>
+        </div>
+      </div>
+      <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
+        <div class="circular-card d-flex align-items-center justify-content-center" id="technicians">
+          <p><%= link_to "Technicians", technicians_users_path %></p>
+        </div>
+      </div>
+      <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
+        <div class="circular-card d-flex align-items-center justify-content-center" id="djs">
+          <p><%= link_to "DJs", djs_users_path %></p>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </div>
-
-  <div class="row my-5 justify-content-center">
-    <div id="carouselExampleControls" class="carousel slide my-4" data-ride="carousel">
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-          <%= image_tag "hiphop.jpg", class: "d-block w-100 carousel-image", alt: "First slide"%>
-          <div class="carousel-caption d-none d-md-block">
-            <h5><%= link_to "Hip-Hop heads", hiphop_users_path %></h5>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag "rock.jpg", class: "d-block w-100 carousel-image", alt: "Second slide"%>
-          <div class="carousel-caption d-none d-md-block">
-            <h5><%= link_to "Rock heads", rock_users_path %></h5>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag "jazz.jpg", class: "d-block w-100 carousel-image", alt: "Third slide"%>
-          <div class="carousel-caption d-none d-md-block">
-            <h5><%= link_to "Jazz heads", jazz_users_path %></h5>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag "funk.jpg", class: "d-block w-100 carousel-image", alt: "Fourth slide"%>
-          <div class="carousel-caption d-none d-md-block">
-            <h5><%= link_to "Funk aficionados", funk_users_path %></h5>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag "electronic.jpg", class: "d-block w-100 carousel-image", alt: "Fifth slide"%>
-          <div class="carousel-caption d-none d-md-block">
-            <h5><%= link_to "Electronic music lovers", electronic_users_path %></h5>
-          </div>
-        </div>
-    
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
-  <div class="row justify-content-center my-5">
-    <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
-      <div class="circular-card d-flex align-items-center justify-content-center" id="instrumentalists">
-        <p><%= link_to "Instrumentalists", instrumentalists_users_path %></p>
-      </div>
-    </div>
-    <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
-      <div class="circular-card d-flex align-items-center justify-content-center" id="vocalists">
-        <p><%= link_to "Vocalists", vocalists_users_path %></p>
-      </div>
-    </div>
-    <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
-      <div class="circular-card d-flex align-items-center justify-content-center" id="technicians">
-        <p><%= link_to "Technicians", technicians_users_path %></p>
-      </div>
-    </div>
-    <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
-      <div class="circular-card d-flex align-items-center justify-content-center" id="djs">
-        <p><%= link_to "DJs", djs_users_path %></p>
-      </div>
-    </div>
-  </div>
 </div>

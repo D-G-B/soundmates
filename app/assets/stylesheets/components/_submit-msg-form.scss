@@ -1,0 +1,15 @@
+#color-current-user {
+  background-color: #495057!important;
+}
+.form-control {
+  background-color: $background-color;
+  border-color: $button-color;
+}
+
+.form-control:focus {
+  color: $text-color;
+  background-color:  $background-color;
+  border-color: $hover-button-color;
+  outline: 1px;
+  box-shadow: none;
+}

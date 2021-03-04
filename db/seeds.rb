@@ -17,7 +17,7 @@ Chatroom.destroy_all
 Message.destroy_all
 
 
-puts "creating 4 users..."
+puts "creating 4 main users..."
 
 
   kevin = User.create!(email: "kevin@agoh.com",
@@ -113,14 +113,6 @@ Share.create!(link: "https://soundcloud.com/epikurmusic",
 
 puts "...finished"
 
-puts "creating chatroom(s)"
-
-  nilchat = Chatroom.create!
-  truechat = Chatroom.create!(status: true)
-  falsechat = Chatroom.create!(status: false)
-
-puts "3 chatrooms have been created nil,true,flase"
-
 puts "creating genres for users"
 
 UserGenre.create!(user_id: kevin.id,
@@ -153,6 +145,34 @@ UserSkill.create!(user_id: joleana.id,
 
 
 puts "...finished"
+
+puts "creating chatroom(s)"
+
+  nilchat = Chatroom.create!
+  truechat = Chatroom.create!(status: true)
+  falsechat = Chatroom.create!(status: false)
+
+puts "3 chatrooms have been created nil,true,flase"
+
+puts "...creating more users"
+
+20.times do
+ user = User.create!(email: Faker::Internet.email,
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  username: Faker::Internet.username,
+  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  password: "123456")
+  UserSkill.create!(user_id: user.id,
+  skill_id: Skill.all.sample.id)
+  UserGenre.create!(user_id: user.id,
+  genre_id: Genre.all.sample.id)
+end
+
+
+puts "...finished"
+
+
 
 puts "creating user_chat"
 
