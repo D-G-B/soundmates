@@ -20,6 +20,8 @@ class ChatroomsController < ApplicationController
 
   def create
     @chatroom = Chatroom.new
+    current_user
+    @user = 
   end
 
   private
