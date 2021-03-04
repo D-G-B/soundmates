@@ -113,14 +113,6 @@ Share.create!(link: "https://soundcloud.com/epikurmusic",
 
 puts "...finished"
 
-puts "creating chatroom(s)"
-
-  nilchat = Chatroom.create!
-  truechat = Chatroom.create!(status: true)
-  falsechat = Chatroom.create!(status: false)
-
-puts "3 chatrooms have been created nil,true,flase"
-
 puts "creating genres for users"
 
 UserGenre.create!(user_id: kevin.id,
@@ -154,6 +146,14 @@ UserSkill.create!(user_id: joleana.id,
 
 puts "...finished"
 
+puts "creating chatroom(s)"
+
+  nilchat = Chatroom.create!
+  truechat = Chatroom.create!(status: true)
+  falsechat = Chatroom.create!(status: false)
+
+puts "3 chatrooms have been created nil,true,flase"
+
 puts "...creating more users"
 
 20.times do
@@ -171,6 +171,7 @@ end
 
 
 puts "...finished"
+
 
 
 puts "creating user_chat"

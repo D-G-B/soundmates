@@ -28,41 +28,50 @@ class UsersController < ApplicationController
   end
 
   def jazz
-    @users = policy_scope(User).where(genre: "Jazz")
+    @users = policy_scope(User.joins(:genres).where(genres: {name: "Jazz"}))
+    authorize @users
   end
 
   def hiphop
-    @users = policy_scope(User).where(genre: "Rock")
+    @users = policy_scope(User.joins(:genres).where(genres: {name: "Hip-Hop"}))
+    authorize @users
   end
 
   def rock
-    @users = policy_scope(User).where(genre: "Hip-Hop")
+    @users = policy_scope(User.joins(:genres).where(genres: {name: "Rock"}))
+    authorize @users
   end
 
   def electronic
-    @users = policy_scope(User).where(genre: "Electronic")
+    @users = policy_scope(User.joins(:genres).where(genres: {name: "Electronic"}))
+    authorize @users
   end
 
   def funk
-    @users = policy_scope(User).where(genre: "Funk/Soul")
+    @users = policy_scope(User.joins(:genres).where(genres: {name: "Funk/Soul"}))
+    authorize @users
   end
 
   #Collections by skills, methods
 
   def instrumentalists
-    @users = policy_scope(User).where(skill: "Instruments")
+    @users = policy_scope(User.joins(:skills).where(skills: {name: "Instruments"}))
+    authorize @users
   end
 
   def vocalists
-    @users = policy_scope(User).where(skill: "Vocals")
+    @users = policy_scope(User.joins(:skills).where(skills: {name: "Vocals"}))
+    authorize @users
   end
 
   def technicians
-    @users = policy_scope(User).where(skill: "Technical")
+    @users = policy_scope(User.joins(:skills).where(skills: {name: "Technical"}))
+    authorize @users
   end
 
   def djs
-    @users = policy_scope(User).where(skill: "DJ Mix")
+    @users = policy_scope(User.joins(:skills).where(skills: {name: "DJ Mix"}))
+    authorize @users
   end
 
 end
