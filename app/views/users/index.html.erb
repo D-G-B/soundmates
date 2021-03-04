@@ -12,7 +12,7 @@
         <div class="card" style="width: 300px;">
           <%= image_tag "person.jpg", class: "card-img-top", alt: "Card image cap"%>
           <div class="card-body">
-            <p class="card-text"><%= link_to user.username, user_path(user.id) %></p>
+            <p class="card-text"><%= link_to user.username, user_path(user.username) %></p>
           </div>
         </div>
       </div>
