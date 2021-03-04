@@ -5,6 +5,7 @@ const initChatroomChannel = () => {
   if (messagesContainer) {
     // subscribe to the channel
     const id = messagesContainer.dataset.chatroomId;
+    // console.log(id)
 
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
