@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       @users = policy_scope(User).joins(:genres, :skills).where(sql_query, query: "%#{params[:query]}%")
       # @users = policy_scope(User).includes(:trackable => [:genre, :skill]).where(sql_query, query: "%#{params[:query]}%")
     else
-      @users = policy_scope(User).limit(3)
+      @users = policy_scope(User).limit(4)
     end
   end
 
