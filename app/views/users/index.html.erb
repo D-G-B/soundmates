@@ -2,22 +2,25 @@
   <div class="container">
     <h1><strong>SOUNDMATES</strong></h1>
     <p>Find your fellow creatives</p>
+    <div class="input-group" style="justify-content: center;">
+      <span class="input-group-append">
+        <%= form_tag users_path, method: :get, class: "form-inline", style: "justify-content: center" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
+        <button class="btn btn-outline-secondary" type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+      </span>
+      <% if params[:query] %>
+        <div class="btn-ghost">
+          <h5><%= link_to "All users", users_path %></h5>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-<div class="container">
-  <%= form_tag users_path, method: :get, class: "form-inline" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find creatives"%>
-      <button type='submit', class="btn-ghost">Submit</button>
-        <% if params[:query] %>
-          <div class="btn-ghost">
-            <h5><%= link_to "All users", users_path %></h5>
-          </div>
-    <% end %>
-  <% end %>
 
+<div class="container">
   <!-- if no search params entered, then show our 3 user cards -->
   <% if !params[:query] %>
     <div class="row my-5 justify-content-between">
