@@ -1,10 +1,11 @@
 // Import your components CSS files here.
 @import "alert";
 @import "avatar";
-@import "navbar";
 @import "banner";
+@import "button";
 @import "card";
 @import "carousel";
+@import "navbar";
 @import "submit-msg-form";
 
 body {
@@ -14,3 +15,4 @@ body {
 a:hover {
   text-decoration: none;
 }
+
