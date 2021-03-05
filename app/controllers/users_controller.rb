@@ -19,10 +19,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(username: params[:username])
     authorize @user
+  end
+
+  def add_photo
+    @user = User.find_by(username: params[:username])
+    authorize @user
     @user.update(photo_params)
     redirect_to(:controller => "users", :action => "show")
   end
-
 
   #Collections by genre, methods
   def jazz
