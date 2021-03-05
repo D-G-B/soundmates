@@ -2,18 +2,26 @@
   <div class="container">
     <h1><strong>SOUNDMATES</strong></h1>
     <p>Find your fellow creatives</p>
+    <div class="input-group" style="justify-content: center;">
+      <span class="input-group-append">
+        <%= form_tag users_path, method: :get, class: "form-inline", style: "justify-content: center" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
+        <button class="btn btn-outline-secondary" type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+      </span>
+          <% if params[:query] %>
+            <div class="btn-ghost">
+              <h5><%= link_to "All users", users_path %></h5>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
   </div>
 </div>
-<div class="container">
 
-  <%= form_tag users_path, method: :get, class: "form-inline" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find creatives"%>
-    <h5><%= link_to "Search", users_path %></h5>
-  <% end %>
-  
+
+<div class="container">
   <div class="row text-white justify-content-center">
     <h2>Find your next sound mate </h2>
   </div>
@@ -45,9 +53,11 @@
       <% end %>
     </div>
   <% end %>
-  <div class="row text-white justify-content-center">
-    <h2>Browse by music genre </h2>
-  </div>
+  <% if !params[:query] %>
+    <div class="row text-white justify-content-center">
+      <h2>Browse by music genre </h2>
+    </div>
+  <% end %>
   <!-- if no search params entered, show carousal and genre category links  -->
   <% if !params[:query] %>
     <div class="row my-5 justify-content-center">
