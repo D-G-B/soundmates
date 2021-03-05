@@ -24,7 +24,7 @@ puts "creating 4 main users..."
   first_name: "Kevin",
   last_name: "Agoh",
   username: Faker::Internet.username(specifier: 'Keum'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  bio: "I am a passionate vocalist and singer and my favourite music genre is soul funk not to be confused with funk soul. All true music lovers know the difference",
   password: "123456")
 
 
@@ -32,21 +32,21 @@ puts "creating 4 main users..."
   first_name: "Hervé",
   last_name: "Bonnaffoux",
   username: Faker::Internet.username(specifier: 'NRV'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  bio: "I am a machine without a soul. I play brutalist techno. Feed me with records or DIE",
   password: "123456")
 
   daniel = User.create!(email: "daniel@brandt.com",
   first_name: "Dan",
   last_name: "Brandt",
   username: Faker::Internet.username(specifier: 'DGB'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  bio: "I am a drum player and my favourite genre is Jazz. I also like to recite my own poetry while gently stroking my drumkit",
   password: "123456")
 
   joleana = User.create!(email:"joleana@shurley.com",
   first_name: "Joleana",
   last_name: "Shurley",
   username: Faker::Internet.username(specifier: 'Jo'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  bio: "I am a lead gituarist. Joan jet is the greatest. ROCK ON FOR EVER. I also manage my rock children and help them grow",
   password: "123456")
 
 puts "...finished"
