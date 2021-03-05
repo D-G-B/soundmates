@@ -1,39 +1,49 @@
 <div class="banner">
   <div class="container">
-    <h1><strong>SOUNDMATES</strong></h1>
-    <p>Find your fellow creatives</p>
-    <div class="input-group" style="justify-content: center;">
-      <span class="input-group-append">
-        <%= form_tag users_path, method: :get, class: "form-inline", style: "justify-content: center" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
-        <button class="btn btn-outline-secondary" type="submit">
-            <i class="fa fa-search"></i>
-        </button>
-      </span>
-      <% if params[:query] %>
-        <div class="btn-ghost">
-          <h5><%= link_to "All users", users_path %></h5>
-        </div>
-      <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
 
+    <div class="row d-flex justify-content-between">
+      <div class="col-lg-6">
+        <h1><strong>SOUNDMATES</strong></h1>
+        <p>Find your fellow creatives</p>
+      </div>
+      <div class="col-lg-6">
+        <%= form_tag users_path, method: :get, class: "form-inline" do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find creatives"%>
+          <h5><%= link_to "Search", users_path %></h5>
+        <% end %>
+      </div>
+    </div>
+  </div> 
+</div>
 <div class="container">
+  
+  <div class="row text-white justify-content-center my-3 font-weight-bold">
+    <h2 class=" font-weight-bold">Find your next sound mate</h2>
+  </div>
+
   <!-- if no search params entered, then show our 3 user cards -->
   <% if !params[:query] %>
     <div class="row my-5 justify-content-between">
       <% @users.each do |user| %>
-        <div class="col-12 col-lg-4 col-xl-3">
-          <%= link_to user_path(user.username) do %>
-            <div class="card-user" style="width: 18rem;">
-              <%= image_tag "person.jpg", class: "card-img-top", alt: "Card image cap"%>
-              <div class="card-user-body">
-                <p class="card-text"><%= user.username %></p>
+        <div class="col-12 col-lg-6 col-xl-6 d-flex justify-content-center my-3">
+          <div class="card p-3">
+            <div class="d-flex align-items-center">
+              <div class="image">
+                <% if user.photo.attached? %>
+                  <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 155, height: 155, crop: :fill, class: "rounded" %>
+                <% else %>
+                  <%= cl_image_tag("no-photo.jpg_xfimyh", width: 155, height: 155, crop: :fill, class: "rounded") %>
+                <% end%>
+              </div>
+                <div class="ml-3 w-100">
+                  <h4 class="mb-0 mt-0 text-white"><%= user.first_name %></h4> <span class="text-white"> <%= user.skills.first.name %></span>
+                <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100"> <%= link_to "See Profile", user_path(user.username) %> </button> </div>
               </div>
             </div>
-          <% end %>
+          </div>
         </div>
       <% end %>
     </div>
@@ -43,17 +53,18 @@
   <% if params[:query] %>
     <div class="row my-5 justify-content-between">
       <% @users.each do |user| %>
-        <div class="col-12">
-          <div class="card-results text-white bg-dark mb-3">
-            <%= image_tag "person.jpg", class: "card-results img", alt: "Card image cap"%>
-              <div class="card-results-infos">
-                <h2><%= user.first_name %> <%= user.last_name %></h2>
-                <br>
-                <p><%= user.bio %></p>
-              </div>
-          </div>
-        </div>
+        <%= render "user_card", user: user %>
       <% end %>
+    </div>
+  <% end %>
+
+  <div class="row text-white justify-content-center my-3">
+    <h2 class=" font-weight-bold">Browse by music genre </h2>
+  </div>
+
+  <% if !params[:query] %>
+    <div class="row text-white justify-content-center">
+      <h2>Browse by music genre </h2>
     </div>
   <% end %>
 
@@ -62,7 +73,6 @@
     <div class="row my-5 justify-content-center">
       <div id="carouselExampleControls" class="carousel slide my-4" data-ride="carousel">
         <div class="carousel-inner">
-
           <%= link_to hiphop_users_path do %>
             <div class="carousel-item active">
               <%= image_tag "hiphop.jpg", class: "d-block w-100 carousel-image", alt: "First slide"%>
@@ -114,6 +124,9 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+    </div>
+    <div class="row text-white justify-content-center my-3">
+      <h2 class="font-weight-bold">Find the skill you need </h2>
     </div>
     <div class="row justify-content-center my-5">
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">

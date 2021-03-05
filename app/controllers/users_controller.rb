@@ -4,17 +4,15 @@ class UsersController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "\
-      users.username @@ :query \
-      OR users.first_name @@ :query \
-      OR users.bio @@ :query \
-      OR genres.name @@ :query \
-      OR skills.name @@ :query \
+      users.username ILIKE :query \
+      OR users.first_name ILIKE :query \
+      OR users.bio ILIKE :query \
+      OR genres.name ILIKE :query \
+      OR skills.name ILIKE :query \
       "
-      # @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
       @users = policy_scope(User).joins(:genres, :skills).where(sql_query, query: "%#{params[:query]}%")
-      # @users = policy_scope(User).includes(:trackable => [:genre, :skill]).where(sql_query, query: "%#{params[:query]}%")
     else
-      @users = policy_scope(User).limit(3)
+      @users = policy_scope(User).limit(4)
     end
   end
 
@@ -24,16 +22,13 @@ class UsersController < ApplicationController
     @chatroom = current_user.chatrooms
                             .merge(@user.chatrooms)
                             .first
-                            # raise
     authorize @user
-    
     #attempt three
     # our_chatroom_ids = current_user.chatrooms.pluck(:id)
     # their_chatroom_ids = @user.chatrooms.pluck(:id)
     # shared_chatroom_ids = our_chatroom_ids.union(their_chatroom_ids)
     # @chatroom = Chatroom.find(shared_chatroom_ids)
     # raise
-
     #attempt one
     # @chatroom = current_user.chatrooms
     #                         .joins(:user_chats)
@@ -47,11 +42,7 @@ class UsersController < ApplicationController
     redirect_to(:controller => "users", :action => "show")
   end
 
-
   #Collections by genre, methods
-  def search
-  end
-
   def jazz
     @users = policy_scope(User.joins(:genres).where(genres: {name: "Jazz"}))
     authorize @users

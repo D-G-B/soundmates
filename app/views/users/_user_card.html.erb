@@ -1,0 +1,15 @@
+<div class="col-12">
+  <div class="card-results text-white bg-dark mb-3">
+    <%= image_tag "person.jpg", class: "card-results img", alt: "Card image cap"%>
+      <div class="card-results-infos">
+        <h2>
+          <%= link_to "#{user.first_name} #{user.last_name}", user_path(user.username) %>
+        </h2>
+        <br>
+        <p><%= user.bio %></p>
+      </div>
+  </div>
+</div>
+
+
+
