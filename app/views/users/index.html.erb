@@ -21,6 +21,9 @@
 </div>
 
 <div class="container">
+  <div class="row text-white justify-content-center">
+    <h2>Find your next sound mate </h2>
+  </div>
   <!-- if no search params entered, then show our 3 user cards -->
   <% if !params[:query] %>
     <div class="row my-5 justify-content-between">
@@ -56,7 +59,9 @@
       <% end %>
     </div>
   <% end %>
-
+  <div class="row text-white justify-content-center">
+    <h2>Browse by music genre </h2>
+  </div>
   <!-- if no search params entered, show carousal and genre category links  -->
   <% if !params[:query] %>
     <div class="row my-5 justify-content-center">
@@ -114,6 +119,9 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+    </div>
+    <div class="row text-white justify-content-center">
+      <h2>Find the skill you need </h2>
     </div>
     <div class="row justify-content-center my-5">
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
