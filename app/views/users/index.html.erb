@@ -2,25 +2,17 @@
   <div class="container">
     <h1><strong>SOUNDMATES</strong></h1>
     <p>Find your fellow creatives</p>
-    <div class="input-group" style="justify-content: center;">
-      <span class="input-group-append">
-        <%= form_tag users_path, method: :get, class: "form-inline", style: "justify-content: center" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
-        <button class="btn btn-outline-secondary" type="submit">
-            <i class="fa fa-search"></i>
-        </button>
-      </span>
-      <% if params[:query] %>
-        <div class="btn-ghost">
-          <h5><%= link_to "All users", users_path %></h5>
-        </div>
-      <% end %>
-      <% end %>
-    </div>
   </div>
 </div>
-
 <div class="container">
+  <%= form_tag users_path, method: :get, class: "form-inline" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find creatives"%>
+    <h5><%= link_to "Search", users_path %></h5>
+  <% end %>
+
   <!-- if no search params entered, then show our 3 user cards -->
   <% if !params[:query] %>
     <div class="row my-5 justify-content-between">
@@ -28,13 +20,13 @@
         <div class="col-12 col-lg-6 col-xl-6 d-flex justify-content-center my-3">
           <div class="card p-3">
             <div class="d-flex align-items-center">
-              <div class="image"> <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="155"> </div>
+              <div class="image"> <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="155"/> </div>
                 <div class="ml-3 w-100">
                   <h4 class="mb-0 mt-0"><%= user.username %></h4> <span> <%= user.skills.first.name %></span>
                 <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100"> <%= link_to "See Profile", user_path(user.username) %> </button> </div>
               </div>
             </div>
-          <% end %>
+          </div>
         </div>
       <% end %>
     </div>
@@ -45,11 +37,9 @@
     <div class="row my-5 justify-content-between">
       <% @users.each do |user| %>
         <div class="col-12">
-          <div class="card-results text-white bg-dark mb-3">
+          <div class="card-results">
             <%= image_tag "person.jpg", class: "card-results img", alt: "Card image cap"%>
               <div class="card-results-infos">
-                <h2><%= user.first_name %> <%= user.last_name %></h2>
-                <br>
                 <p><%= user.bio %></p>
               </div>
           </div>
@@ -64,46 +54,36 @@
       <div id="carouselExampleControls" class="carousel slide my-4" data-ride="carousel">
         <div class="carousel-inner">
 
-          <%= link_to hiphop_users_path do %>
-            <div class="carousel-item active">
-              <%= image_tag "hiphop.jpg", class: "d-block w-100 carousel-image", alt: "First slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Hip-Hop heads", hiphop_users_path %></h5>
-              </div>
+          <div class="carousel-item active">
+            <%= image_tag "hiphop.jpg", class: "d-block w-100 carousel-image", alt: "First slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Hip-Hop heads", hiphop_users_path %></h5>
             </div>
-          <% end %>
-          <%= link_to rock_users_path do %>
-            <div class="carousel-item">
-              <%= image_tag "rock.jpg", class: "d-block w-100 carousel-image", alt: "Second slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Rock heads", rock_users_path %></h5>
-              </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "rock.jpg", class: "d-block w-100 carousel-image", alt: "Second slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Rock heads", rock_users_path %></h5>
             </div>
-          <% end %>
-          <%= link_to jazz_users_path do %>
-            <div class="carousel-item">
-              <%= image_tag "jazz.jpg", class: "d-block w-100 carousel-image", alt: "Third slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Jazz heads", jazz_users_path %></h5>
-              </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "jazz.jpg", class: "d-block w-100 carousel-image", alt: "Third slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Jazz heads", jazz_users_path %></h5>
             </div>
-          <% end %>
-          <%= link_to funk_users_path do %>
-            <div class="carousel-item">
-              <%= image_tag "funk.jpg", class: "d-block w-100 carousel-image", alt: "Fourth slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Funk aficionados", funk_users_path %></h5>
-              </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "funk.jpg", class: "d-block w-100 carousel-image", alt: "Fourth slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Funk aficionados", funk_users_path %></h5>
             </div>
-          <% end %>
-          <%= link_to electronic_users_path do %>
-            <div class="carousel-item">
-              <%= image_tag "electronic.jpg", class: "d-block w-100 carousel-image", alt: "Fifth slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Electronic music lovers", electronic_users_path %></h5>
-              </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "electronic.jpg", class: "d-block w-100 carousel-image", alt: "Fifth slide"%>
+            <div class="carousel-caption d-none d-md-block">
+              <h5><%= link_to "Electronic music lovers", electronic_users_path %></h5>
             </div>
-          <% end %>
+          </div>
 
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -118,32 +98,24 @@
     </div>
     <div class="row justify-content-center my-5">
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
-        <%= link_to instrumentalists_users_path do %>
-          <div class="circular-card d-flex align-items-center justify-content-center" id="instrumentalists">
-            <p>Instrumentalists</p>
-          </div>
-        <% end %>
+        <div class="circular-card d-flex align-items-center justify-content-center" id="instrumentalists">
+          <p><%= link_to "Instrumentalists", instrumentalists_users_path %></p>
+        </div>
       </div>
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
-        <%= link_to vocalists_users_path do %>
-          <div class="circular-card d-flex align-items-center justify-content-center" id="vocalists">
-            <p>Vocalists</p>
-          </div>
-        <% end %>
+        <div class="circular-card d-flex align-items-center justify-content-center" id="vocalists">
+          <p><%= link_to "Vocalists", vocalists_users_path %></p>
+        </div>
       </div>
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
-        <%= link_to technicians_users_path do %>
-          <div class="circular-card d-flex align-items-center justify-content-center" id="technicians">
-            <p>Technicians</p>
-          </div>
-        <% end %>
+        <div class="circular-card d-flex align-items-center justify-content-center" id="technicians">
+          <p><%= link_to "Technicians", technicians_users_path %></p>
+        </div>
       </div>
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
-        <%= link_to djs_users_path do %>
-          <div class="circular-card d-flex align-items-center justify-content-center" id="djs">
-            <p>DJs</p>
-          </div>
-        <% end %>
+        <div class="circular-card d-flex align-items-center justify-content-center" id="djs">
+          <p><%= link_to "DJs", djs_users_path %></p>
+        </div>
       </div>
     </div>
     <% end %>
