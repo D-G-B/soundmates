@@ -24,7 +24,7 @@ puts "creating 4 main users..."
   first_name: "Kevin",
   last_name: "Agoh",
   username: Faker::Internet.username(specifier: 'Keum'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  bio: "I am a passionate vocalist and singer and my favourite music genre is soul funk not to be confused with funk soul. All true music lovers know the difference",
   password: "123456")
   file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614955857/Photo_de_profil_Kevin_vrswm0.jpg')
   kevin.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
@@ -34,7 +34,7 @@ puts "creating 4 main users..."
   first_name: "Hervé",
   last_name: "Bonnaffoux",
   username: Faker::Internet.username(specifier: 'NRV'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  bio: "I am a machine without a soul. I play brutalist techno. Feed me with records or DIE",
   password: "123456")
   file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614944904/5q5y06rpxiaioujpl76o4upnpzqg.jpg')
   herve.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
@@ -44,7 +44,7 @@ puts "creating 4 main users..."
   first_name: "Dan",
   last_name: "Brandt",
   username: Faker::Internet.username(specifier: 'DGB'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  bio: "I am a drum player and my favourite genre is Jazz. I also like to recite my own poetry while gently stroking my drumkit",
   password: "123456")
   file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945046/5nzo16ih5u3mo2cswz21skwrnw39.png')
   daniel.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
@@ -54,7 +54,7 @@ puts "creating 4 main users..."
   first_name: "Joleana",
   last_name: "Shurley",
   username: Faker::Internet.username(specifier: 'Jo'),
-  bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
+  bio: "I am a lead gituarist. Joan jet is the greatest. ROCK ON FOR EVER. I also manage my rock children and help them grow",
   password: "123456")
   file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945062/arnzg41n7x1b0khk20x6p4rrpigi.png')
   joleana.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
@@ -157,13 +157,6 @@ UserSkill.create!(user_id: joleana.id,
 
 puts "...finished"
 
-puts "creating chatroom(s)"
-
-  nilchat = Chatroom.create!
-  truechat = Chatroom.create!(status: true)
-  falsechat = Chatroom.create!(status: false)
-
-puts "3 chatrooms have been created nil,true,flase"
 
 puts "...creating more users"
 
@@ -183,31 +176,3 @@ end
 
 puts "...finished"
 
-
-
-puts "creating user_chat"
-
-  # UserChat.create!(
-  #   user_id:daniel.id,
-  #   chatroom_id: truechat.id
-  # )
-daniel.chatrooms << truechat #this is same as above
-joleana.chatrooms << truechat
-
-puts "createing messages"
-
-  Message.create!(
-    content: "Hi im Dan",
-    user_id:daniel.id,
-    chatroom_id: truechat.id
-  )
-
-  Message.create!(
-    content: "Hi im Jo",
-    user_id:joleana.id,
-    chatroom_id: truechat.id
-  )
-
-
-puts "messages created"
-puts "...finished"
