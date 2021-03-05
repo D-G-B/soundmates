@@ -26,7 +26,9 @@ puts "creating 4 main users..."
   username: Faker::Internet.username(specifier: 'Keum'),
   bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
   password: "123456")
-
+  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614955857/Photo_de_profil_Kevin_vrswm0.jpg')
+  kevin.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
+  kevin.save
 
   herve = User.create!(email: "herve@test.com",
   first_name: "Hervé",
@@ -34,6 +36,9 @@ puts "creating 4 main users..."
   username: Faker::Internet.username(specifier: 'NRV'),
   bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
   password: "123456")
+  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614944904/5q5y06rpxiaioujpl76o4upnpzqg.jpg')
+  herve.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
+  herve.save
 
   daniel = User.create!(email: "daniel@brandt.com",
   first_name: "Dan",
@@ -41,6 +46,9 @@ puts "creating 4 main users..."
   username: Faker::Internet.username(specifier: 'DGB'),
   bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
   password: "123456")
+  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945046/5nzo16ih5u3mo2cswz21skwrnw39.png')
+  daniel.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
+  daniel.save
 
   joleana = User.create!(email:"joleana@shurley.com",
   first_name: "Joleana",
@@ -48,6 +56,9 @@ puts "creating 4 main users..."
   username: Faker::Internet.username(specifier: 'Jo'),
   bio: "I am a #{Faker::Music.instrument} player and my favourite music genre is #{Faker::Music.genre}",
   password: "123456")
+  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945062/arnzg41n7x1b0khk20x6p4rrpigi.png')
+  joleana.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
+  joleana.save
 
 puts "...finished"
 
