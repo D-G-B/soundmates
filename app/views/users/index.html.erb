@@ -1,5 +1,6 @@
 <div class="banner">
   <div class="container">
+
     <div class="row d-flex justify-content-between">
       <div class="col-lg-6">
         <h1><strong>SOUNDMATES</strong></h1>
@@ -56,9 +57,17 @@
       <% end %>
     </div>
   <% end %>
+
   <div class="row text-white justify-content-center my-3">
     <h2 class=" font-weight-bold">Browse by music genre </h2>
   </div>
+
+  <% if !params[:query] %>
+    <div class="row text-white justify-content-center">
+      <h2>Browse by music genre </h2>
+    </div>
+  <% end %>
+
   <!-- if no search params entered, show carousal and genre category links  -->
   <% if !params[:query] %>
     <div class="row my-5 justify-content-center">
