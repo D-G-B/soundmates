@@ -4,7 +4,7 @@
       <% if @user.photo.attached? %>
       <%= cl_image_tag @user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill %>
       <% else %>
-      <%= cl_image_tag("samples/animals/three-dogs.jpg", height: 200, width: 200, crop: :fill) %>
+      <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill) %>
       <% end %>
     </div>
     <div class="col-lg-4">
