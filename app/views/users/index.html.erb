@@ -1,21 +1,26 @@
 <div class="banner">
   <div class="container">
-    <h1><strong>SOUNDMATES</strong></h1>
-    <p>Find your fellow creatives</p>
-  </div>
+    <div class="row d-flex justify-content-between">
+      <div class="col-lg-6">
+        <h1><strong>SOUNDMATES</strong></h1>
+        <p>Find your fellow creatives</p>
+      </div>
+      <div class="col-lg-6">
+        <%= form_tag users_path, method: :get, class: "form-inline" do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find creatives"%>
+          <h5><%= link_to "Search", users_path %></h5>
+        <% end %>
+      </div>
+    </div>
+  </div> 
 </div>
 <div class="container">
-
-  <%= form_tag users_path, method: :get, class: "form-inline" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find creatives"%>
-    <h5><%= link_to "Search", users_path %></h5>
-  <% end %>
   
-  <div class="row text-white justify-content-center">
-    <h2>Find your next sound mate </h2>
+  <div class="row text-white justify-content-center my-3 font-weight-bold">
+    <h2 class=" font-weight-bold">Find your next sound mate</h2>
   </div>
 
   <!-- if no search params entered, then show our 3 user cards -->
@@ -25,9 +30,15 @@
         <div class="col-12 col-lg-6 col-xl-6 d-flex justify-content-center my-3">
           <div class="card p-3">
             <div class="d-flex align-items-center">
-              <div class="image"> <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="155"/> </div>
+              <div class="image">
+                <% if user.photo.attached? %>
+                  <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 155, height: 155, crop: :fill, class: "rounded" %>
+                <% else %>
+                  <%= cl_image_tag("no-photo.jpg_xfimyh", width: 155, height: 155, crop: :fill, class: "rounded") %>
+                <% end%>
+              </div>
                 <div class="ml-3 w-100">
-                  <h4 class="mb-0 mt-0"><%= user.username %></h4> <span> <%= user.skills.first.name %></span>
+                  <h4 class="mb-0 mt-0 text-white"><%= user.first_name %></h4> <span class="text-white"> <%= user.skills.first.name %></span>
                 <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100"> <%= link_to "See Profile", user_path(user.username) %> </button> </div>
               </div>
             </div>
@@ -45,8 +56,8 @@
       <% end %>
     </div>
   <% end %>
-  <div class="row text-white justify-content-center">
-    <h2>Browse by music genre </h2>
+  <div class="row text-white justify-content-center my-3">
+    <h2 class=" font-weight-bold">Browse by music genre </h2>
   </div>
   <!-- if no search params entered, show carousal and genre category links  -->
   <% if !params[:query] %>
@@ -105,8 +116,8 @@
         </a>
       </div>
     </div>
-    <div class="row text-white justify-content-center">
-      <h2>Find the skill you need </h2>
+    <div class="row text-white justify-content-center my-3">
+      <h2 class="font-weight-bold">Find the skill you need </h2>
     </div>
     <div class="row justify-content-center my-5">
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
