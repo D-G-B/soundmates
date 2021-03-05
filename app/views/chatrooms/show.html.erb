@@ -6,17 +6,13 @@
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>
   <% end %>
-
-
-
-
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+</div>
+<div class="container">
+  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Message" %>
   <%= f.submit %>
-<% end %>
+  <% end %>
 </div>
-
-
 
 
 

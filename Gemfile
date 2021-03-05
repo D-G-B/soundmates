@@ -67,3 +67,6 @@ gem 'faker'
 
 #Cloudinary
 gem 'cloudinary', '~> 1.16.0'
+
+#ActiveRecordUnion
+gem 'active_record_union'

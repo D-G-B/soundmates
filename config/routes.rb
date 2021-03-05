@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   end
 
   resources :chatrooms, only: [ :index, :show] do
+    member do 
+      patch :accept
+    end
+    # same as
+    # patch "/chatrooms/id/accept", to: "chatrooms#accept"
     resources :messages, only: [:show, :create]
   end
+
 end

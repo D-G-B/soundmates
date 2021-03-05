@@ -27,7 +27,16 @@
       <div id="shares">
         Shares
       </div>
-      <%= link_to "CONNECT",user_chatrooms_path(@user.id), method: :post, class: "" %>
+
+      <div class="chatroom-buttons">
+        <% if current_user && @chatroom %>
+          <p>Already Connected</p>
+          <%= link_to "your chat", chatroom_path(@chatroom) %>
+        <% else %>
+          <%= link_to "CONNECT",user_chatrooms_path(@user.id), method: :post, class: "" %>
+        <% end %>
+      </div>
+
     </div>
   </div>
   <div class="row" id="info">

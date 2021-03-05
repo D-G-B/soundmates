@@ -29,6 +29,14 @@ class ChatroomsController < ApplicationController
     authorize @chatroom
   end
 
+  def accept
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.status = true
+    @chatroom.save
+    redirect_to chatrooms_path
+    authorize @chatroom
+  end
+
   private
 
   def approve
