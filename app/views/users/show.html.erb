@@ -1,7 +1,11 @@
 <div class="container" id="text-white">
   <div class="row ">
     <div class="col-lg-4">
-      <img class="avatar-profile" src="https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80">
+      <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill %>
+      <% else %>
+      <%= cl_image_tag("samples/animals/three-dogs.jpg", height: 200, width: 200, crop: :fill) %>
+      <% end %>
     </div>
     <div class="col-lg-4">
       <div id="username">
@@ -11,6 +15,10 @@
       #
       <%= genre.name%>
         <%end %>
+          <%=simple_form_for @user, url: add_photo_user_path(@user.username), method: :patch do |f| %>
+          <%= f.input :photo, as: :file %>
+          <%= f.button :submit %>
+          <%end %>
     </div>
     <div class="col-lg-4 d-flex">
       <div id="mates">
@@ -19,7 +27,7 @@
       <div id="shares">
         Shares
       </div>
-      <%= link_to "CONNECT", class: "btn btn-primary" %>
+      <%= link_to "CONNECT",user_chatrooms_path(@user.id), method: :post, class: "" %>
     </div>
   </div>
   <div class="row" id="info">
