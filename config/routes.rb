@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root to: 'users#index'
 
   resources :users, only: [ :index ] do
+    resources :chatrooms, only: [:create]
     collection do
       get :rock, :hiphop, :jazz, :electronic, :funk, :instrumentalists, :vocalists, :technicians, :djs
     end

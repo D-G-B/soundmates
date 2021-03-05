@@ -19,7 +19,14 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new
+    # make button go here it must be a post
+    @chatroom = Chatroom.create
+    @user = User.find(params[:user_id])
+    current_user.chatrooms << @chatroom
+    @user.chatrooms << @chatroom
+    redirect_to user_path(@user.username)
+    #redirect to usrers showpage
+    authorize @chatroom
   end
 
   private
