@@ -5,6 +5,7 @@
   </div>
 </div>
 <div class="container">
+
   <%= form_tag users_path, method: :get, class: "form-inline" do %>
     <%= text_field_tag :query,
       params[:query],
@@ -12,6 +13,10 @@
       placeholder: "Find creatives"%>
     <h5><%= link_to "Search", users_path %></h5>
   <% end %>
+  
+  <div class="row text-white justify-content-center">
+    <h2>Find your next sound mate </h2>
+  </div>
 
   <!-- if no search params entered, then show our 3 user cards -->
   <% if !params[:query] %>
@@ -47,7 +52,9 @@
       <% end %>
     </div>
   <% end %>
-
+  <div class="row text-white justify-content-center">
+    <h2>Browse by music genre </h2>
+  </div>
   <!-- if no search params entered, show carousal and genre category links  -->
   <% if !params[:query] %>
     <div class="row my-5 justify-content-center">
@@ -95,6 +102,9 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+    </div>
+    <div class="row text-white justify-content-center">
+      <h2>Find the skill you need </h2>
     </div>
     <div class="row justify-content-center my-5">
       <div class="col-6 col-md-6 col-lg-3 col-xl-3 d-flex justify-content-center">
