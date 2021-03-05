@@ -33,7 +33,7 @@
           <p>Already Connected</p>
           <%= link_to "your chatrooms", chatrooms_path %>
         <% else %>
-          <%= link_to "CONNECT",user_chatrooms_path(@user.id), method: :post, class: "" %>
+          <%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %>
         <% end %>
       </div>
 
