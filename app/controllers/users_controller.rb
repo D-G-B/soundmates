@@ -23,6 +23,7 @@ class UsersController < ApplicationController
                             .merge(@user.chatrooms)
                             .first
     authorize @user
+    
     #attempt three
     # our_chatroom_ids = current_user.chatrooms.pluck(:id)
     # their_chatroom_ids = @user.chatrooms.pluck(:id)
@@ -33,6 +34,7 @@ class UsersController < ApplicationController
     # @chatroom = current_user.chatrooms
     #                         .joins(:user_chats)
     #                         .find_by(user_chats: {user: @user})
+
   end
 
   def add_photo

@@ -26,7 +26,9 @@ puts "creating 4 main users..."
   username: Faker::Internet.username(specifier: 'Keum'),
   bio: "I am a passionate vocalist and singer and my favourite music genre is soul funk not to be confused with funk soul. All true music lovers know the difference",
   password: "123456")
-
+  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614955857/Photo_de_profil_Kevin_vrswm0.jpg')
+  kevin.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
+  kevin.save
 
   herve = User.create!(email: "herve@test.com",
   first_name: "Hervé",
@@ -34,6 +36,9 @@ puts "creating 4 main users..."
   username: Faker::Internet.username(specifier: 'NRV'),
   bio: "I am a machine without a soul. I play brutalist techno. Feed me with records or DIE",
   password: "123456")
+  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614944904/5q5y06rpxiaioujpl76o4upnpzqg.jpg')
+  herve.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
+  herve.save
 
   daniel = User.create!(email: "daniel@brandt.com",
   first_name: "Dan",
@@ -41,6 +46,9 @@ puts "creating 4 main users..."
   username: Faker::Internet.username(specifier: 'DGB'),
   bio: "I am a drum player and my favourite genre is Jazz. I also like to recite my own poetry while gently stroking my drumkit",
   password: "123456")
+  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945046/5nzo16ih5u3mo2cswz21skwrnw39.png')
+  daniel.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
+  daniel.save
 
   joleana = User.create!(email:"joleana@shurley.com",
   first_name: "Joleana",
@@ -48,6 +56,9 @@ puts "creating 4 main users..."
   username: Faker::Internet.username(specifier: 'Jo'),
   bio: "I am a lead gituarist. Joan jet is the greatest. ROCK ON FOR EVER. I also manage my rock children and help them grow",
   password: "123456")
+  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945062/arnzg41n7x1b0khk20x6p4rrpigi.png')
+  joleana.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
+  joleana.save
 
 puts "...finished"
 
