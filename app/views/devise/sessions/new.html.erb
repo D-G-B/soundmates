@@ -2,7 +2,9 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
       <div class="form-login">
+        <div class="row justify-content-center m-3">
         <h2>Log in</h2>
+        </div>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
             <%= f.input :email,
