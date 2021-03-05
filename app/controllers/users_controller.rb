@@ -4,15 +4,13 @@ class UsersController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "\
-      users.username @@ :query \
-      OR users.first_name @@ :query \
-      OR users.bio @@ :query \
-      OR genres.name @@ :query \
-      OR skills.name @@ :query \
+      users.username ILIKE :query \
+      OR users.first_name ILIKE :query \
+      OR users.bio ILIKE :query \
+      OR genres.name ILIKE :query \
+      OR skills.name ILIKE :query \
       "
-      # @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
       @users = policy_scope(User).joins(:genres, :skills).where(sql_query, query: "%#{params[:query]}%")
-      # @users = policy_scope(User).includes(:trackable => [:genre, :skill]).where(sql_query, query: "%#{params[:query]}%")
     else
       @users = policy_scope(User).limit(4)
     end
@@ -23,18 +21,14 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def add_photo
-    @user = User.find_by(username: params[:username])
-    authorize @user
-    @user.update(photo_params)
-    redirect_to(:controller => "users", :action => "show")
-  end
+  #   @user = User.find_by(username: params[:username])
+  #   authorize @user
+  #   @user.update(photo_params)
+  #   redirect_to(:controller => "users", :action => "show")
+  # end
 
 
   #Collections by genre, methods
-  def search
-  end
-
   def jazz
     @users = policy_scope(User.joins(:genres).where(genres: {name: "Jazz"}))
     authorize @users
