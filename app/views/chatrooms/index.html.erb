@@ -3,7 +3,10 @@
   
   <% @chatrooms.each do |chatroom| %>
     <% if chatroom.status == true %>
-      <%=  link_to "chat", chatroom_path(chatroom.id) %>
+      <%=  link_to chatroom.id, chatroom_path(chatroom.id) %>
+      <br>
+      <% elsif chatroom.status == nil %>
+      <%= link_to "accept this chat placeholder", accept_chatroom_path(chatroom.id), method: :patch  %>
       <br>
     <% end %>
   <% end %>

@@ -13,4 +13,8 @@ class ChatroomPolicy < ApplicationPolicy
     true
   end
 
+  def accept?
+    true
+  end
+
 end
