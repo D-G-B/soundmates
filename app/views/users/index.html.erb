@@ -43,16 +43,7 @@
   <% if params[:query] %>
     <div class="row my-5 justify-content-between">
       <% @users.each do |user| %>
-        <div class="col-12">
-          <div class="card-results text-white bg-dark mb-3">
-            <%= image_tag "person.jpg", class: "card-results img", alt: "Card image cap"%>
-              <div class="card-results-infos">
-                <h2><%= user.first_name %> <%= user.last_name %></h2>
-                <br>
-                <p><%= user.bio %></p>
-              </div>
-          </div>
-        </div>
+        <%= render "user_card", user: user %>
       <% end %>
     </div>
   <% end %>

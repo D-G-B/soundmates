@@ -10,9 +10,7 @@ class UsersController < ApplicationController
       OR genres.name @@ :query \
       OR skills.name @@ :query \
       "
-      # @users = policy_scope(User).where(sql_query, query: "%#{params[:query]}%")
       @users = policy_scope(User).joins(:genres, :skills).where(sql_query, query: "%#{params[:query]}%")
-      # @users = policy_scope(User).includes(:trackable => [:genre, :skill]).where(sql_query, query: "%#{params[:query]}%")
     else
       @users = policy_scope(User).limit(3)
     end
@@ -23,7 +21,6 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def add_photo
     @user = User.find_by(username: params[:username])
     authorize @user
     @user.update(photo_params)
@@ -32,9 +29,6 @@ class UsersController < ApplicationController
 
 
   #Collections by genre, methods
-  def search
-  end
-
   def jazz
     @users = policy_scope(User.joins(:genres).where(genres: {name: "Jazz"}))
     authorize @users
