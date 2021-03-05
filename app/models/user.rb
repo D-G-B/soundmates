@@ -14,8 +14,8 @@ class User < ApplicationRecord
   has_many :shares, dependent: :destroy
 
   # cloudinary with active storage
-  # has_one_attached :photo
-  has_many_attached :photos
+  has_one_attached :photo
+  #has_many_attached :photos
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
