@@ -28,13 +28,16 @@
 
 <div class="container" id="text-white">
   <div class="row banner-dark">
-    <% if @user.photo.attached? %>
-      <%= cl_image_tag @user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill, class: "profile-image" %>
-    <% else %>
-      <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill, class: "profile-image") %>
-    <% end%>
-
     <div class="d-flex flex-column align-items-start justify-content-end py-3 ml-3">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill, class: "profile-image" %>
+      <% else %>
+        <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill, class: "profile-image") %>
+      <% end%>
+      <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-long my-3">Upload Photo</button>
+    </div>
+
+    <div class="d-flex flex-column align-items-center justify-content-center ml-3">
       <div id="username">
         <%= @user.first_name %>
       </div>
@@ -46,15 +49,14 @@
       </div>
     </div>
   </div>
-  <div class="row my-5">
-    <div class="col-lg-4">
-      <button type="button" data-toggle="modal" data-target="#modalPhoto" id="btn-orange">Upload Photo</button>
-    </div>
+
+  <div class="row d-flex justify-content-end align-items-start py-5">
+    
     <div class="col-lg-2" id="mates">
-      <h4>Mates</h4>
+      <h5>Mates</h5>
     </div>
     <div class="col-lg-2" id="shares">
-      <h4>Shares</h4>
+      <h5>Shares</h5>
     </div>
     <div class="col-lg-4 d-flex justify-content-center">
       <div class="chatroom-buttons">
@@ -62,39 +64,35 @@
           <p>Already Connected</p>
           <%= link_to "your chatrooms", chatrooms_path %>
         <% else %>
-          <%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %>
+          <h5><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></h5>
         <% end %>
       </div>
     </div>
   </div>
   
-  
-  <div class="row pt-4">
-    
-    
+  <div class="row my-3">
+    <div class="col">
+      <h3>About</h3>
+      <p><%= @user.bio %></p>
+    </div>
   </div>
-  <div class="row" id="info">
-    <h2>Bio</h2>
-    <br>
-    <br>
-    <%= @user.bio %>
+
+  <div class="row my-3">
+    <div class="col">
+      <h2>Skills</h2>
+        <% @user.skills.each do |skill| %>
+          <%= skill.name%>
+        <%end %>
+    </div>
   </div>
-  <div class="row" id="info">
-    <h2>Skills</h2>
-    <br>
-    <br>
-    <% @user.skills.each do |skill| %>
-      <%= skill.name%>
-      <%end %>
-  </div>
-  <div class="row" id="info">
-    <h2>Shares</h2>
-    <br>
-    <br>
-    <% @user.shares.each do |share| %>
-    <%= share.link %>
-    <br>
-    <%= share.platform %>
-    <% end %>
+
+  <div class="row my-3">
+    <div class="col">
+      <h2>Shares</h2>
+      <% @user.shares.each do |share| %>
+        <%= share.link %>
+        <%= share.platform %>
+      <% end %>
+    </div>
   </div>
 </div>

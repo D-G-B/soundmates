@@ -12,11 +12,11 @@
   opacity: 1;
 }
 
-#btn-orange-long {
+.btn-orange-long {
   margin-left: 2rem;
   width: 200px;
-  background-color: $button-color;
-  border: none;
+  background-color: transparent;
+  border: 1px solid #f7b358;
   border-radius: 2px;
   padding: 5px;
   color: white;

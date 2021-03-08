@@ -1,4 +1,19 @@
-@import "button";
+.btn-orange-long {
+  transform: translateY(3rem);
+  margin-left: 3rem;
+  width: 200px;
+  background-color: transparent;
+  border: 1px solid #f7b358;
+  border-radius: 2px;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $button-color;
+    transition: 0.3s;
+  }
+}
 
 .banner-dark {
   background-color: #133c55;
@@ -22,13 +37,6 @@
 
 #text-white {
  color: #e9ecef;
-}
-
-#info {
-  height: 130px;
-  margin-top: 10px;
-  border-radius: 5px;
-  background-color: #808B96;
 }
 
 #username {
