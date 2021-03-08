@@ -1,25 +1,27 @@
 <div class="banner">
   <div class="container">
-
-    <div class="row d-flex justify-content-between">
-      <div class="col-lg-6">
-        <h1><strong>SOUNDMATES</strong></h1>
-        <p>Find your fellow creatives</p>
-      </div>
-      <div class="col-lg-6">
-        <%= form_tag users_path, method: :get, class: "form-inline" do %>
-          <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find creatives"%>
-          <h5><%= link_to "Search", users_path %></h5>
+      <h1><strong>SOUNDMATES</strong></h1>
+      <p>Find your fellow creatives</p>
+    <div class="input-group" style="justify-content: center;">
+      <span class="input-group-append">
+      <%= form_tag users_path, method: :get, class: "form-inline", style: "justify-content: center" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
+        <button class="btn btn-outline-secondary" type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+      </span>
+        <% if params[:query] %>
+          <div class="btn-ghost">
+            <h5><%= link_to "All users", users_path %></h5>
+          </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
-  </div> 
+  </div>
 </div>
+
 <div class="container">
-  
+
   <div class="row text-white justify-content-center my-3 font-weight-bold">
     <h2 class=" font-weight-bold">Find your next sound mate</h2>
   </div>
