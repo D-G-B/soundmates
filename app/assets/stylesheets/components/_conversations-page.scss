@@ -1,5 +1,5 @@
 .conversations-sidebar {
-  background-color:$user-card-color;
+  background-color:#343a40;
   width: 20%;
   color: $text-color;
   flex-shrink: 0;
@@ -10,9 +10,40 @@
   min-height: calc(100vh - 86px);
 }
 
+.chat-card-user {
+  box-shadow: none ;
+  border-top-right-radius: 0;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  // border-top: 10px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #495057 ;
+}
+
+.chat-card-other {
+  box-shadow: none ;
+  border-top-left-radius: 0;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0;
+  // border-top: 10px solid transparent;
+  border-bottom: 20px solid transparent; 
+  border-right:20px solid #343a40; 
+}
+
 .person {
-  background-color:#383838;
-  
+  -webkit-box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5); 
+  box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5);
+  transition: transform .2s;
+}
+
+.person:hover{
+  transform: scale(1.1);
 }
 
 a {
@@ -32,3 +63,4 @@ overflow: scroll;
     color: #e9ecef;
   }
 }
+
