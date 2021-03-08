@@ -1,1 +1,47 @@
 // Specific CSS for your home-page
+
+#icon-value{
+  font-size:80px;
+  color: #f7b358;
+}
+
+.genre-table {
+  display: grid;
+  grid-template-columns: repeat(5, 250px);
+  grid-template-rows: repeat(3, 150px);
+  grid-gap: 5px;
+  margin: auto;
+  max-width: 1200px;
+  justify-content: center;
+}
+
+.element-genre-table {
+    background: #272A2E;
+    padding: 10px 15px;
+    width: calc(100% - 30px);
+    height: calc(100% - 20px);
+    transition: inherit;
+    border : solid 3px;
+    border-color: #f7b358;
+    color: #f7b358;
+  }
+  .title {
+    font: 700 34px/1.3 "Poppins", sans-serif;
+    margin: 0.3em 0 0;
+    //transition: 0.8s ease 600ms;
+  }
+
+.element-genre-table:hover {
+    transform: scale(1.12);
+    z-index: 10;
+    background-color: #f7b358;
+    color: #272A2E;
+}
+
+.value {
+  display:flex;
+}
+
+.value-margin{
+  margin-right: 20px;
+}

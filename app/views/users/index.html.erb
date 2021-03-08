@@ -1,13 +1,26 @@
 <div class="banner">
-  <div class="container">
+  <div class="container" id="title-index">
     <h1><strong>SOUNDMATES</strong></h1>
-    <p>Find your fellow creatives</p>
+    <p>Find your fellow creatives.</p>
   </div>
 </div>
 
 <div class="container">
-
-  <div class="row text-white justify-content-center my-3 font-weight-bold">
+  <div class="row my-5 justify-content-between text-white">
+    <div class="value col-lg-3">
+      <i class="value-margin fas fa-search" id="icon-value" ></i>
+      <h4>Discover musicians profiles</h4>
+    </div>
+    <div class="value col-lg-3">
+      <i class="value-margin fas fa-music" id="icon-value"></i>
+      <h4>Look for a skill or music genre</h4>
+    </div>
+    <div class="value col-lg-3">
+      <i class="value-margin fas fa-user-plus" id="icon-value"></i>
+      <h4>Connect and collaborate</h4>
+    </div>
+  </div>
+  <div class="row text-white justify-content-center my-30 font-weight-bold">
     <h2 class=" font-weight-bold">Find your next sound mate</h2>
   </div>
 
@@ -53,60 +66,83 @@
 
   <!-- if no search params entered, show carousal and genre category links  -->
   <% if !params[:query] %>
-    <div class="row my-5 justify-content-center">
-      <div id="carouselExampleControls" class="carousel slide my-4" data-ride="carousel">
-        <div class="carousel-inner">
-          <%= link_to hiphop_users_path do %>
-            <div class="carousel-item active">
-              <%= image_tag "hiphop.jpg", class: "d-block w-100 carousel-image", alt: "First slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Hip-Hop heads", hiphop_users_path %></h5>
-              </div>
-            </div>
-          <% end %>
-          <%= link_to rock_users_path do %>
-            <div class="carousel-item">
-              <%= image_tag "rock.jpg", class: "d-block w-100 carousel-image", alt: "Second slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Rock heads", rock_users_path %></h5>
-              </div>
-            </div>
-          <% end %>
-          <%= link_to jazz_users_path do %>
-            <div class="carousel-item">
-              <%= image_tag "jazz.jpg", class: "d-block w-100 carousel-image", alt: "Third slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Jazz heads", jazz_users_path %></h5>
-              </div>
-            </div>
-          <% end %>
-          <%= link_to funk_users_path do %>
-            <div class="carousel-item">
-              <%= image_tag "funk.jpg", class: "d-block w-100 carousel-image", alt: "Fourth slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Funk aficionados", funk_users_path %></h5>
-              </div>
-            </div>
-          <% end %>
-          <%= link_to electronic_users_path do %>
-            <div class="carousel-item">
-              <%= image_tag "electronic.jpg", class: "d-block w-100 carousel-image", alt: "Fifth slide"%>
-              <div class="carousel-caption d-none d-md-block">
-                <h5><%= link_to "Electronic music lovers", electronic_users_path %></h5>
-              </div>
-            </div>
-          <% end %>
-
+    <div class="genre-table">
+      <div class="element-genre-table">
+        <div class="title">
+          Rock
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Jazz
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Pop
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Funk/Soul
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Folk
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Electronic
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Hip/Hop
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Classical
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Stage
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Reggae
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Latin
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Jazz
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Blues
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Non-music
+        </div>
+      </div>
+      <div class="element-genre-table">
+        <div class="title">
+          Childrens
+        </div>
+      </div>
+
     </div>
     <div class="row text-white justify-content-center my-3">
       <h2 class="font-weight-bold">Find the skill you need </h2>
