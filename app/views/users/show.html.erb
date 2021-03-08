@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-end align-items-baseline first-row">
+  <div class="row d-flex justify-content-end align-items-baseline row-shadow">
     
     <div class="col-lg-3 py-3" id="mates">
       <h5>Mates</h5>
@@ -70,14 +70,14 @@
     </div>
   </div>
   
-  <div class="row my-5">
+  <div class="row row-shadow my-5">
     <div class="col">
       <h3>About</h3>
       <p><%= @user.bio %></p>
     </div>
   </div>
 
-  <div class="row my-5">
+  <div class="row row-shadow my-5">
     <div class="col">
       <h2>Skills</h2>
         <% @user.skills.each do |skill| %>
@@ -86,7 +86,7 @@
     </div>
   </div>
 
-  <div class="row my-5">
+  <div class="row row-shadow my-5">
     <div class="col">
       <h2>Shares</h2>
       <% @user.shares.each do |share| %>
