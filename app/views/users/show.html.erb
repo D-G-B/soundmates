@@ -53,9 +53,11 @@
     
     <div class="col-lg-3 py-3" id="mates">
       <h5>Mates</h5>
+      <%= @user.chatrooms.count %>
     </div>
     <div class="col-lg-3 py-3" id="shares">
       <h5>Shares</h5>
+      <%= @user.shares.count %>
     </div>
     <div class="col-lg-3 py-3">
       <div class="chatroom-buttons">
