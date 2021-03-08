@@ -7,6 +7,7 @@
 @import "carousel";
 @import "navbar";
 @import "submit-msg-form";
+@import "conversations-page";
 
 body {
   background-color: $background-color;
@@ -15,4 +16,5 @@ body {
 a:hover {
   text-decoration: none;
 }
+
 

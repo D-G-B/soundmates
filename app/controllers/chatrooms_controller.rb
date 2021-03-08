@@ -10,6 +10,7 @@ class ChatroomsController < ApplicationController
   end
 
   def show
+    @chatrooms = policy_scope(Chatroom).order(created_at: :desc)
     @chatroom = Chatroom.find(params[:id])
     @messages = @chatroom.messages
     @message = Message.new
