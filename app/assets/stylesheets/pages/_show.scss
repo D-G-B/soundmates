@@ -46,10 +46,8 @@
 
 
 .banner-dark {
-  background: #F7B358;
-  background: -moz-linear-gradient(left, #F7B358 0%, #272A2E 22%, #212529 100%);
-  background: -webkit-linear-gradient(left, #F7B358 0%, #272A2E 22%, #212529 100%);
-  background: linear-gradient(to right, #F7B358 0%, #272A2E 22%, #212529 100%);
+  background: rgb(33,37,41);
+  background: linear-gradient(90deg, rgba(33,37,41,1) 0%, rgba(39,42,46,1) 47%, rgba(247,179,88,1) 98%);
   height: 30vh;
 }
 
