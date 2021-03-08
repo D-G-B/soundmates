@@ -27,10 +27,10 @@
 
 
 <div class="container" id="text-white">
-  <div class="row banner-dark">
+  <div class="row banner-dark rounded">
     <div class="d-flex flex-column align-items-start justify-content-end py-3 ml-3">
       <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill, class: "profile-image" %>
+        <%= cl_image_tag @user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill, class: "profile-image rounded" %>
       <% else %>
         <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill, class: "profile-image") %>
       <% end%>
@@ -50,34 +50,34 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-end align-items-start py-5">
+  <div class="row d-flex justify-content-end align-items-baseline first-row">
     
-    <div class="col-lg-2" id="mates">
+    <div class="col-lg-3 py-3" id="mates">
       <h5>Mates</h5>
     </div>
-    <div class="col-lg-2" id="shares">
+    <div class="col-lg-3 py-3" id="shares">
       <h5>Shares</h5>
     </div>
-    <div class="col-lg-4 d-flex justify-content-center">
+    <div class="col-lg-3 py-3">
       <div class="chatroom-buttons">
         <% if current_user && @chatroom %>
-          <p>Already Connected</p>
-          <%= link_to "your chatrooms", chatrooms_path %>
+          <h5>Already Connected</h5>
+          <button class="btn-chatroom my-3" type="button"><%= link_to "Your chatrooms", chatrooms_path %></button>
         <% else %>
-          <h5><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></h5>
+          <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
         <% end %>
       </div>
     </div>
   </div>
   
-  <div class="row my-3">
+  <div class="row my-5">
     <div class="col">
       <h3>About</h3>
       <p><%= @user.bio %></p>
     </div>
   </div>
 
-  <div class="row my-3">
+  <div class="row my-5">
     <div class="col">
       <h2>Skills</h2>
         <% @user.skills.each do |skill| %>
@@ -86,7 +86,7 @@
     </div>
   </div>
 
-  <div class="row my-3">
+  <div class="row my-5">
     <div class="col">
       <h2>Shares</h2>
       <% @user.shares.each do |share| %>

@@ -15,6 +15,32 @@
   }
 }
 
+.btn-chatroom {
+  width: 200px;
+  background-color: transparent;
+  border: 1px solid #f7b358;
+  border-radius: 2px;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $button-color;
+    transition: 0.3s;
+  }
+
+}
+
+.btn-chatroom a {
+  color: white;
+}
+
+.first-row {
+  -webkit-box-shadow: 5px 5px 10px 1px #000000; 
+  box-shadow: 5px 5px 10px 1px #000000;
+}
+
+
 .banner-dark {
   background-color: #133c55;
   height: 30vh;
