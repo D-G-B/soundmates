@@ -24,7 +24,7 @@ puts "creating 4 main users..."
   first_name: "Kevin",
   last_name: "Agoh",
   username: Faker::Internet.username(specifier: 'Keum'),
-  bio: "I am a passionate vocalist and singer and my favourite music genre is soul funk not to be confused with funk soul. All true music lovers know the difference",
+  bio: "I am a passionate vocalist and singer and my favourite music genre is soul funk not to be confused with funk soul. All true music lovers know the difference.",
   password: "123456")
   file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614955857/Photo_de_profil_Kevin_vrswm0.jpg')
   kevin.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
@@ -34,7 +34,7 @@ puts "creating 4 main users..."
   first_name: "Hervé",
   last_name: "Bonnaffoux",
   username: Faker::Internet.username(specifier: 'NRV'),
-  bio: "I am a machine without a soul. I play brutalist techno. Feed me with records or DIE",
+  bio: "I am a machine without a soul. I play brutalist techno. Feed me with records or DIE.",
   password: "123456")
   file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614944904/5q5y06rpxiaioujpl76o4upnpzqg.jpg')
   herve.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
@@ -44,7 +44,7 @@ puts "creating 4 main users..."
   first_name: "Dan",
   last_name: "Brandt",
   username: Faker::Internet.username(specifier: 'DGB'),
-  bio: "I am a drum player and my favourite genre is Jazz. I also like to recite my own poetry while gently stroking my drumkit",
+  bio: "I am a drum player and my favourite genre is Jazz. I also like to recite my own poetry while gently stroking my drumkit.",
   password: "123456")
   file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945046/5nzo16ih5u3mo2cswz21skwrnw39.png')
   daniel.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
@@ -54,7 +54,7 @@ puts "creating 4 main users..."
   first_name: "Joleana",
   last_name: "Shurley",
   username: Faker::Internet.username(specifier: 'Jo'),
-  bio: "I am a lead gituarist. Joan jet is the greatest. ROCK ON FOR EVER. I also manage my rock children and help them grow",
+  bio: "I am a lead gituarist. Joan jet is the greatest. ROCK ON FOR EVER. I also manage my rock children and help them grow.",
   password: "123456")
   file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945062/arnzg41n7x1b0khk20x6p4rrpigi.png')
   joleana.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
@@ -126,37 +126,21 @@ puts "...finished"
 
 puts "creating genres for users"
 
-UserGenre.create!(user_id: kevin.id,
-  genre_id: funk_soul.id)
-
-UserGenre.create!(user_id: herve.id,
-  genre_id: electronic.id)
-
-UserGenre.create!(user_id: daniel.id,
-  genre_id: jazz.id)
-
-UserGenre.create!(user_id: joleana.id,
-  genre_id: rock.id)
+kevin.genres << [funk_soul, pop, blues]
+herve.genres << [electronic, non_music, stage]
+daniel.genres << [jazz, classical, folk]
+joleana.genres << [rock, childrens, latin]
 
 puts "...finished"
 
 puts "creating skills for users"
 
-UserSkill.create!(user_id: kevin.id,
-  skill_id: vocals.id)
-
-UserSkill.create!(user_id: herve.id,
-  skill_id: dj_mix.id)
-
-UserSkill.create!(user_id: daniel.id,
-  skill_id: instruments.id)
-
-UserSkill.create!(user_id: joleana.id,
-  skill_id: management.id)
-
+kevin.skills << [vocals, conducting, writing]
+herve.skills << [dj_mix, remix, technical]
+daniel.skills << [instruments, arrangement, production]
+joleana.skills << [management, acting, visuals]
 
 puts "...finished"
-
 
 puts "...creating more users"
 
