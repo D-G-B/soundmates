@@ -9,6 +9,7 @@
       <% @chatrooms.each do |chatroom| %>
         <% if chatroom.status == true %>
         <div class="person mt-3 rounded">
+          <%= cl_image_tag chatroom.users.last.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar chat-avatar rounded-circle ml-3" %>
           <%= link_to chatroom.id, chatroom_path(chatroom.id) %>
         </div>
           <% elsif chatroom.status == nil %>
