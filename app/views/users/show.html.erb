@@ -12,12 +12,11 @@
         <div id="photo-form">
           <%=simple_form_for @user, url: add_photo_user_path(@user.username), method: :patch do |f| %>
             <%= f.input :photo, as: :file %>
-            <%= f.button :submit %>
+            <%= f.button :submit, class: "btn-chatroom" %>
           <%end %>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -34,7 +33,7 @@
       <% else %>
         <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill, class: "profile-image") %>
       <% end%>
-      <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-long my-3">Upload Photo</button>
+      <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-long my-3">Edit Photo</button>
     </div>
 
     <div class="d-flex flex-column align-items-center justify-content-center ml-3">
