@@ -11,3 +11,19 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+.btn-orange-long {
+  margin-left: 2rem;
+  width: 200px;
+  background-color: transparent;
+  border: 1px solid #f7b358;
+  border-radius: 2px;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $hover-button-color;
+    transition: 0.3s;
+  }
+}

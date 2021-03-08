@@ -1,3 +1,64 @@
+.btn-orange-long {
+  transform: translateY(3rem);
+  margin-left: 3rem;
+  width: 200px;
+  background-color: transparent;
+  border: 1px solid #f7b358;
+  border-radius: 2px;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $button-color;
+    transition: 0.3s;
+  }
+}
+
+.btn-chatroom {
+  width: 200px;
+  background-color: #f7b358;
+  border-radius: 2px;
+  padding: 7px;
+  color: white;
+  font-weight: bold;
+  border: none;
+
+  &:hover {
+    background-color: $hover-button-color;
+    transition: 0.3s;
+  }
+
+}
+
+.btn-chatroom a {
+  color: white;
+}
+
+.row-shadow {
+  -webkit-box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5); 
+  box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5);
+}
+
+.row-info {
+  height: 20vh;
+}
+
+
+.banner-dark {
+  background: #F7B358;
+  background: -moz-linear-gradient(left, #F7B358 0%, #272A2E 22%, #212529 100%);
+  background: -webkit-linear-gradient(left, #F7B358 0%, #272A2E 22%, #212529 100%);
+  background: linear-gradient(to right, #F7B358 0%, #272A2E 22%, #212529 100%);
+  height: 30vh;
+}
+
+.profile-image {
+  transform: translateY(3rem);
+  margin-left: 3rem;
+}
+
+
 #mates{
   width:50%;
 }
@@ -9,13 +70,6 @@
 
 #text-white {
  color: #e9ecef;
-}
-
-#info {
-  height: 130px;
-  margin-top: 10px;
-  border-radius: 5px;
-  background-color: #808B96;
 }
 
 #username {

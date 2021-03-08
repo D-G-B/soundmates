@@ -1,66 +1,99 @@
-<div class="container" id="text-white">
-  <div class="row ">
-    <div class="col-lg-4">
-      <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill %>
-      <% else %>
-        <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill) %>
-      <% end%>
-    </div>
-    <div class="col-lg-4">
-      <div id="username">
-        <%= @user.username %>
+<!--Modal-->
+<div class="modal" tabindex="-1" role="dialog" id="modalPhoto">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Upload a photo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <% @user.genres.each do |genre| %>
-      #
-      <%= genre.name%>
-        <%end %>
+      <div class="modal-body">
+        <div id="photo-form">
           <%=simple_form_for @user, url: add_photo_user_path(@user.username), method: :patch do |f| %>
-          <%= f.input :photo, as: :file %>
-          <%= f.button :submit %>
+            <%= f.input :photo, as: :file %>
+            <%= f.button :submit %>
           <%end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
-    <div class="col-lg-4 d-flex">
-      <div id="mates">
-        Mates
-      </div>
-      <div id="shares">
-        Shares
-      </div>
+  </div>
+</div>
+<!--Modal end-->
 
+
+<div class="container" id="text-white">
+  <div class="row banner-dark rounded">
+    <div class="d-flex flex-column align-items-start justify-content-end py-3 ml-3">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill, class: "profile-image rounded" %>
+      <% else %>
+        <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill, class: "profile-image") %>
+      <% end%>
+      <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-long my-3">Upload Photo</button>
+    </div>
+
+    <div class="d-flex flex-column align-items-center justify-content-center ml-3">
+      <div id="username">
+        <%= @user.first_name %>
+      </div>
+      <div>
+        <% @user.genres.each do |genre| %>
+          <h4>#<%= genre.name%></h4>
+        <%end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-end align-items-baseline row-shadow row-info">
+    
+    <div class="col-lg-3 py-3" id="mates">
+      <h5>Mates</h5>
+      <%= @user.chatrooms.count %>
+    </div>
+    <div class="col-lg-3 py-3" id="shares">
+      <h5>Shares</h5>
+      <%= @user.shares.count %>
+    </div>
+    <div class="col-lg-3 py-3">
       <div class="chatroom-buttons">
         <% if current_user && @chatroom %>
-          <p>Already Connected</p>
-          <%= link_to "your chatrooms", chatrooms_path %>
+          <h5>Already Connected</h5>
+          <button class="btn-chatroom my-3" type="button"><%= link_to "Your chatrooms", chatrooms_path %></button>
         <% else %>
-          <%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %>
+          <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
         <% end %>
       </div>
-
     </div>
   </div>
-  <div class="row" id="info">
-    <h2>Bio</h2>
-    <br>
-    <br>
-    <%= @user.bio %>
+  
+  <div class="row row-shadow my-5">
+    <div class="col p-3">
+      <h3>About</h3>
+      <p><%= @user.bio %></p>
+    </div>
   </div>
-  <div class="row"id="info">
-    <h2>Skills</h2>
-    <br>
-    <br>
-    <% @user.skills.each do |skill| %>
-      <%= skill.name %>,
-      <%end %>
+
+  <div class="row row-shadow my-5">
+    <div class="col p-3">
+      <h2>Skills</h2>
+        <% @user.skills.each do |skill| %>
+          <%= skill.name%>
+        <%end %>
+    </div>
   </div>
-  <div class="row"id="info">
-    <h2>Shares</h2>
-    <br>
-    <br>
-    <% @user.shares.each do |share| %>
-    <%= share.link %>
-    <br>
-    <%= share.platform %>
-    <% end %>
+
+  <div class="row row-shadow my-5">
+    <div class="col p-3">
+      <h2>Shares</h2>
+      <% @user.shares.each do |share| %>
+        <%= share.link %>
+        <%= share.platform %>
+      <% end %>
+    </div>
   </div>
 </div>
