@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       OR genres.name ILIKE :query \
       OR skills.name ILIKE :query \
       "
-      @users = policy_scope(User).joins(:genres, :skills).where(sql_query, query: "%#{params[:query]}%")
+      @users = policy_scope(User).joins(:genres, :skills).where(sql_query, query: "%#{params[:query]}%").distinct
     else
       @users = policy_scope(User).limit(4)
     end
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
                             .merge(@user.chatrooms)
                             .first
     authorize @user
-    
+
     #attempt three
     # our_chatroom_ids = current_user.chatrooms.pluck(:id)
     # their_chatroom_ids = @user.chatrooms.pluck(:id)

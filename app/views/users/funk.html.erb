@@ -2,9 +2,15 @@
   <h1 class="my-3">Funk Fans</h1>
   <% @users.each do |user| %>
     <div class="card-product my-3">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <% if user.photo.attached? %>
+        <%= cl_image_tag user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill %>
+      <% else %>
+        <%= image_tag("no-profile-picture-icon.jpg", height: 200, width: 200, crop: :fill) %>
+      <% end%>
       <div class="card-product-infos">
-        <h2><%= user.username %></h2>
+        <h2>
+          <%= link_to "#{user.first_name} #{user.last_name}", user_path(user.username) %>
+        </h2>
         <p><%= user.bio %></p>
       </div>
     </div>
