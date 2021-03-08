@@ -2,6 +2,9 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  background-image :linear-gradient(to bottom, rgba(5.5,0,0,0.5) 50%, rgba(5.5,0,0,1) 100%), asset-url("background-image-index.jpg");
+  height: 80vh;
+
 }
 
 .banner h1 {
