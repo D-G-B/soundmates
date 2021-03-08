@@ -1,24 +1,28 @@
 <div class="d-flex chat-messages-container">
 
   <div class="conversations-sidebar m-3">
-  <h1 class="m-3">Your Chats</h1>
+    <h1 class="m-3">Your Chats</h1>
     <div class="current-user m-3">
       <span><%= current_user.username %></span>
     </div>
-    <div class="active-chats m-3">
-      <% @chatrooms.each do |chatroom| %>
-        <% if chatroom.status == true %>
-        <div class="person mt-3 rounded">
-          <%= cl_image_tag chatroom.users.last.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar chat-avatar rounded-circle ml-3" %>
-          <%= link_to chatroom.id, chatroom_path(chatroom.id) %>
-        </div>
-          <% elsif chatroom.status == nil %>
-        <div class="accept-chat-btn">
-          <%= link_to "accept this chat placeholder", accept_chatroom_path(chatroom.id), method: :patch  %>
-        </div>
+
+      <div class="active-chats m-3">
+        <% @chatrooms.each do |chatroom| %>
+          <% if chatroom.status == true %>
+          <div class="person mt-3 rounded">
+
+            <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
+              <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
+            <% end %>
+            <%= link_to chatroom.id, chatroom_path(chatroom.id) %>
+          </div>
+            <% elsif chatroom.status == nil %>
+          <div class="accept-chat-btn">
+            <%= link_to "accept this chat placeholder", accept_chatroom_path(chatroom.id), method: :patch  %>
+          </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
     
   </div>
 
@@ -35,9 +39,13 @@
     <div class="message-form container">
       <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
       <%= f.input :content, label: false, placeholder: "Message" %>
-      <%= f.submit %>
+      <%= f.submit label: '<i class="far fa-paper-plane "></i>'.html_safe, class: "btn btn-outline-warning" %>
       <% end %>
     </div>
   </div>
 
 </div>
+
+
+chatroom.users.select(&!current_user).each |user|
+  user.photo.key
