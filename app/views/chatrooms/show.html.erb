@@ -1,19 +1,42 @@
-<div class="container justify-content-center" id="messages" data-chatroom-id="<%= @chatroom.id %>"> 
-  <div class="d-flex justify-content-center m-3">
-  <h1>The chat itself</h1>
+<div class="d-flex chat-messages-container">
+
+  <div class="conversations-sidebar m-3">
+  <h1 class="m-3">Your Chats</h1>
+    <div class="current-user m-3">
+      <span><%= current_user.username %></span>
+    </div>
+    <div class="active-chats m-3">
+      <% @chatrooms.each do |chatroom| %>
+        <% if chatroom.status == true %>
+        <div class="person mt-3 rounded">
+          <%= link_to chatroom.id, chatroom_path(chatroom.id) %>
+        </div>
+          <% elsif chatroom.status == nil %>
+        <div class="accept-chat-btn">
+          <%= link_to "accept this chat placeholder", accept_chatroom_path(chatroom.id), method: :patch  %>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+    
   </div>
 
-  <% @chatroom.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
+  <div class="messages-container">
+    <div class="container justify-content-center" id="messages" data-chatroom-id="<%= @chatroom.id %>"> 
+      <div class="d-flex justify-content-center m-3">
+      <h1>The chat itself</h1>
+      </div>
+
+      <% @chatroom.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
+    <div class="message-form container">
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message" %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
-<div class="container">
-  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message" %>
-  <%= f.submit %>
-  <% end %>
-</div>
-
-
-
-
