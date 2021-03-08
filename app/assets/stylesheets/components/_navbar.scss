@@ -3,10 +3,13 @@
   background: white;
   background-color: transparent;
   transition: 0.5s background-color ease;
+  position: sticky;
+  top: 0;
+  z-index: 5000;
 }
 
-.navbar-lewagon-white {
-  background-color: white;
+.navbar-lewagon-grey {
+  background-color: #212529;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,4 +22,13 @@
 
 #search-bar {
   border-radius: 15px;
+}
+
+.logo {
+  border-radius: 50%;
+  height: 55px;
+}
+
+.avatar-navbar{
+  border-radius: 100%;
 }

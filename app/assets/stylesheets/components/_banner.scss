@@ -2,8 +2,9 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-image :linear-gradient(to bottom, rgba(5.5,0,0,0.5) 50%, rgba(5.5,0,0,1) 100%), asset-url("background-image-index.jpg");
-  height: 80vh;
+  background-image :linear-gradient(to bottom, rgba(5.5,0,0,0.5) 85%, rgba(5.5,0,0,1) 100%), asset-url("background-image-index.jpg");
+  height: 70vh;
+  margin-top: -80px;
 
 }
 
@@ -20,4 +21,14 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+#title-index p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#title-index h1 {
+  font-size: 40px;
+  margin-top:15px;
 }
