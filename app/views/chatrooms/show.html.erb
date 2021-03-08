@@ -9,7 +9,7 @@
       <% @chatrooms.each do |chatroom| %>
         <% if chatroom.status == true %>
         <div class="person mt-3 rounded">
-          <%=  link_to chatroom.id, chatroom_path(chatroom.id) %>
+          <%= link_to chatroom.id, chatroom_path(chatroom.id) %>
         </div>
           <% elsif chatroom.status == nil %>
         <div class="accept-chat-btn">

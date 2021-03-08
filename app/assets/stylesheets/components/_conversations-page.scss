@@ -23,3 +23,12 @@ a:hover {
   color: #e67e22;
   text-decoration: none;
 }
+
+.messages-container {
+  flex-grow: 1;
+padding: 16px 0;
+overflow: scroll;
+  & h1 {
+    color: #e9ecef;
+  }
+}
