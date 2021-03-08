@@ -1,3 +1,16 @@
+@import "button";
+
+.banner-dark {
+  background-color: #133c55;
+  height: 30vh;
+}
+
+.profile-image {
+  transform: translateY(3rem);
+  margin-left: 3rem;
+}
+
+
 #mates{
   width:50%;
 }
