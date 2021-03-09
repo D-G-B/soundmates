@@ -65,7 +65,7 @@
             <h5>Connection Pending</h5>
           <% elsif @chatroom.status == false %>
             <h5>Connection Denied</h5>
-          <% else %>
+          <% elsif @chatroom.status == true && current_user != @user %>
             <h5>Already Connected</h5>
           <% end %>
           <button class="btn-chatroom my-3" type="button"><%= link_to "Your chatrooms", chatrooms_path %></button>
