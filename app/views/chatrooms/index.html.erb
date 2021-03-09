@@ -33,7 +33,10 @@
                   <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
                 <% end %>
                 <div class="accept-chat-btn">
-                  <%= link_to "accept", accept_chatroom_path(chatroom.id), method: :patch  %> <%= link_to "deny", deny_chatroom_path(chatroom.id), method: :patch %>
+                  <%= link_to '<i class="fas fa-check"></i>'.html_safe, accept_chatroom_path(chatroom.id), method: :patch  %>                
+                  <%= link_to deny_chatroom_path(chatroom.id), method: :patch do %>
+                    <i class="fas fa-times"></i>
+                  <% end %>
                 </div>
               </div>
             <% end %>  
