@@ -21,6 +21,15 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.association :genres, as: :check_boxes, prompt: "Please select music genres that you like 🎶",
+                required: false,
+                input_html: { autocomplete: "genres" } %>
+    <%= f.association :skills, as: :check_boxes, prompt: "What are you good at ? 😊",
+                required: false,
+                input_html: { autocomplete: "skills" } %>
+    <%= f.input :bio, prompt: "Tell us a bit more about yourself",
+                required: true,
+                input_html: { autocomplete: "bio" } %>
   </div>
 
   <div class="form-actions">

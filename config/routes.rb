@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'users#index'
-  resources :users, only: [:show, :index], param: :username do
+
+  resources :users, param: :username do
    member do
      patch :add_photo
    end
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
       get :rock, :hiphop, :jazz, :electronic, :funk, :instrumentalists, :vocalists, :technicians, :djs
     end
   end
+
   resources :chatrooms, only: [ :index, :show] do
     member do 
       patch :accept

@@ -22,6 +22,6 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :username, presence: true, uniqueness: true
+  validates :username, uniqueness: true
   validates :bio, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed" }
 end
