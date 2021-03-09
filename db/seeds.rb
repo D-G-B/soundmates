@@ -96,7 +96,7 @@ puts "creating 25 main users..."
   username: Faker::Internet.username(specifier: 'Chae'),
   bio: "Often soft-spoken and invariably sullen in my vocal style, I am a Latin R&B artist who delves into deeper themes of romance, confusion, and anger.",
   password: "123456")
-  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945062/arnzg41n7x1b0khk20x6p4rrpigi.png')
+  file = URI.open('https://res.cloudinary.com/deblg8cgb/image/upload/v1615288875/chae-sole_odltkg.jpg')
   chae.photo.attach(io: file, filename: 'Chae.png', content_type: 'image/png')
   chae.save
 
@@ -318,7 +318,7 @@ Share.create!(link: "https://soundcloud.com/srt95",
   user_id: kevin.id,
   genre_id: classical.id)
 
-Share.create!(link: "https://soundcloud.com/nanji-lobby",
+Share.create!(link: "https://soundcloud.com/nanji-lobby/n-rv-03",
   platform: "Soundcloud",
   user_id: herve.id,
   genre_id: electronic.id)
@@ -338,7 +338,7 @@ Share.create!(link: "https://soundcloud.com/jane-smith",
   user_id: jane.id,
   genre_id: latin.id)
 
-Share.create!(link: "https://soundcloud.com/hive-productions",
+Share.create!(link: "https://soundcloud.com/hive",
   platform: "Soundcloud",
   user_id: hive.id,
   genre_id: hip_hop.id)
@@ -348,7 +348,7 @@ Share.create!(link: "https://soundcloud.com/grubber",
   user_id: grubber.id,
   genre_id: rock.id)
 
-Share.create!(link: "https://soundcloud.com/chae-sole",
+Share.create!(link: "https://soundcloud.com/chae",
   platform: "Soundcloud",
   user_id: chae.id,
   genre_id: latin.id)
@@ -368,7 +368,7 @@ Share.create!(link: "https://soundcloud.com/eileen-art",
   user_id: eileen.id,
   genre_id: non_music.id)
 
-Share.create!(link: "https://soundcloud.com/carol-lustrious",
+Share.create!(link: "https://soundcloud.com/carol",
   platform: "Soundcloud",
   user_id: carol.id,
   genre_id: non_music.id)
@@ -393,7 +393,7 @@ Share.create!(link: "https://soundcloud.com/ada-ehi",
   user_id: ada.id,
   genre_id: stage.id)
 
-Share.create!(link: "https://soundcloud.com/cali-celts",
+Share.create!(link: "https://soundcloud.com/yucca_valley",
   platform: "Soundcloud",
   user_id: celts.id,
   genre_id: reggae.id)
@@ -408,7 +408,7 @@ Share.create!(link: "https://soundcloud.com/bobby-gene",
   user_id: bob.id,
   genre_id: non_music.id)
 
-Share.create!(link: "https://soundcloud.com/miss-kittie",
+Share.create!(link: "https://soundcloud.com/djmisskittie",
   platform: "Soundcloud",
   user_id: kittie.id,
   genre_id: stage.id)
@@ -423,17 +423,17 @@ Share.create!(link: "https://soundcloud.com/dane",
   user_id: dane.id,
   genre_id: funk_soul.id)
 
-Share.create!(link: "https://soundcloud.com/dionne",
+Share.create!(link: "https://soundcloud.com/dionne-gale",
   platform: "Soundcloud",
   user_id: dionne.id,
   genre_id: classical.id)
 
-Share.create!(link: "https://soundcloud.com/victoria-qt",
+Share.create!(link: "https://soundcloud.com/nekolai",
   platform: "Soundcloud",
   user_id: qt.id,
   genre_id: latin.id)
 
-Share.create!(link: "https://soundcloud.com/guy-ro",
+Share.create!(link: "https://soundcloud.com/guy-ro/sounds-from-mercredi-morning-3",
   platform: "Soundcloud",
   user_id: guy.id,
   genre_id: folk.id)
