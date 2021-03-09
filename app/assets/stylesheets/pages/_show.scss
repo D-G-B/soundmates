@@ -42,6 +42,7 @@
   font-weight: bold;
   border: none;
 
+
   &:hover {
     background-color: $hover-button-color;
     transition: 0.3s;
@@ -74,6 +75,31 @@
   margin-left: 3rem;
 }
 
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  color: rgba(0,0,0,0.3);
+}
+
+.social-links {
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.social-links a {
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 35px;
+  padding: 0px 10px;
+}
+
+.social-links a:hover {
+  opacity: 1;
+}
 
 #mates{
   width:50%;
@@ -82,7 +108,6 @@
 #shares{
   width:50%;
 }
-
 
 #text-white {
  color: #e9ecef;
