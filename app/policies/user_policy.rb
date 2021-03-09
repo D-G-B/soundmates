@@ -14,28 +14,13 @@ class UserPolicy < ApplicationPolicy
   def add_photo?
     true
   end
-  
+
   #Collections by genre, methods
 
-  def jazz?
-    true 
-  end
-
-  def hiphop?
-    true 
-  end
-
-  def rock?
+  def genre?
     true
   end
 
-  def electronic?
-    true
-  end
-
-  def funk?
-    true
-  end
 
   #Collections by skills, methods
 
@@ -53,5 +38,5 @@ class UserPolicy < ApplicationPolicy
 
   def djs?
     true
-  end 
+  end
 end
