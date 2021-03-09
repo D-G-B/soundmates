@@ -2,9 +2,6 @@
 
   <div class="conversations-sidebar m-3">
     <h1 class="m-3">Your Chats</h1>
-    <div class="current-user m-3">
-      <span><%= current_user.username %></span>
-    </div>
 
       <div class="active-chats m-3">
         <% @chatrooms.each do |chatroom| %>
@@ -26,28 +23,23 @@
             <% if @user_chats.find_by(chatroom: chatroom.id).requestor == true  %>
               <div class="person mt-3 rounded">
                 <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
-                <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
-              <% end %>
+                  <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
+                <% end %>
                 <h5>pending</h5>
               </div>
             <% else %> 
-            <div class="person mt-3 rounded">
-              <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
-                <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
-              <% end %>
+              <div class="person mt-3 rounded">
+                <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
+                  <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
+                <% end %>
                 <div class="accept-chat-btn">
                   <%= link_to "accept", accept_chatroom_path(chatroom.id), method: :patch  %> <%= link_to "deny", deny_chatroom_path(chatroom.id), method: :patch %>
                 </div>
-            </div>
-
-            <% end %>
-            
+              </div>
+            <% end %>  
           <% end %>
-
         <% end %>
-      </div>
-    
-
+  </div>
 </div>
 
 
