@@ -96,7 +96,7 @@ puts "creating 25 main users..."
   username: Faker::Internet.username(specifier: 'Chae'),
   bio: "Often soft-spoken and invariably sullen in my vocal style, I am a Latin R&B artist who delves into deeper themes of romance, confusion, and anger.",
   password: "123456")
-  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614945062/arnzg41n7x1b0khk20x6p4rrpigi.png')
+  file = URI.open('https://res.cloudinary.com/deblg8cgb/image/upload/v1615288875/chae-sole_odltkg.jpg')
   chae.photo.attach(io: file, filename: 'Chae.png', content_type: 'image/png')
   chae.save
 
