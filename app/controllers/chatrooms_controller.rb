@@ -46,7 +46,11 @@ class ChatroomsController < ApplicationController
   end
 
   def deny
-    
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.status = false
+    @chatroom.save
+    redirect_to chatrooms_path
+    authorize @chatroom
   end
 
   private

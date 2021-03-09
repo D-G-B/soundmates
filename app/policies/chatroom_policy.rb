@@ -17,4 +17,8 @@ class ChatroomPolicy < ApplicationPolicy
     true
   end
 
+  def deny?
+    true
+  end
+
 end

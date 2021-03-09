@@ -31,9 +31,14 @@
                 <h5>pending</h5>
               </div>
             <% else %> 
-              <div class="accept-chat-btn">
-                <%= link_to "accept this chat placeholder", accept_chatroom_path(chatroom.id), method: :patch  %>
-              </div>
+            <div class="person mt-3 rounded">
+              <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
+                <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
+              <% end %>
+                <div class="accept-chat-btn">
+                  <%= link_to "accept", accept_chatroom_path(chatroom.id), method: :patch  %> <%= link_to "deny", deny_chatroom_path(chatroom.id), method: :patch %>
+                </div>
+            </div>
 
             <% end %>
             
