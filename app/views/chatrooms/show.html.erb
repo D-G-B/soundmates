@@ -27,22 +27,24 @@
   </div>
 
   <div class="messages-container">
-    <div class="container justify-content-center" id="messages" data-chatroom-id="<%= @chatroom.id %>" data-current-user-id="<%= current_user.id %>"
-> 
+    <div class="container justify-content-center"> 
 
       <div class="d-flex justify-content-center m-3">
       <h1>The chat itself</h1>
       </div>
 
-      <% @chatroom.messages.each do |message| %>
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>" data-current-user-id="<%= current_user.id %>">
+        <% @chatroom.messages.each do |message| %>
 
-        <% if message.user == current_user %>
-          <%= render "messages/message", message: message, css_class: 'sent-message' %>
-        <% else %>
-          <%= render "messages/message", message: message, css_class: 'received-message' %>
+          <% if message.user == current_user %>
+            <%= render "messages/message", message: message, css_class: 'sent-message' %>
+          <% else %>
+            <%= render "messages/message", message: message, css_class: 'received-message' %>
+          <% end %>
+
         <% end %>
+      </div>
 
-      <% end %>
     </div>
 
     <div class="message-form container">

@@ -11,10 +11,10 @@ const insertIntoDOM = (messageHTML, currentUserId, messages) => {
   // if the message is from the sender,
   if (message.dataset.senderId === currentUserId) {
     // add the sender CSS
-    message.firstChild.classList.add('sent-message');
+    message.classList.add('sent-message');
   } else {
     // Else, add the receiver css
-    message.firstChild.classList.add('received-message');
+    message.classList.add('received-message');
   }
 
   // insert the element in the DOM
