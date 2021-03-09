@@ -43,16 +43,17 @@
       <div id="username">
         <%= @user.first_name %>
       </div>
-      <div id="user-genres">
+
+      <div style="height: 40px" id="user-genres">
         <% @user.genres.each do |genre| %>
-          <h5>#<%= genre.name%></h5>
+          <span id="emoji">&#x266b;</span><%= genre.name  %>&nbsp;
         <%end %>
       </div>
     </div>
   </div>
 
   <div class="row d-flex justify-content-end align-items-baseline row-shadow row-info">
-    
+
     <div class="col-lg-3 py-3" id="mates">
       <h5>Mates</h5>
       <%= @user.chatrooms.count %>
@@ -63,16 +64,24 @@
     </div>
     <div class="col-lg-3 py-3">
       <div class="chatroom-buttons">
-        <% if current_user && @chatroom %>
-          <h5>Already Connected</h5>
+        <% if current_user && @chatroom %> 
+          <% if @chatroom.status == nil %>
+            <h5>Connection Pending</h5>
+          <% elsif @chatroom.status == false %>
+            <h5>Connection Denied</h5>
+          <% elsif @chatroom.status == true && current_user != @user %>
+            <h5>Already Connected</h5>
+          <% end %>
           <button class="btn-chatroom my-3" type="button"><%= link_to "Your chatrooms", chatrooms_path %></button>
-        <% else %>
-          <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
+        
         <% end %>
+        <% if current_user != @user && !@chatroom %>
+          <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
+        <% end %>  
       </div>
     </div>
   </div>
-  
+
   <div class="row row-shadow my-5">
     <div class="col p-3">
       <h3>About</h3>
@@ -81,12 +90,14 @@
   </div>
 
   <div class="row row-shadow my-5">
-    <div class="col p-3">
+    <span>
+      <div class="col p-3">
       <h2>Skills</h2>
         <% @user.skills.each do |skill| %>
-          <%= skill.name%>
+          <span id="emoji">&#x266a;</span><%= skill.name %>&nbsp;
         <%end %>
-    </div>
+      </div>
+    </span>
   </div>
 
   <div class="row row-shadow my-5">
