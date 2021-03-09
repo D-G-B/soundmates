@@ -70,3 +70,6 @@ gem 'cloudinary', '~> 1.16.0'
 
 #ActiveRecordUnion
 gem 'active_record_union'
+
+#Cocoon for nested forms
+gem "cocoon"

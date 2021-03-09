@@ -34,8 +34,13 @@ class UsersController < ApplicationController
     # @chatroom = current_user.chatrooms
     #                         .joins(:user_chats)
     #                         .find_by(user_chats: {user: @user})
-
   end
+
+  #def new
+  #  @user = User.new
+  #  @user.genres.build
+  #  @user.skills.build
+  #end
 
   def add_photo
     @user = User.find_by(username: params[:username])
@@ -96,6 +101,11 @@ private
 
   def photo_params
     params.require(:user).permit(:photo)
+  end
+
+  def strong_params
+    params.require(:user)
+          .permit(User::STRONG_PARAMS, skills_attributes: [ :name ], genres_attributes: [ :name ] )
   end
 
 end
