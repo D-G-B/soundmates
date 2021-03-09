@@ -25,14 +25,19 @@ require("channels")
 // External imports
 import "bootstrap";
 
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initChatroomChannel } from "../channels/chatroom_channel";
+//import {slider} from '../components/carousel';
+//import { tns } from "./node_modules/tiny-slider/src/tiny-slider"
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initChatroomChannel();
+  slider();
 });
 
 /* Navbar*/
@@ -43,6 +48,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
 });
-
 
 
