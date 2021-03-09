@@ -33,7 +33,10 @@
       <% else %>
         <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill, class: "profile-image") %>
       <% end%>
-      <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-long my-3">Edit Photo</button>
+      <div id="btn-box">
+        <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-short my-3">Edit Photo</button>
+        <button type="button" class="btn-orange-short my-3"> <%= link_to "Edit Profile", edit_user_registration_path %> </button>
+      </div>
     </div>
 
     <div class="d-flex flex-column align-items-center justify-content-center ml-3">
