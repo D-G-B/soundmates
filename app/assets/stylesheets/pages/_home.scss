@@ -24,6 +24,9 @@
     border : solid 3px;
     border-color: #f7b358;
     color: #f7b358;
+    transition: all 0.3s ease;
+    cursor: default;
+
   }
   .title {
     font: 700 34px/1.3 "Poppins", sans-serif;
@@ -43,5 +46,5 @@
 }
 
 .value-margin{
-  margin-right: 20px;
+  margin-right: 40px;
 }
