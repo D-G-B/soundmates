@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_143820) do
+
+ActiveRecord::Schema.define(version: 2021_03_09_154611) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_143820) do
 
   create_table "user_genres", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "genre_id", null: false
+    t.bigint "genre_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["genre_id"], name: "index_user_genres_on_genre_id"
