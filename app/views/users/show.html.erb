@@ -60,12 +60,20 @@
     </div>
     <div class="col-lg-3 py-3">
       <div class="chatroom-buttons">
-        <% if current_user && @chatroom %>
-          <h5>Already Connected</h5>
+        <% if current_user && @chatroom %> 
+          <% if @chatroom.status == nil %>
+            <h5>Connection Pending</h5>
+          <% elsif @chatroom.status == false %>
+            <h5>Connection Denied</h5>
+          <% else %>
+            <h5>Already Connected</h5>
+          <% end %>
           <button class="btn-chatroom my-3" type="button"><%= link_to "Your chatrooms", chatrooms_path %></button>
-        <% else %>
-          <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
+        
         <% end %>
+        <% if current_user != @user && !@chatroom %>
+          <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
+        <% end %>  
       </div>
     </div>
   </div>
