@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container text-white">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
       <div class="row justify-content-center m-3">
@@ -9,21 +9,55 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
+          <%= f.input :first_name,
+                      required: true,
+                      input_html: { autocomplete: "first name" }%>
+
+          <%= f.input :last_name,
+                      required: true,
+                      input_html: { autocomplete: "last name" }%>
+
           <%= f.input :email,
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "email" }%>
+
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                       input_html: { autocomplete: "new-password" } %>
+
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
+
+          <%= f.input :username,
+                      required: false,
+                      input_html: { autocomplete: "username" } %>
+
+          <%= f.input :genre_ids, collection: Genre.all.collect {|x| [x.name, x.id]},
+                      as: :check_boxes,            
+                      input_html: { multiple: true }, 
+                      include_blank: false, 
+                      include_hidden: false, 
+                      label: 'What music genres do you enjoy? 🎶' %>
+
+          <%= f.input :skill_ids, collection: Skill.all.collect {|x| [x.name, x.id]},
+                      as: :check_boxes,
+                      input_html: { multiple: true },
+                      include_blank: false, 
+                      include_hidden: false,
+                      label: 'What are you good at? 😃' %>
+
+          <%= f.input :bio, prompt: "Tell us a bit more about yourself",
+                      required: true,
+                      input_html: { autocomplete: "bio" } %> 
+
+          <%= f.input :photo, as: :file %>   
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
+          <%= f.button :submit, "Sign up", class: "btn-chatroom" %>
         </div>
       <% end %>
 

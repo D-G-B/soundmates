@@ -33,14 +33,18 @@
       <% else %>
         <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill, class: "profile-image") %>
       <% end%>
-      <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-long my-3">Edit Photo</button>
+      <div id="btn-box">
+        <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-short my-3">Edit Photo</button>
+        <button type="button" class="btn-orange-short my-3"> <%= link_to "Edit Profile", edit_user_registration_path %> </button>
+      </div>
     </div>
 
-    <div class="d-flex flex-column align-items-center justify-content-center ml-3">
+    <div class="d-flex flex-column align-items-start justify-content-center ml-3">
       <div id="username">
         <%= @user.first_name %>
       </div>
-      <div style="height: 40px">
+
+      <div style="height: 40px" id="user-genres">
         <% @user.genres.each do |genre| %>
           <span id="emoji">&#x266b;</span><%= genre.name  %>&nbsp;
         <%end %>
@@ -60,12 +64,20 @@
     </div>
     <div class="col-lg-3 py-3">
       <div class="chatroom-buttons">
-        <% if current_user && @chatroom %>
-          <h5>Already Connected</h5>
+        <% if current_user && @chatroom %> 
+          <% if @chatroom.status == nil %>
+            <h5>Connection Pending</h5>
+          <% elsif @chatroom.status == false %>
+            <h5>Connection Denied</h5>
+          <% elsif @chatroom.status == true && current_user != @user %>
+            <h5>Already Connected</h5>
+          <% end %>
           <button class="btn-chatroom my-3" type="button"><%= link_to "Your chatrooms", chatrooms_path %></button>
-        <% else %>
-          <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
+        
         <% end %>
+        <% if current_user != @user && !@chatroom %>
+          <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
+        <% end %>  
       </div>
     </div>
   </div>

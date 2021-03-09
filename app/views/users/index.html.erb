@@ -67,81 +67,111 @@
   <!-- if no search params entered, show carousal and genre category links  -->
   <% if !params[:query] %>
     <div class="genre-table">
+      <%= link_to genre_users_path(query:"rock") do %>
       <div class="element-genre-table">
-        <div class="title">
+          <div class="title">
           Rock
-        </div>
+          </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"jazz") do %>
       <div class="element-genre-table">
         <div class="title">
           Jazz
         </div>
       </div>
+      <%end%>
+      <%= link_to genre_users_path(query:"pop") do %>
       <div class="element-genre-table">
         <div class="title">
           Pop
         </div>
       </div>
+      <% end %>
+      <%= link_to genre_users_path(query:"funk_soul") do %>
       <div class="element-genre-table">
         <div class="title">
           Funk/Soul
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"folk") do %>
       <div class="element-genre-table">
         <div class="title">
           Folk
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"electronic") do %>
       <div class="element-genre-table">
         <div class="title">
           Electronic
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"hip_hop") do %>
       <div class="element-genre-table">
         <div class="title">
           Hip/Hop
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"classical") do %>
       <div class="element-genre-table">
         <div class="title">
           Classical
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"stage") do %>
       <div class="element-genre-table">
         <div class="title">
           Stage
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"reggae") do %>
       <div class="element-genre-table">
         <div class="title">
           Reggae
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"latin") do %>
       <div class="element-genre-table">
         <div class="title">
           Latin
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"military") do %>
       <div class="element-genre-table">
         <div class="title">
-          Jazz
+          Military
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"blues") do %>
       <div class="element-genre-table">
         <div class="title">
           Blues
         </div>
       </div>
+      <% end %>
+      <%= link_to genre_users_path(query:"non_music") do %>
       <div class="element-genre-table">
         <div class="title">
           Non-music
         </div>
       </div>
+      <%end %>
+      <%= link_to genre_users_path(query:"childrens") do %>
       <div class="element-genre-table">
         <div class="title">
-          Childrens
+          Children's
         </div>
       </div>
+      <%end %>
 
     </div>
     <div class="row text-white justify-content-center my-3">

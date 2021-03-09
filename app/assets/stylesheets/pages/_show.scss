@@ -16,21 +16,28 @@
   border: none;
 }
 
-.btn-orange-long {
-  transform: translateY(3rem);
-  margin-left: 3rem;
-  width: 200px;
+.btn-orange-short {
+  min-width: 95px;
   background-color: transparent;
   border: 1px solid #f7b358;
   border-radius: 2px;
   padding: 5px;
   color: white;
   font-weight: bold;
+  font-size: 16px;
 
   &:hover {
     background-color: $button-color;
     transition: 0.3s;
   }
+}
+
+#btn-box {
+  width: 200px;
+  display: flex;
+  margin-left: 3rem;
+  transform: translateY(3rem);
+  justify-content: space-between;
 }
 
 .btn-chatroom {
@@ -99,6 +106,9 @@
 
 .social-links a:hover {
   opacity: 1;
+  
+#user-genres {
+  flex-wrap: wrap;
 }
 
 #mates{

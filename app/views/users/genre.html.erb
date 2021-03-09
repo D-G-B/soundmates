@@ -1,16 +1,17 @@
 <div class="container">
-  <h1 class="my-3">Funk Fans</h1>
+  <h1 class=" text-white my-3"><%= params[:query].capitalize%> Profiles</h1>
   <% @users.each do |user| %>
-    <div class="card-product my-3">
+    <div class="card-results text-white bg-dark mb-3">
       <% if user.photo.attached? %>
         <%= cl_image_tag user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill %>
       <% else %>
         <%= image_tag("no-profile-picture-icon.jpg", height: 200, width: 200, crop: :fill) %>
       <% end%>
-      <div class="card-product-infos">
+      <div class="card-results-infos">
         <h2>
           <%= link_to "#{user.first_name} #{user.last_name}", user_path(user.username) %>
         </h2>
+        <br>
         <p><%= user.bio %></p>
       </div>
     </div>

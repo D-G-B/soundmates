@@ -7,12 +7,13 @@ Rails.application.routes.draw do
    end
     resources :chatrooms, only: [:create]
     collection do
-      get :rock, :hiphop, :jazz, :electronic, :funk, :instrumentalists, :vocalists, :technicians, :djs
+      get :genre, :instrumentalists, :vocalists, :technicians, :djs
     end
   end
   resources :chatrooms, only: [ :index, :show] do
-    member do 
+    member do
       patch :accept
+      patch :deny
     end
     # same as
     # patch "/chatrooms/id/accept", to: "chatrooms#accept"
