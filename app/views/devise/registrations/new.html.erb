@@ -35,25 +35,29 @@
                       required: false,
                       input_html: { autocomplete: "username" } %>
 
-          <%= f.input :genre_ids, collection: Genre.all.collect {|x| [x.name, x.id]},              
+          <%= f.input :genre_ids, collection: Genre.all.collect {|x| [x.name, x.id]},
+                      as: :check_boxes,            
                       input_html: { multiple: true }, 
                       include_blank: false, 
-                      include_hidden: false %>
+                      include_hidden: false, 
+                      label: 'What music genres do you enjoy? 🎶' %>
 
           <%= f.input :skill_ids, collection: Skill.all.collect {|x| [x.name, x.id]},
+                      as: :check_boxes,
                       input_html: { multiple: true },
                       include_blank: false, 
-                      include_hidden: false %>
+                      include_hidden: false,
+                      label: 'What are you good at? 😃' %>
 
           <%= f.input :bio, prompt: "Tell us a bit more about yourself",
                       required: true,
                       input_html: { autocomplete: "bio" } %> 
-                          
+
           <%= f.input :photo, as: :file %>   
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: "" %>
+          <%= f.button :submit, "Sign up", class: "btn-chatroom" %>
         </div>
       <% end %>
 

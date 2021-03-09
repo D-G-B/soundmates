@@ -12,10 +12,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:email, :password, :password_confirmation, :first_name, :last_name, :photo, :username, :bio, genre_ids: [], skill_ids: [])
     end
-    #devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :photo, :username, :bio, {genre_ids: []}])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :photo, :username, :genre_ids, :skill_ids, :bio])
+    devise_parameter_sanitizer.permit(:account_update) do |u|
+      u.permit(:email, :password, :password_confirmation, :current_password, :first_name, :last_name, :photo, :username, :bio, genre_ids: [], skill_ids: [])
+    end
+    # devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :photo, :username, :genre_ids, :skill_ids, :bio])
   end
 
   private
