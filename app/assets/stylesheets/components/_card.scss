@@ -76,25 +76,25 @@
 }
 
 #djs {
-  background-image: url("dj.jpg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5));
+  background-image: asset-url("dj.jpg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5));
   background-size: cover;
   object-fit: cover;
 }
 
 #vocalists {
-  background-image: url("vocalist.jpg"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  background-image: asset-url("vocalist.jpg"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
   background-size: cover;
   object-fit: cover;
 }
 
 #instrumentalists {
-  background-image: url("instrumentalist.jpg"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  background-image: asset-url("instrumentalist.jpg"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
   background-size: cover;
   object-fit: cover;
 }
 
 #technicians {
-  background-image: url("technician.jpg"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  background-image: asset-url("technician.jpg"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
   background-size: cover;
   object-fit: cover;
 }
