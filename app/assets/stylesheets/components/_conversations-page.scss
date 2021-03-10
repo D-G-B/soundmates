@@ -79,6 +79,17 @@ background-size: cover;
   flex-grow: 0;
 }
 
+.growbig{
+  flex-grow: 1;
+}
+.growsmol {
+  flex-grow: 0;
+}
+
+#float-right {
+  float: right;
+}
+
 .received-message {
   .chat-card {
     box-shadow: none ;
@@ -113,7 +124,4 @@ background-size: cover;
   }
 }
 
-#float-right {
-  float: right;
-}
 
