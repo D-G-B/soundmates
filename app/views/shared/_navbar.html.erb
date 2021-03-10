@@ -5,16 +5,16 @@
 
   <div class="input-group" style="justify-content: center;">
     <span class="search-style input-group-append">
-      <%= form_tag users_path, method: :get, class: "form-inline", style: "justify-content: center" do %>
+      <%= form_tag users_path, method: :get, class: "form-inline #{'search-bar-landing-page'if params[:controller]== "users" && params[:action]=="index"&& !params[:query]}", style: "justify-content: center" do %>
       <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
-        <button class="btn btn-outline-secondary" type="submit">
+        <button class="btn search-bar-icon" type="submit">
           <i class="fa fa-search"></i>
         </button>
     </span>
     <% if params[:query] %>
-      <div class="btn-ghost">
-        <h5><%= link_to "All users", users_path %></h5>
-      </div>
+        <%= link_to users_path do %>
+        <i class="fas fa-undo-alt search-bar-icon-back"></i>
+        <%end %>
     <% end %>
     <% end %>
   </div>
@@ -30,7 +30,7 @@
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, alt: "Profile picture", width: 70, height: 70, crop: :fill, class: "avatar-navbar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
-          <% else %> 
+          <% else %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
