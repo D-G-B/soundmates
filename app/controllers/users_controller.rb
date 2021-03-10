@@ -19,9 +19,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(username: params[:username])
     #attempt two
-    @chatroom = current_user.chatrooms
-                            .merge(@user.chatrooms)
-                            .first
+    if user_signed_in?
+      @chatroom = current_user.chatrooms
+                              .merge(@user.chatrooms)
+                              .first
+    end
     authorize @user
 
     #attempt three
