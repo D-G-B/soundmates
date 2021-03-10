@@ -64,7 +64,7 @@
     </div>
     <div class="col-lg-3 py-3">
       <div class="chatroom-buttons">
-        <% if current_user && @chatroom %> 
+        <% if current_user && @chatroom %>
           <% if @chatroom.status == nil %>
             <h5>Connection Pending</h5>
           <% elsif @chatroom.status == false %>
@@ -73,11 +73,11 @@
             <h5>Already Connected</h5>
           <% end %>
           <button class="btn-chatroom my-3" type="button"><%= link_to "Your chatrooms", chatrooms_path %></button>
-        
+
         <% end %>
         <% if current_user != @user && !@chatroom %>
           <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
-        <% end %>  
+        <% end %>
       </div>
     </div>
   </div>
@@ -105,7 +105,11 @@
       <h2>Shares</h2>
       <% @user.shares.each do |share| %>
         <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<%= ['644618100', '271188615', '136405212'].sample %>&color=%23f7b358&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false" style="width: 250px; height: 200px;">
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<%= ['644618100', '271188615', '136405212'].sample %>&color=%23f7b358&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=false&show_teaser=false" style="width: 250px; height: 200px;">
+        </iframe>
+        <iframe width="100%" height="166" src="https://www.youtube.com/embed/Xmr97isqg5k" style="width: 250px; height: 200px;">
+        </iframe>
+        <iframe width="100%" height="166" frameborder="0" allowtransparency="true" allow="encrypted-media" src="https://open.spotify.com/embed/track/7dLwZkHixHbTtbauejtzrm" style="width: 250px; height: 200px;">
         </iframe>
       <% end %>
     </div>
@@ -121,6 +125,7 @@
               src="https://w.soundcloud.com/icon/?url=<%=share.link%>%2F?&color=orange_white&size" style="width: 35px; height: 35px;">
             </iframe>
           <% end %>
+            <!-- <a href="#"><i class="fa fa-spotify"></i></a> -->
             <a href="#"><i class="fab fa-github"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook"></i></a>
