@@ -21,6 +21,9 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def skills?
+    true
+  end
 
   #Collections by skills, methods
 
