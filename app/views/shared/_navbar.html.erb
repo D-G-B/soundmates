@@ -23,6 +23,26 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div class="dropdown">
+    <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Skills
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to "Remixers", skills_users_path(query:"remix"), class: "dropdown-item" %>
+      <%= link_to "Vocalists", skills_users_path(query:"vocals"), class: "dropdown-item" %>
+      <%= link_to "Instrumentalists", skills_users_path(query:"instruments"), class: "dropdown-item" %>
+      <%= link_to "Writers", skills_users_path(query:"writing"), class: "dropdown-item" %>
+      <%= link_to "Arranger", skills_users_path(query:"arrangement"), class: "dropdown-item" %>
+      <%= link_to "Producers", skills_users_path(query:"production"), class: "dropdown-item" %>
+      <%= link_to "Technicians", skills_users_path(query:"technical"), class: "dropdown-item" %>
+      <%= link_to "Designers", skills_users_path(query:"visuals"), class: "dropdown-item" %>
+      <%= link_to "DJs", skills_users_path(query:"dj_mix"), class: "dropdown-item" %>
+      <%= link_to "Managers", skills_users_path(query:"management"), class: "dropdown-item" %>
+      <%= link_to "Conductors", skills_users_path(query:"conducting_&_leading"), class: "dropdown-item" %>
+      <%= link_to "Actors", skills_users_path(query:"acting,_literary_&_spoken"), class: "dropdown-item" %>
+    </div>
+  </div>
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
