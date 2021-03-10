@@ -51,9 +51,9 @@
 
     <!-- if search params entered, then show our user card results to query -->
   <% if params[:query] %>
-    <div class="row my-5 justify-content-between">
+    <div class="row my-5 justify-content-between" id= "search">
       <% @users.each do |user| %>
-        <%= render "user_card", user: user %>
+          <%= render "user_card", user: user %>
       <% end %>
     </div>
   <% end %>
