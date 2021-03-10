@@ -11,6 +11,7 @@
 
               <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
                 <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
+                <span class="username ml-3 mt-1 mb-1"><%= user.username %></span>
               <% end %>
 
             </div>
@@ -31,8 +32,9 @@
             <div class="person mt-3 rounded">
               <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
                 <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
+                <span class="username ml-3 mt-1 mb-1"><%= user.username %></span>
               <% end %>
-              <div class="accept-chat-btn">
+              <div class="accept-chat-btn ml-3">
                 <%= link_to '<i class="fas fa-check"></i>'.html_safe, accept_chatroom_path(chatroom.id), method: :patch  %>                
                 <%= link_to deny_chatroom_path(chatroom.id), method: :patch do %>
                   <i class="fas fa-times"></i>
