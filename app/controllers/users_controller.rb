@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       "
       @users = policy_scope(User).joins(:genres, :skills).where(sql_query, query: "%#{params[:query]}%").distinct
     else
-      @users = policy_scope(User)
+      @users = policy_scope(User).limit(4)
     end
   end
 
