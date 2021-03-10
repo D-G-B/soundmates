@@ -1,7 +1,7 @@
 <div class="col-12">
   <div class="card-results text-white bg-dark mb-3">
     <% if user.photo.attached? %>
-        <%= cl_image_tag user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill %>
+        <%= cl_image_tag user.photo.key, alt: "Profile picture", crop: :thumb, gravity: :face %>
       <% else %>
         <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill) %>
       <% end%>
