@@ -18,17 +18,37 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(username: params[:username])
+  
     #attempt two
-    if user_signed_in?
-      @chatroom = current_user.chatrooms
-                              .merge(@user.chatrooms)
-                              .first
-    end
-    authorize @user
-
+    # if user_signed_in?
+    #   @chatrooms = current_user.chatrooms
+    #   @chatroom = current_user.chatrooms
+    #                           .merge(@user.chatrooms)
+    #                           .first
+    #                           raise
+    # end
     #attempt three
-    # our_chatroom_ids = current_user.chatrooms.pluck(:id)
-    # their_chatroom_ids = @user.chatrooms.pluck(:id)
+    
+    our_chatroom_ids = current_user.chatrooms.pluck(:id)
+    their_chatroom_ids = @user.chatrooms.pluck(:id)
+
+    if !our_chatroom_ids.empty?
+    chatroom_id = our_chatroom_ids & their_chatroom_ids
+    @chatroom = Chatroom.find(chatroom_id[0])
+      # our_chatroom_ids.each do |id|
+      #   if their_chatroom_ids.include?(id)
+      #     @chatroom = Chatroom.find(id)
+      #   else
+      #     raise
+      #     @chatroom = false
+      #   end
+      # end
+    else
+      @chatroom = false
+    end
+    
+    
+    
     # shared_chatroom_ids = our_chatroom_ids.union(their_chatroom_ids)
     # @chatroom = Chatroom.find(shared_chatroom_ids)
     # raise
@@ -36,7 +56,8 @@ class UsersController < ApplicationController
     # @chatroom = current_user.chatrooms
     #                         .joins(:user_chats)
     #                         .find_by(user_chats: {user: @user})
-
+    
+    authorize @user
     @share = Share.new
   end
 

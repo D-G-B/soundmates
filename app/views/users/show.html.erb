@@ -65,6 +65,7 @@
       <%= @user.shares.count %>
     </div>
     <div class="col-lg-3 py-3">
+
       <div class="chatroom-buttons">
         <% if current_user && @chatroom %>
           <% if current_user == @user  %>
@@ -72,17 +73,19 @@
           <% else %>
             <button class="btn-chatroom my-3" type="button"><%= link_to "Chat with #{@user.first_name}", chatrooms_path %></button>
           <% end %>
-          <% if @chatroom.status == nil %>
+          <% if @chatroom.status == nil && current_user !=@user %>
             <h6>Pending <i class="fas fa-user-clock ml-3"></i></h6>
-          <% elsif @chatroom.status == false %>
+          <% elsif @chatroom.status == false && current_user !=@user %>
             <h6>Denied <i class="fas fa-heart-broken ml-3"></i></h6>
           <% elsif @chatroom.status == true && current_user != @user %>
             <h6>Connected <i class="fas fa-heartbeat ml-3"></i></h6>
           <% end %>
         <% end %>
+
         <% if current_user != @user && !@chatroom %>
           <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
         <% end %>
+        
       </div>
     </div>
   </div>
