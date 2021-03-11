@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
     if !our_chatroom_ids.empty?
     chatroom_id = our_chatroom_ids & their_chatroom_ids
+      if !chatroom_id.empty?
     @chatroom = Chatroom.find(chatroom_id[0])
       # our_chatroom_ids.each do |id|
       #   if their_chatroom_ids.include?(id)
@@ -43,9 +44,11 @@ class UsersController < ApplicationController
       #     @chatroom = false
       #   end
       # end
+      end
     else
       @chatroom = false
     end
+
     
     
     
