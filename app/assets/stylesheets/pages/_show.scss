@@ -95,6 +95,7 @@
   width: 35px;
   display: flex;
   align-items: center;
+  text-align: center;
 }
 
 .social-links a {
@@ -104,10 +105,10 @@
   padding: 0px 10px;
 }
 
+
 .social-links a:hover {
   opacity: 1;
 }
-  
 
 #user-genres {
   flex-wrap: wrap;
@@ -133,4 +134,15 @@
 #emoji {
   color: transparent;
   text-shadow: 0 0 0 $button-color;
+}
+
+#social-links-space {
+  padding-right: 200px;
+  padding-bottom: 10px;
+}
+
+#share-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -103,37 +103,33 @@
   <div class="row row-shadow my-5">
     <div class="col p-3">
       <h2>Shares</h2>
-      <% @user.shares.each do |share| %>
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<%= ['644618100', '271188615', '136405212'].sample %>&color=%23f7b358&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=false&show_teaser=false" style="width: 250px; height: 200px;">
-        </iframe>
-        <iframe width="100%" height="166" src="https://www.youtube.com/embed/Xmr97isqg5k" style="width: 250px; height: 200px;">
-        </iframe>
-        <iframe width="100%" height="166" frameborder="0" allowtransparency="true" allow="encrypted-media" src="https://open.spotify.com/embed/track/7dLwZkHixHbTtbauejtzrm" style="width: 250px; height: 200px;">
-        </iframe>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row row-shadow my-5">
-    <div class="col p-3">
-      <span><h2>Social</h2>
-      <div class="social">
-        <div class="social-links">
-          <% @user.shares.each do |share| %>
-            <iframe allowtransparency="true" scrolling="no" frameborder="no"
-              src="https://w.soundcloud.com/icon/?url=<%=share.link%>%2F?&color=orange_white&size" style="width: 35px; height: 35px;">
+      <div id="share-flex">
+        <% @user.shares.each do |share| %>
+          <% if share.platform == 'Spotify' %>
+            <iframe width="100%" height="166" frameborder="0" allowtransparency="true" allow="encrypted-media"
+              src="<%= share.link %>" style="width: 250px; height: 200px;">
+            </iframe>
+          <% elsif share.platform  == 'Soundcloud' %>
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+              src="<%= share.link %>" style="width: 250px; height: 200px;">
+            </iframe>
+          <% elsif share.platform  == 'YouTube' %>
+            <iframe width="100%" height="166"
+              src="<%= share.link %>" style="width: 250px; height: 200px;">
             </iframe>
           <% end %>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
+        <% end %>
       </div>
-      </span>
     </div>
   </div>
 
+
+  <div class="row row-shadow my-5 justify-content-center" id="social-links-space">
+    <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
 </div>

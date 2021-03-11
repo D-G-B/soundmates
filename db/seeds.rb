@@ -313,130 +313,189 @@ puts "...finished"
 
 puts "creating shares"
 
-Share.create!(link: "https://soundcloud.com/srt95",
+
+# Kevin soundcloud
+Share.create!(link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/644618100&color=%23f7b358&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=false&show_teaser=false",
   platform: "Soundcloud",
   user_id: kevin.id,
-  genre_id: classical.id)
+  genre_id: funk_soul.id)
 
-Share.create!(link: "https://soundcloud.com/nanji-lobby/n-rv-03",
+# Kevin youtube
+Share.create!(link: "https://www.youtube.com/embed/NYaTqDLtZsM",
+  platform: "YouTube",
+  user_id: kevin.id,
+  genre_id: funk_soul.id)
+
+# Kevin spotify
+Share.create!(link: "https://open.spotify.com/embed/track/6rjh6RlnZmeS1XzOAy841F",
+  platform: "Spotify",
+  user_id: kevin.id,
+  genre_id: funk_soul.id)
+
+
+# herve soundcloud
+Share.create!(link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/271188615&color=%23f7b358&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=false&show_teaser=false",
   platform: "Soundcloud",
   user_id: herve.id,
   genre_id: electronic.id)
 
-Share.create!(link: "https://soundcloud.com/danielbrandt",
+# herve youtube
+Share.create!(link: "https://www.youtube.com/embed/n__NrG-QGb4",
+  platform: "YouTube",
+  user_id: herve.id,
+  genre_id: electronic.id)
+
+# herve spotify
+Share.create!(link: "https://open.spotify.com/embed/track/4YwCG8mXQrtQI6oQykhW7j",
+  platform: "Spotify",
+  user_id: herve.id,
+  genre_id: electronic.id)
+
+
+# daniel soundcloud
+Share.create!(link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/136405212&color=%23f7b358&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=false&show_teaser=false",
   platform: "Soundcloud",
   user_id: daniel.id,
   genre_id: jazz.id)
 
-Share.create!(link: "https://soundcloud.com/epikurmusic",
+# daniel youtube
+Share.create!(link: "https://www.youtube.com/embed/uZ6_ISALjcQ",
+  platform: "YouTube",
+  user_id: daniel.id,
+  genre_id: jazz.id)
+
+# daniel spotify
+Share.create!(link: "https://open.spotify.com/embed/track/5uJmjBYgqO9QeZ9T0LdOdi",
+  platform: "Spotify",
+  user_id: daniel.id,
+  genre_id: jazz.id)
+
+
+# joleana soundcloud
+Share.create!(link: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/644618100&color=%23f7b358&auto_play=false&hide_related=true&show_comments=true&show_user=false&show_reposts=false&show_teaser=false",
   platform: "Soundcloud",
   user_id: joleana.id,
   genre_id: rock.id)
 
-Share.create!(link: "https://soundcloud.com/jane-smith",
-  platform: "Soundcloud",
-  user_id: jane.id,
-  genre_id: latin.id)
 
-Share.create!(link: "https://soundcloud.com/hive",
-  platform: "Soundcloud",
-  user_id: hive.id,
-  genre_id: hip_hop.id)
-
-Share.create!(link: "https://soundcloud.com/grubber",
-  platform: "Soundcloud",
-  user_id: grubber.id,
+# joleana youtube
+Share.create!(link: "https://www.youtube.com/embed/MkPlp1Vt8YY",
+  platform: "YouTube",
+  user_id: joleana.id,
   genre_id: rock.id)
 
-Share.create!(link: "https://soundcloud.com/chae",
-  platform: "Soundcloud",
-  user_id: chae.id,
-  genre_id: latin.id)
 
-Share.create!(link: "https://soundcloud.com/mark-evans",
-  platform: "Soundcloud",
-  user_id: mark.id,
-  genre_id: folk.id)
+# joleana spotify
+Share.create!(link: "https://open.spotify.com/embed/track/1NccVIZKjHelOjrursItDT",
+  platform: "Spotify",
+  user_id: joleana.id,
+  genre_id: rock.id)
 
-Share.create!(link: "https://soundcloud.com/jesse-slack",
-  platform: "Soundcloud",
-  user_id: jesse.id,
-  genre_id: folk.id)
 
-Share.create!(link: "https://soundcloud.com/eileen-art",
-  platform: "Soundcloud",
-  user_id: eileen.id,
-  genre_id: non_music.id)
+# Share.create!(link: "https://soundcloud.com/jane-smith",
+#   platform: "Soundcloud",
+#   user_id: jane.id,
+#   genre_id: latin.id)
 
-Share.create!(link: "https://soundcloud.com/carol",
-  platform: "Soundcloud",
-  user_id: carol.id,
-  genre_id: non_music.id)
+# Share.create!(link: "https://soundcloud.com/hive",
+#   platform: "Soundcloud",
+#   user_id: hive.id,
+#   genre_id: hip_hop.id)
 
-Share.create!(link: "https://soundcloud.com/master-mary",
-  platform: "Soundcloud",
-  user_id: mary.id,
-  genre_id: non_music.id)
+# Share.create!(link: "https://soundcloud.com/grubber",
+#   platform: "Soundcloud",
+#   user_id: grubber.id,
+#   genre_id: rock.id)
 
-Share.create!(link: "https://soundcloud.com/sade-adu",
-  platform: "Soundcloud",
-  user_id: sade.id,
-  genre_id: pop.id)
+# Share.create!(link: "https://soundcloud.com/chae",
+#   platform: "Soundcloud",
+#   user_id: chae.id,
+#   genre_id: latin.id)
 
-Share.create!(link: "https://soundcloud.com/janelle-monae",
-  platform: "Soundcloud",
-  user_id: janelle.id,
-  genre_id: pop.id)
+# Share.create!(link: "https://soundcloud.com/mark-evans",
+#   platform: "Soundcloud",
+#   user_id: mark.id,
+#   genre_id: folk.id)
 
-Share.create!(link: "https://soundcloud.com/ada-ehi",
-  platform: "Soundcloud",
-  user_id: ada.id,
-  genre_id: stage.id)
+# Share.create!(link: "https://soundcloud.com/jesse-slack",
+#   platform: "Soundcloud",
+#   user_id: jesse.id,
+#   genre_id: folk.id)
 
-Share.create!(link: "https://soundcloud.com/yucca_valley",
-  platform: "Soundcloud",
-  user_id: celts.id,
-  genre_id: reggae.id)
+# Share.create!(link: "https://soundcloud.com/eileen-art",
+#   platform: "Soundcloud",
+#   user_id: eileen.id,
+#   genre_id: non_music.id)
 
-Share.create!(link: "https://soundcloud.com/dash-records",
-  platform: "Soundcloud",
-  user_id: david.id,
-  genre_id: stage.id)
+# Share.create!(link: "https://soundcloud.com/carol",
+#   platform: "Soundcloud",
+#   user_id: carol.id,
+#   genre_id: non_music.id)
 
-Share.create!(link: "https://soundcloud.com/bobby-gene",
-  platform: "Soundcloud",
-  user_id: bob.id,
-  genre_id: non_music.id)
+# Share.create!(link: "https://soundcloud.com/master-mary",
+#   platform: "Soundcloud",
+#   user_id: mary.id,
+#   genre_id: non_music.id)
 
-Share.create!(link: "https://soundcloud.com/djmisskittie",
-  platform: "Soundcloud",
-  user_id: kittie.id,
-  genre_id: stage.id)
+# Share.create!(link: "https://soundcloud.com/sade-adu",
+#   platform: "Soundcloud",
+#   user_id: sade.id,
+#   genre_id: pop.id)
 
-Share.create!(link: "https://soundcloud.com/vex",
-  platform: "Soundcloud",
-  user_id: vex.id,
-  genre_id: hip_hop.id)
+# Share.create!(link: "https://soundcloud.com/janelle-monae",
+#   platform: "Soundcloud",
+#   user_id: janelle.id,
+#   genre_id: pop.id)
 
-Share.create!(link: "https://soundcloud.com/dane",
-  platform: "Soundcloud",
-  user_id: dane.id,
-  genre_id: funk_soul.id)
+# Share.create!(link: "https://soundcloud.com/ada-ehi",
+#   platform: "Soundcloud",
+#   user_id: ada.id,
+#   genre_id: stage.id)
 
-Share.create!(link: "https://soundcloud.com/dionne-gale",
-  platform: "Soundcloud",
-  user_id: dionne.id,
-  genre_id: classical.id)
+# Share.create!(link: "https://soundcloud.com/yucca_valley",
+#   platform: "Soundcloud",
+#   user_id: celts.id,
+#   genre_id: reggae.id)
 
-Share.create!(link: "https://soundcloud.com/nekolai",
-  platform: "Soundcloud",
-  user_id: qt.id,
-  genre_id: latin.id)
+# Share.create!(link: "https://soundcloud.com/dash-records",
+#   platform: "Soundcloud",
+#   user_id: david.id,
+#   genre_id: stage.id)
 
-Share.create!(link: "https://soundcloud.com/guy-ro/sounds-from-mercredi-morning-3",
-  platform: "Soundcloud",
-  user_id: guy.id,
-  genre_id: folk.id)
+# Share.create!(link: "https://soundcloud.com/bobby-gene",
+#   platform: "Soundcloud",
+#   user_id: bob.id,
+#   genre_id: non_music.id)
+
+# Share.create!(link: "https://soundcloud.com/djmisskittie",
+#   platform: "Soundcloud",
+#   user_id: kittie.id,
+#   genre_id: stage.id)
+
+# Share.create!(link: "https://soundcloud.com/vex",
+#   platform: "Soundcloud",
+#   user_id: vex.id,
+#   genre_id: hip_hop.id)
+
+# Share.create!(link: "https://soundcloud.com/dane",
+#   platform: "Soundcloud",
+#   user_id: dane.id,
+#   genre_id: funk_soul.id)
+
+# Share.create!(link: "https://soundcloud.com/dionne-gale",
+#   platform: "Soundcloud",
+#   user_id: dionne.id,
+#   genre_id: classical.id)
+
+# Share.create!(link: "https://soundcloud.com/nekolai",
+#   platform: "Soundcloud",
+#   user_id: qt.id,
+#   genre_id: latin.id)
+
+# Share.create!(link: "https://soundcloud.com/guy-ro/sounds-from-mercredi-morning-3",
+#   platform: "Soundcloud",
+#   user_id: guy.id,
+#   genre_id: folk.id)
 
 
 
