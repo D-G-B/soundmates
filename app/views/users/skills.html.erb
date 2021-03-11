@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class=" text-white my-3"><%= params[:query].capitalize%> Profiles</h1>
+  <h1 class=" text-white my-3"><%= params[:query].capitalize.gsub(/_/, " ") %> profiles</h1>
   <% @users.each do |user| %>
     <%= link_to user_path(user.username) do %>
       <div class="card-results text-white bg-dark mb-3">
