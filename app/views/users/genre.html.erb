@@ -1,19 +1,21 @@
 <div class="container">
-  <h1 class=" text-white my-3"><%= params[:query].capitalize%> Profiles</h1>
+  <h1 class=" text-white my-3"><%= params[:query].capitalize.gsub(/_/, " ")%> profiles</h1>
   <% @users.each do |user| %>
-    <div class="card-results text-white bg-dark mb-3">
-      <% if user.photo.attached? %>
-        <%= cl_image_tag user.photo.key, alt: "Profile picture", crop: :thumb, gravity: :face %>
-      <% else %>
-        <%= image_tag("no-profile-picture-icon.jpg", height: 200, width: 200, crop: :fill) %>
-      <% end%>
-      <div class="card-results-infos">
-        <h2>
-          <%= link_to "#{user.first_name} #{user.last_name}", user_path(user.username) %>
-        </h2>
-        <br>
-        <p><%= user.bio %></p>
+    <%= link_to user_path(user.username) do %>
+      <div class="card-results text-white bg-dark mb-3">
+        <% if user.photo.attached? %>
+          <%= cl_image_tag user.photo.key, alt: "Profile picture", crop: :thumb, gravity: :face %>
+        <% else %>
+          <%= image_tag("no-profile-picture-icon.jpg", height: 200, width: 200, crop: :fill) %>
+        <% end%>
+        <div class="card-results-infos">
+          <h2>
+            <%= "#{user.first_name} #{user.last_name}" %>
+          </h2>
+          <br>
+          <p><%= user.bio %></p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

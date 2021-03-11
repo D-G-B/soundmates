@@ -27,8 +27,8 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.create
     @user = User.find_by_username(params[:user_username])
 
-    resquesor = UserChat.create(chatroom: @chatroom, user: current_user, requestor: true)
-    reciever = UserChat.create(chatroom: @chatroom, user: @user, requestor: false)
+    requestor = UserChat.create(chatroom: @chatroom, user: current_user, requestor: true)
+    receiver = UserChat.create(chatroom: @chatroom, user: @user, requestor: false)
 
     # current_user.chatrooms << @chatroom
     # @user.chatrooms << @chatroom
