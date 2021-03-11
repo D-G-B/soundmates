@@ -16,7 +16,7 @@ export { initUpdateNavbarOnScroll };
 
 const initUpdateSearchBar = () => {
   const searchbar = document.querySelector(".form-inline");
-  if (searchbar) {
+  if (searchbar && window.location.pathname == '/users') {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= 20) {
         searchbar.classList.remove('search-bar-landing-page');

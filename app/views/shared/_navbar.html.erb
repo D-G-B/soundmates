@@ -5,7 +5,7 @@
 
   <div class="input-group" style="justify-content: center;">
     <span class="search-style input-group-append">
-      <%= form_tag users_path, method: :get, class: "form-inline #{'search-bar-landing-page'if params[:controller]== "users" && params[:action]=="index"&& !params[:query]}", style: "justify-content: center" do %>
+      <%= form_tag users_path, method: :get, class: "form-inline #{'search-bar-landing-page'if request.fullpath =='/users'}", style: "justify-content: center" do %>
       <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
         <button class="btn search-bar-icon" type="submit">
           <i class="fa fa-search"></i>
