@@ -36,7 +36,16 @@
 
   .icon-style{
     width:50px;
-    fill: #f7b358;
+    fill: #f7b358 !important;
+    path {
+      fill:#f7b358;
+
+
+    }
+  }
+
+  .element-genre-table:hover path{
+    fill:#272A2E;
   }
 
 
