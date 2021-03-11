@@ -32,7 +32,7 @@ export { initUpdateSearchBar };
 
 const appearOnScroll = () => {
   const button = document.querySelector(".buttons-dropdown");
-  if (button) {
+  if (window.location.pathname == '/users' || window.location.pathname == '/') {
   window.addEventListener('scroll', () => {
     if (window.scrollY >= 20) {
       button.classList.remove('d-none');
@@ -40,7 +40,9 @@ const appearOnScroll = () => {
       button.classList.add('d-none');
     }
   });
-	}
+	} else {
+    button.classList.remove('d-none')
+  };
 };
 
 export { appearOnScroll };

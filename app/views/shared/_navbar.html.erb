@@ -2,13 +2,13 @@
   <%= link_to users_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png", class: "logo" %>
   <% end %>
-
+  
   <div class="input-group" style="justify-content: center;">
     <span class="search-style input-group-append search-bar-wrap">
       <%= form_tag users_path(anchor: "search"), method: :get, class: "form-inline #{'search-bar-landing-page'if request.fullpath =='/users' || request.fullpath == '/'}", style: "justify-content: center" do %>
       <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
         <div class = search-icon-wrap>
-          <button class="btn search-bar-icon" type="submit" style= "left:95px;">
+          <button class="btn search-bar-icon" type="submit" style= "left:73px;">
             <i class="fa fa-search"></i>
           </button>
         </div>
@@ -69,6 +69,30 @@
       </div>
     </div>
   </div>
+
+  <div class="input-group" style="justify-content: center;">
+    <span class="search-style input-group-append search-bar-wrap">
+      <%= form_tag users_path(anchor: "search"), method: :get, class: "form-inline #{'search-bar-landing-page'if request.fullpath =='/users' || request.fullpath == '/'}", style: "justify-content: center" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
+        <div class = search-icon-wrap>
+          <button class="btn search-bar-icon" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+    </span>
+    <% if params[:query] %>
+        <%= link_to users_path do %>
+        <i class="fas fa-undo-alt search-bar-icon-back"></i>
+        <%end %>
+    <% end %>
+    <% end %>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
