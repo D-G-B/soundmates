@@ -45,6 +45,36 @@
   margin-right: 10px;
 }
 
+.search-bar-icon{
+  color: #f7b358;
+  font-size:25px;
+  &:hover {
+    color: #ee8133;
+    transition: 0.3s;
+  }
+}
+
+.search-bar-icon-back{
+  color: #f7b358;
+  font-size:24px;
+  margin-left: 10px;
+  &:hover {
+    color: #ee8133;
+    transition: 0.3s;
+  }
+}
+
+.search-bar-landing-page
+{
+    justify-content: center;
+    top: 150px;
+    position: relative;
+    left: 40px;
+    #query{ width:500px;
+
+          }
+}
+
 #dropdownMenuButton {
   width: 100px;
   border-radius: 25px;
@@ -53,3 +83,4 @@
   background-color: transparent;
   border: 1px solid #f7b358;
 }
+

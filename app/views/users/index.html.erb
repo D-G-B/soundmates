@@ -6,7 +6,7 @@
 </div>
 
 <div class="container">
-  <div class="row my-5 justify-content-between text-white" style="text-align: center;">
+  <div class="row justify-content-between text-white spacing" style="text-align: center;">
     <div class="value col-lg-3">
       <i class="value-margin fas fa-search" id="icon-value" ></i>
       <h4>Discover musicians profiles</h4>
@@ -40,7 +40,7 @@
               </div>
                 <div class="ml-3 w-100">
                   <h4 class="mb-0 mt-0 text-white"><%= user.first_name %></h4> <span class="text-white"> <%= user.skills.first.name %></span>
-                <div class="button mt-2 d-flex flex-row align-items-center"> <button class="btn btn-sm btn-outline-primary w-100"> <%= link_to "See Profile", user_path(user.username) %> </button> </div>
+                <div class="button mt-2 d-flex flex-row align-items-center">  <%= link_to "See Profile", user_path(user.username), class: "btn btn-sm btn-orange-profile w-100" %> </div>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
   <% end %>
 
   <% if !params[:query] %>
-    <div class="row text-white justify-content-center my-3">
+    <div class="row text-white justify-content-center spacing">
       <h2  class=" font-weight-bold">Browse by music genre </h2>
     </div>
   <% end %>
@@ -69,6 +69,7 @@
     <div class="genre-table">
       <%= link_to genre_users_path(query:"rock") do %>
       <div class="element-genre-table">
+          <i class="fas fa-guitar icon-genre"></i>
           <div class="title">
           Rock
           </div>
@@ -76,6 +77,7 @@
       <%end %>
       <%= link_to genre_users_path(query:"jazz") do %>
       <div class="element-genre-table">
+          <%= render "users/icons/icon_jazz" %>
         <div class="title">
           Jazz
         </div>
@@ -83,6 +85,7 @@
       <%end%>
       <%= link_to genre_users_path(query:"pop") do %>
       <div class="element-genre-table">
+        <%= render "users/icons/icon_pop" %>
         <div class="title">
           Pop
         </div>
@@ -90,6 +93,7 @@
       <% end %>
       <%= link_to genre_users_path(query:"funk_soul") do %>
       <div class="element-genre-table">
+        <%= render "users/icons/icon_funk_soul" %>
         <div class="title">
           Funk/Soul
         </div>
@@ -174,7 +178,7 @@
       <%end %>
 
     </div>
-    <div class="row text-white justify-content-center my-3">
+    <div class="row text-white justify-content-center spacing">
       <h2 class="font-weight-bold">Find the skill you need </h2>
     </div>
     <div class="row justify-content-center my-5">
