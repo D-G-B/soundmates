@@ -5,7 +5,7 @@
 
   <div class="input-group" style="justify-content: center;">
     <span class="search-style input-group-append">
-      <%= form_tag users_path, method: :get, class: "form-inline #{'search-bar-landing-page'if request.fullpath =='/users'}", style: "justify-content: center" do %>
+      <%= form_tag users_path(anchor: "search"), method: :get, class: "form-inline #{'search-bar-landing-page'if request.fullpath =='/users'}", style: "justify-content: center" do %>
       <%= text_field_tag :query, params[:query], class: "form-control py-2", type: "search", placeholder: "Find creatives"%>
         <button class="btn search-bar-icon" type="submit">
           <i class="fa fa-search"></i>
@@ -23,6 +23,51 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div class="buttons-dropdown d-none" style="display: flex">
+    <div class="dropdown">
+      <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Skills
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Remixers", skills_users_path(query:"remix"), class: "dropdown-item" %>
+        <%= link_to "Vocalists", skills_users_path(query:"vocals"), class: "dropdown-item" %>
+        <%= link_to "Instrumentalists", skills_users_path(query:"instruments"), class: "dropdown-item" %>
+        <%= link_to "Writers", skills_users_path(query:"writing"), class: "dropdown-item" %>
+        <%= link_to "Arranger", skills_users_path(query:"arrangement"), class: "dropdown-item" %>
+        <%= link_to "Producers", skills_users_path(query:"production"), class: "dropdown-item" %>
+        <%= link_to "Technicians", skills_users_path(query:"technical"), class: "dropdown-item" %>
+        <%= link_to "Designers", skills_users_path(query:"visuals"), class: "dropdown-item" %>
+        <%= link_to "DJs", skills_users_path(query:"dj_mix"), class: "dropdown-item" %>
+        <%= link_to "Managers", skills_users_path(query:"management"), class: "dropdown-item" %>
+        <%= link_to "Conductors", skills_users_path(query:"conducting_&_leading"), class: "dropdown-item" %>
+        <%= link_to "Actors", skills_users_path(query:"acting,_literary_&_spoken"), class: "dropdown-item" %>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Genres
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Rock", genre_users_path(query:"rock"), class: "dropdown-item" %>
+        <%= link_to "Electronic", genre_users_path(query:"electronic"), class: "dropdown-item" %>
+        <%= link_to "Pop", genre_users_path(query:"pop"), class: "dropdown-item" %>
+        <%= link_to "Funk/Soul", genre_users_path(query:"funk_soul"), class: "dropdown-item" %>
+        <%= link_to "Jazz", genre_users_path(query:"jazz"), class: "dropdown-item" %>
+        <%= link_to "Folk, World, & Country", genre_users_path(query:"folk"), class: "dropdown-item" %>
+        <%= link_to "Hip-Hop", genre_users_path(query:"hip_hop"), class: "dropdown-item" %>
+        <%= link_to "Classical", genre_users_path(query:"classical"), class: "dropdown-item" %>
+        <%= link_to "Stage & Screen", genre_users_path(query:"stage"), class: "dropdown-item" %>
+        <%= link_to "Reggae", genre_users_path(query:"reggae"), class: "dropdown-item" %>
+        <%= link_to "Latin", genre_users_path(query:"latin"), class: "dropdown-item" %>
+        <%= link_to "Blues", genre_users_path(query:"blues"), class: "dropdown-item" %>
+        <%= link_to "Non-Music", genre_users_path(query:"non_music"), class: "dropdown-item" %>
+        <%= link_to "Children's", genre_users_path(query:"childrens"), class: "dropdown-item" %>
+        <%= link_to "Brass & Military", genre_users_path(query:"military"), class: "dropdown-item" %>
+      </div>
+    </div>
+  </div>
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -30,8 +75,13 @@
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, alt: "Profile picture", width: 70, height: 70, crop: :fill, class: "avatar-navbar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "My profile", user_path(current_user.username), class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
           <% else %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "My profile", user_path(current_user.username), class: "dropdown-item text-white" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-white" %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -39,7 +89,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
         </li>
       <% end %>
     </ul>

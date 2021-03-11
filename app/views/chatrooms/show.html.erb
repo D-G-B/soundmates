@@ -1,76 +1,39 @@
 <div class="d-flex chat-messages-container">
 
-  <div class="conversations-sidebar m-3">
-    <h1 class="m-3">Your Chats</h1>
+<%= render "sidebar" %>
 
-      <div class="active-chats m-3">
-        <% @chatrooms.each do |chatroom| %>
+  <div class="messages-container mr-3">
+    <div class="d-flex flex-column chat-blurry">
+      <div class="container justify-content-center pushchatdown"> 
 
-          <% if chatroom.status == true %>
-          <div class="person mt-3 rounded">
+        <div class="d-flex justify-content-center p-3">
+        <h1>The chat itself</h1>
+        </div>
 
-            <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
-              <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
+          <div id="messages" data-chatroom-id="<%= @chatroom.id %>" data-current-user-id="<%= current_user.id %>">
+            <% @chatroom.messages.each do |message| %>
+
+              <% if message.user == current_user %>
+                <%= render "messages/message", message: message, css_class: 'sent-message' %>
+              <% else %>
+                <%= render "messages/message", message: message, css_class: 'received-message' %>
+              <% end %>
+
             <% end %>
-
-            <%= link_to chatroom.id, chatroom_path(chatroom.id) %>
-
           </div>
-          <% elsif chatroom.status == false %>
 
-          <% else %>
-            
-            <% if @user_chats.find_by(chatroom: chatroom.id).requestor == true  %>
-              <div class="person mt-3 rounded">
-                <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
-                  <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
-                <% end %>
-                <h5>pending</h5>
-              </div>
-            <% else %> 
-              <div class="person mt-3 rounded">
-                <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
-                  <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
-                <% end %>
-                <div class="accept-chat-btn">
-                  <%= link_to '<i class="fas fa-check"></i>'.html_safe, accept_chatroom_path(chatroom.id), method: :patch  %>                
-                  <%= link_to deny_chatroom_path(chatroom.id), method: :patch do %>
-                    <i class="fas fa-times"></i>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>  
-          <% end %>
-        <% end %>
-  </div>
-</div>
-
-  <div class="messages-container">
-    <div class="container justify-content-center"> 
-
-      <div class="d-flex justify-content-center m-3">
-      <h1>The chat itself</h1>
       </div>
 
-      <div id="messages" data-chatroom-id="<%= @chatroom.id %>" data-current-user-id="<%= current_user.id %>">
-        <% @chatroom.messages.each do |message| %>
-
-          <% if message.user == current_user %>
-            <%= render "messages/message", message: message, css_class: 'sent-message' %>
-          <% else %>
-            <%= render "messages/message", message: message, css_class: 'received-message' %>
-          <% end %>
-
+      <div class="message-form d-flex flex-row align-items-center">
+        <div class="growbig m-3">
+          <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+          <%= f.input :content, label: false, placeholder: "Message" %>
+        </div>
+        <div class="growsmol m-3">
+          <%= f.submit 'send message'.html_safe, class: "btn btn-outline-warning mb-3", id:"float-right" %>
+        </div>
         <% end %>
       </div>
-
-    </div>
-
-    <div class="message-form container">
-      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message" %>
-      <%= f.submit label: '<i class="far fa-paper-plane "></i>'.html_safe, class: "btn btn-outline-warning" %>
-      <% end %>
     </div>
   </div>
 

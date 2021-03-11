@@ -33,6 +33,8 @@ import { initChatroomChannel } from "../channels/chatroom_channel";
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initUpdateSearchBar } from '../components/navbar';
+import { appearOnScroll } from '../components/navbar';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -40,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomChannel();
   initUpdateNavbarOnScroll();
   initUpdateSearchBar();
+  appearOnScroll();
 });
 
 

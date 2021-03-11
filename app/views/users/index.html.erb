@@ -6,7 +6,7 @@
 </div>
 
 <div class="container">
-  <div class="row justify-content-between text-white spacing">
+  <div class="row justify-content-between text-white spacing" style="text-align: center;">
     <div class="value col-lg-3">
       <i class="value-margin fas fa-search" id="icon-value" ></i>
       <h4>Discover musicians profiles</h4>
@@ -51,9 +51,9 @@
 
     <!-- if search params entered, then show our user card results to query -->
   <% if params[:query] %>
-    <div class="row my-5 justify-content-between">
+    <div class="row my-5 justify-content-between" id= "search">
       <% @users.each do |user| %>
-        <%= render "user_card", user: user %>
+          <%= render "user_card", user: user %>
       <% end %>
     </div>
   <% end %>

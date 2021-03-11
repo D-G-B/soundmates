@@ -3,7 +3,13 @@
   width: 20%;
   color: $text-color;
   flex-shrink: 0;
-  
+  border-radius: 15px;
+  border: 1px solid $button-color;
+  & h1 {
+    text-align: center;
+    // font-family: 'Indie Flower', cursive;
+    font-weight: bolder;
+  } 
 }  
 
 .chat-messages-container {
@@ -38,14 +44,51 @@ a:hover {
 
 .messages-container {
   flex-grow: 1;
-padding: 16px 0;  
-overflow: scroll;
+padding: 16px 0;
+background-image: asset-url("chat_background3.png");
+background-size: cover;
   & h1 {
     color: #e9ecef;
-  }  
-}  
+    // font-family: 'Indie Flower', cursive;
+    font-weight: bolder;
+  }
+} 
+
+.chat-blurry {
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 0.5px );
+  -webkit-backdrop-filter: blur( 0.5px );
+  border-radius: 10px;
+  border: 1px solid $button-color;
+  height: 100%;
+}
+
+.btn-outline-warning {
+  color: #e9ecef;
+  border-color: #e9ecef;
+}
 
 ///messages stuff
+
+.pushchatdown {
+  flex-grow: 1;
+}
+
+.message-form {
+  flex-grow: 0;
+}
+
+.growbig{
+  flex-grow: 1;
+}
+.growsmol {
+  flex-grow: 0;
+}
+
+#float-right {
+  float: right;
+}
 
 .received-message {
   .chat-card {
@@ -80,6 +123,5 @@ overflow: scroll;
     border-left: 20px solid #495057 ;
   }
 }
-
 
 

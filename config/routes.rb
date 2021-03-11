@@ -7,7 +7,7 @@ Rails.application.routes.draw do
    end
     resources :chatrooms, only: [:create]
     collection do
-      get :genre, :instrumentalists, :vocalists, :technicians, :djs
+      get :genre, :skills, :instrumentalists, :vocalists, :technicians, :djs
     end
   end
   resources :chatrooms, only: [ :index, :show] do
