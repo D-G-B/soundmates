@@ -76,6 +76,15 @@
           }
 }
 
+.search-bar-wrap{
+  position:relative;
+
+  .search-icon-wrap{
+    position:absolute;
+  }
+}
+
+
 /*DROPDOWNS*/
 
 #dropdownMenuButton {
@@ -95,7 +104,7 @@
 
 .dropdown-menu a {
   color: #f7b358;
-  
+
   &:hover {
     background-color: #6C757D;
   }
