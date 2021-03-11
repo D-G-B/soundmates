@@ -20,8 +20,11 @@
   -webkit-box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5); 
   box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5);
   transition: transform .2s;
-  & h5 {
+  & h6 {
     display: inline-block;
+    & i {
+      color: #e67e22;
+    }
   }
 }
  
@@ -53,6 +56,10 @@ background-size: cover;
     font-weight: bolder;
   }
 } 
+
+#chat-index-background {
+  background-image: asset-url("chat_background2.png");
+}
 
 .chat-blurry {
   background: rgba( 255, 255, 255, 0.05 );

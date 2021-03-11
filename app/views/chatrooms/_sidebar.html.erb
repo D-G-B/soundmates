@@ -11,7 +11,7 @@
 
               <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
                 <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
-                <span class="username ml-3 mt-1 mb-1"><%= user.username %></span>
+                <span class="username ml-3 mt-1 mb-1"><%= user.first_name %></span>
               <% end %>
 
             </div>
@@ -25,14 +25,15 @@
             <div class="person mt-3 rounded">
               <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
                 <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
+                 <span class="username ml-3 mt-1 mb-1"><%= user.first_name %></span>
               <% end %>
-              <h5>pending</h5>
+              <h6>- chat pending <i class="fas fa-user-clock ml-3"></i></h6>
             </div>
           <% else %> 
             <div class="person mt-3 rounded">
               <% chatroom.users.where.not(id: current_user.id).each do |user|  %>
                 <%= cl_image_tag user.photo.key, alt: "Profile picture", width: 40, height: 40, crop: :fill, class: "avatar-group avatar chat-avatar rounded-circle ml-3 mt-1 mb-1" %>
-                <span class="username ml-3 mt-1 mb-1"><%= user.username %></span>
+                 <span class="username ml-3 mt-1 mb-1"><%= user.first_name %></span>
               <% end %>
               <div class="accept-chat-btn ml-3">
                 <%= link_to '<i class="fas fa-check"></i>'.html_safe, accept_chatroom_path(chatroom.id), method: :patch  %>                
