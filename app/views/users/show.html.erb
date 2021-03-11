@@ -34,8 +34,10 @@
         <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill, class: "profile-image") %>
       <% end%>
       <div id="btn-box">
-        <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-short my-3">Edit Photo</button>
-        <button type="button" class="btn-orange-short my-3"> <%= link_to "Edit Profile", edit_user_registration_path %> </button>
+        <% if current_user == @user %>
+          <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-short my-3">Edit Photo</button>
+          <button type="button" class="btn-orange-short my-3"> <%= link_to "Edit Profile", edit_user_registration_path %> </button>
+        <% end %>
       </div>
     </div>
 
@@ -101,23 +103,46 @@
   </div>
 
   <div class="row row-shadow my-5">
+      <!--Modal-->
+      <div class="modal" tabindex="-1" role="dialog" id="modalShare">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Upload a share</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="photo-form">
+                <%=simple_form_for @share do |f| %>
+                  <%= f.input :link %>
+                  <%= f.input :platform %>
+                  <%= f.input :genre_id, collection: Genre.all %>
+                  <%= f.button :submit, class: "btn-chatroom" %>
+                <%end %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Modal end-->
+
     <div class="col p-3">
       <h2>Shares</h2>
+      <% if current_user == @user %>
+        <button type="button" data-toggle="modal" data-target="#modalShare" class="btn-orange-short my-3">Add share</button>
+      <% end %>
       <div id="share-flex">
         <% @user.shares.each do |share| %>
-          <% if share.platform == 'Spotify' %>
+          <div class="mt-2">
             <iframe width="100%" height="166" frameborder="0" allowtransparency="true" allow="encrypted-media"
               src="<%= share.link %>" style="width: 250px; height: 200px;">
             </iframe>
-          <% elsif share.platform  == 'Soundcloud' %>
-            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-              src="<%= share.link %>" style="width: 250px; height: 200px;">
-            </iframe>
-          <% elsif share.platform  == 'YouTube' %>
-            <iframe width="100%" height="166"
-              src="<%= share.link %>" style="width: 250px; height: 200px;">
-            </iframe>
-          <% end %>
+          </div>
         <% end %>
       </div>
     </div>
