@@ -61,6 +61,16 @@
   color: white;
 }
 
+.chatroom-buttons{
+  text-align: center;
+  & h6{
+    text-align: center;
+      .fas {
+        color: #ee8133;
+      }
+  }
+}
+
 .row-shadow {
   -webkit-box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5);
   box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5);
@@ -95,7 +105,6 @@
   width: 35px;
   display: flex;
   align-items: center;
-  text-align: center;
 }
 
 .social-links a {
@@ -105,10 +114,10 @@
   padding: 0px 10px;
 }
 
-
 .social-links a:hover {
   opacity: 1;
 }
+  
 
 #user-genres {
   flex-wrap: wrap;
@@ -147,3 +156,4 @@
   align-items: center;
   justify-content: space-between;
 }
+
