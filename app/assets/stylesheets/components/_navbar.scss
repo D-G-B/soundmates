@@ -32,6 +32,10 @@
 
 .avatar-navbar{
   border-radius: 100%;
+  &:hover {
+    -webkit-box-shadow: 0px 0px 2px 3px #F7B358; 
+    box-shadow: 0px 0px 2px 3px #F7B358;
+  }
 }
 
 .inactive {

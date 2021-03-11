@@ -57,8 +57,8 @@
   font-size: 20px;
 
   &:hover {
-    -webkit-box-shadow: 0px 0px 5px 4px #EE8133;
-    box-shadow: 0px 0px 5px 4px #EE8133;
+    -webkit-box-shadow: 0px 0px 5px 4px #f7b358;
+    box-shadow: 0px 0px 5px 4px #f7b358;
     text-decoration: none;
   }
 }
@@ -110,6 +110,18 @@
   align-items: center;
   border-radius: 30px;
   margin-bottom: 1px;
+  -webkit-box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5);
+  box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.5);
+
+  &:hover {
+    -webkit-box-shadow: 5px 5px 10px -5px #f7b358;
+    box-shadow: 5px 5px 10px -5px #f7b358;
+    text-decoration: none;
+  }
+}
+
+.card-results h2:hover {
+  color: #f7b358;
 }
 
 .card-results img {
@@ -127,7 +139,7 @@
 }
 
 .card-results p {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 5px;
