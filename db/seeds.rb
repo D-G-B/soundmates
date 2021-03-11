@@ -36,7 +36,7 @@ puts "creating 25 main users..."
   username: Faker::Internet.username(specifier: 'NRV'),
   bio: "I am a machine without a soul. I play brutalist techno. Feed me with records or DIE.",
   password: "123456")
-  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1614944904/5q5y06rpxiaioujpl76o4upnpzqg.jpg')
+  file = URI.open('https://res.cloudinary.com/dgb/image/upload/v1615373501/photo_profile_goxmdq.png')
   herve.photo.attach(io: file, filename: 'Kevin.png', content_type: 'image/png')
   herve.save
 

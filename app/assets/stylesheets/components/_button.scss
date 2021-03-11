@@ -27,3 +27,15 @@
     transition: 0.3s;
   }
 }
+
+
+.btn-orange-profile{
+  border: 1px solid #f7b358;
+  color:white;
+  background-color: #272A2E;
+  &:hover {
+    background-color: #f7b358;
+    transition: 0.3s;
+    color:white;
+  }
+}

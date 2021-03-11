@@ -103,6 +103,47 @@ class UsersController < ApplicationController
     authorize @users
   end
 
+  def skills
+    if params[:query] == "remix"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Remix"}))
+
+    elsif params[:query] == "vocals"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Vocals"}))
+
+    elsif params[:query] == "instruments"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Instruments"}))
+
+    elsif params[:query] == "writing"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Writing"}))
+
+    elsif params[:query] == "arrangement"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Arrangement"}))
+
+    elsif params[:query] == "production"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Production"}))
+
+    elsif params[:query] == "technical"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Technical"}))
+    
+    elsif params[:query] == "visuals"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Visuals"}))
+
+    elsif params[:query] == "dj_mix"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "DJ Mix"}))
+
+    elsif params[:query] == "management"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Management"}))
+
+    elsif params[:query] == "conducting_&_leading"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Conducting & Leading"}))
+
+    elsif params[:query] == "acting,_literary_&_spoken"
+      @users = policy_scope(User.joins(:skills).where(skills: {name: "Acting, Literary & Spoken"}))
+    end
+
+    authorize @users
+  end
+
 
   #Collections by skills, methods
 

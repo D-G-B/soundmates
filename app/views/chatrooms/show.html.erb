@@ -3,8 +3,8 @@
 <%= render "sidebar" %>
 
   <div class="messages-container mr-3">
-    <div class=" chat-blurry">
-      <div class="container justify-content-center"> 
+    <div class="d-flex flex-column chat-blurry">
+      <div class="container justify-content-center pushchatdown"> 
 
         <div class="d-flex justify-content-center p-3">
         <h1>The chat itself</h1>
@@ -24,10 +24,14 @@
 
       </div>
 
-      <div class="message-form container">
-        <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message" %>
-        <%= f.submit label: '<i class="far fa-paper-plane "></i>'.html_safe, class: "btn btn-outline-warning", id:"float-right" %>
+      <div class="message-form d-flex flex-row align-items-center">
+        <div class="growbig m-3">
+          <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+          <%= f.input :content, label: false, placeholder: "Message" %>
+        </div>
+        <div class="growsmol m-3">
+          <%= f.submit 'send message'.html_safe, class: "btn btn-outline-warning mb-3", id:"float-right" %>
+        </div>
         <% end %>
       </div>
     </div>
