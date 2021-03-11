@@ -64,15 +64,20 @@
   }
 }
 
-.search-bar-landing-page
-{
-    justify-content: center;
-    top: 150px;
-    position: relative;
-    left: 40px;
-    #query{ width:500px;
+.search-bar-landing-page {
 
-          }
+  justify-content: center;
+  top: 150px;
+  position: relative;
+  left: 40px;
+  margin-left: 440px;
+  #query { 
+    width:500px;
+  }
+}
+
+.search-style {
+  align-items: center;
 }
 
 /*DROPDOWNS*/
