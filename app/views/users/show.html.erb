@@ -65,15 +65,18 @@
     <div class="col-lg-3 py-3">
       <div class="chatroom-buttons">
         <% if current_user && @chatroom %>
-          <% if @chatroom.status == nil %>
-            <h5>Connection Pending</h5>
-          <% elsif @chatroom.status == false %>
-            <h5>Connection Denied</h5>
-          <% elsif @chatroom.status == true && current_user != @user %>
-            <h5>Already Connected</h5>
+          <% if current_user == @user  %>
+            <button class="btn-chatroom my-3" type="button"><%= link_to "Your Chats", chatrooms_path %></button>
+          <% else %>
+            <button class="btn-chatroom my-3" type="button"><%= link_to "Chat with #{@user.first_name}", chatrooms_path %></button>
           <% end %>
-          <button class="btn-chatroom my-3" type="button"><%= link_to "Your chatrooms", chatrooms_path %></button>
-
+          <% if @chatroom.status == nil %>
+            <h6>Pending <i class="fas fa-user-clock ml-3"></i></h6>
+          <% elsif @chatroom.status == false %>
+            <h6>Denied <i class="fas fa-heart-broken ml-3"></i></h6>
+          <% elsif @chatroom.status == true && current_user != @user %>
+            <h6>Connected <i class="fas fa-heartbeat ml-3"></i></h6>
+          <% end %>
         <% end %>
         <% if current_user != @user && !@chatroom %>
           <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
@@ -84,7 +87,7 @@
 
   <div class="row row-shadow my-5">
     <div class="col p-3">
-      <h3>About</h3>
+      <h3>About <%= @user.first_name %></h3>
       <p><%= @user.bio %></p>
     </div>
   </div>
