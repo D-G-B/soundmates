@@ -87,10 +87,19 @@ background-size: cover;
 }
 
 .growbig{
-  flex-grow: 1;
-}
-.growsmol {
-  flex-grow: 0;
+  position: relative;
+  width: 100%;
+  .form-control {
+    background-color: #212529;
+    border-color: #f7b358;
+    padding-right: 60px;
+  }
+  .growsmol {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    padding-right: 5px;
+  }
 }
 
 #float-right {
