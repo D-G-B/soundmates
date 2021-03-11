@@ -144,3 +144,16 @@
   color: transparent;
   text-shadow: 0 0 0 $button-color;
 }
+
+#social-links-space {
+  padding-right: 200px;
+  padding-bottom: 10px;
+}
+
+#share-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
