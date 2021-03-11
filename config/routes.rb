@@ -5,11 +5,13 @@ Rails.application.routes.draw do
    member do
      patch :add_photo
    end
+
     resources :chatrooms, only: [:create]
     collection do
       get :genre, :skills, :instrumentalists, :vocalists, :technicians, :djs
     end
   end
+  resources :shares, only: [:create]
   resources :chatrooms, only: [ :index, :show] do
     member do
       patch :accept

@@ -36,6 +36,8 @@ class UsersController < ApplicationController
     # @chatroom = current_user.chatrooms
     #                         .joins(:user_chats)
     #                         .find_by(user_chats: {user: @user})
+
+    @share = Share.new
   end
 
   #def new
@@ -124,7 +126,7 @@ class UsersController < ApplicationController
 
     elsif params[:query] == "technical"
       @users = policy_scope(User.joins(:skills).where(skills: {name: "Technical"}))
-    
+
     elsif params[:query] == "visuals"
       @users = policy_scope(User.joins(:skills).where(skills: {name: "Visuals"}))
 

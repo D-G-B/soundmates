@@ -14,7 +14,8 @@
               <cite title="Source Title">
                 <i class="author">
                   <span><%= message.user.username %></span>
-                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                  <small><%= time_ago_in_words(message.created_at) %></small>
+                  
                 </i>
               </cite>
             </footer>
