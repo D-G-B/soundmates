@@ -1,2 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+
+#search-bgd {
+  background-image: asset-url("background-search.png")
+}
