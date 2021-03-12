@@ -5,6 +5,7 @@
   </div>
 </div>
 
+<div id="<%= 'search-bgd' if params[:query] %>" >
 <div class="container">
   <div class="row justify-content-between text-white spacing" style="text-align: center;">
     <div class="value col-lg-3">
@@ -23,6 +24,7 @@
   <div class="row text-white justify-content-center my-30 font-weight-bold">
     <h2 class=" font-weight-bold">Find your next sound mate</h2>
   </div>
+
 
   <!-- if no search params entered, then show our 3 user cards -->
   <% if !params[:query] %>
@@ -57,7 +59,7 @@
       <% end %>
     </div>
   <% end %>
-
+</div>
   <% if !params[:query] %>
     <div class="row text-white justify-content-center spacing">
       <h2 class=" font-weight-bold">Browse by music genre </h2>
