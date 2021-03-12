@@ -90,6 +90,8 @@
 .profile-image {
   transform: translateY(3rem);
   margin-left: 3rem;
+  border-radius: 50% !important;
+  border: solid #f7b358 0.1px;
 }
 
 .social {
@@ -117,7 +119,7 @@
 .social-links a:hover {
   opacity: 1;
 }
-  
+
 
 #user-genres {
   flex-wrap: wrap;
@@ -156,4 +158,10 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.icon-style-profile {
+    width:50px;
+    fill: white !important;
+
+  }
 
