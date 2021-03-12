@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def about
-    @users = policy_scope(User).limit(4)
+    @users = policy_scope(User).where(id: (1..4))
   end
 end
