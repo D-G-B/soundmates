@@ -56,13 +56,14 @@
 
   <div class="row d-flex justify-content-end align-items-baseline row-shadow row-info">
 
-    <div class="col-lg-3 py-3" id="mates">
-      <%= render "users/icons/icon_mates" %>
+    <div class="col-lg-3 py-2" id="mates">
       <h5>Mates</h5>
+      <span><%= render "users/icons/icon_mates" %></span>
       <%= @user.chatrooms.count %>
     </div>
-    <div class="col-lg-3 py-3" id="shares">
-      <h5>Shares</h5>  <%= render "users/icons/icon_shares" %>
+    <div class="col-lg-3 py-2" id="shares">
+      <h5>Shares</h5>
+      <span><%= render "users/icons/icon_shares" %></span>
       <%= @user.shares.count %>
     </div>
     <div class="col-lg-3 py-3">
