@@ -1,8 +1,4 @@
 /* Top cards */
-.card {
-  box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.5);
-}
-
 .card-user {
   -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.14);
   box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.5);
@@ -157,6 +153,7 @@
   border: none;
   border-radius: 10px;
   background-color: $user-card-color;
+  box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.5);
 }
 
 .stats {
