@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def about
-    @users = policy_scope(User).where(id: (1..4))
+    @users = policy_scope(User).where(last_name: ["Agoh", "Bonnaffoux", "Brandt"]).or(policy_scope(User).where(first_name: "Joleana"))
   end
 end
