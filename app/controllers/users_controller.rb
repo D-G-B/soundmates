@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     #                           raise
     # end
     #attempt three
-    
+  if user_signed_in?
     our_chatroom_ids = current_user.chatrooms.pluck(:id)
     their_chatroom_ids = @user.chatrooms.pluck(:id)
 
@@ -48,6 +48,7 @@ class UsersController < ApplicationController
     else
       @chatroom = false
     end
+  end
 
     
     
