@@ -32,12 +32,12 @@
         <%= cl_image_tag @user.photo.key, alt: "Profile picture", height: 200, width: 200, crop: :fill, class: "profile-image rounded" %>
       <% else %>
         <%= cl_image_tag("no-photo.jpg_xfimyh", height: 200, width: 200, crop: :fill, class: "profile-image") %>
-      <% end%>      
+      <% end%>
       <% if current_user == @user %>
         <div id="btn-box">
           <button type="button" data-toggle="modal" data-target="#modalPhoto" class="btn-orange-short my-3">Edit Photo</button>
           <button type="button" class="btn-orange-short my-3"> <%= link_to "Edit Profile", edit_user_registration_path %> </button>
-        </div>  
+        </div>
       <% end %>
     </div>
 
@@ -57,11 +57,12 @@
   <div class="row d-flex justify-content-end align-items-baseline row-shadow row-info">
 
     <div class="col-lg-3 py-3" id="mates">
+      <%= render "users/icons/icon_mates" %>
       <h5>Mates</h5>
       <%= @user.chatrooms.count %>
     </div>
     <div class="col-lg-3 py-3" id="shares">
-      <h5>Shares</h5>
+      <h5>Shares</h5>  <%= render "users/icons/icon_shares" %>
       <%= @user.shares.count %>
     </div>
     <div class="col-lg-3 py-3">
@@ -85,21 +86,22 @@
         <% if current_user != @user && !@chatroom %>
           <button class="btn-chatroom" type="button"><%= link_to "CONNECT",user_chatrooms_path(@user.username), method: :post, class: "" %></button>
         <% end %>
-        
+
       </div>
     </div>
   </div>
 
   <div class="row row-shadow my-5">
-    <div class="col p-3">
-      <h3>About <%= @user.first_name %></h3>
+    <div class="col p-3" style="text-align: center">
+      <h3 >About <%= @user.first_name %></h3>
+      <br>
       <p><%= @user.bio %></p>
     </div>
   </div>
 
   <div class="row row-shadow my-5">
     <span>
-      <div class="col p-3">
+      <div class="col p-3" style="text-align: center">
       <h2>Skills</h2>
         <% @user.skills.each do |skill| %>
           <span id="emoji">&#x266a;</span><%= skill.name %>&nbsp;
