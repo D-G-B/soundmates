@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'users#index'
+  get 'about', to: 'pages#about'
   resources :users, only: [:show, :index], param: :username do
    member do
      patch :add_photo
