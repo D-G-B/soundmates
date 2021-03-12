@@ -92,23 +92,22 @@
     </div>
   </div>
 
-  <div class="row row-shadow my-5">
-    <div class="col p-3" style="text-align: center">
+  <div class="row row-shadow my-5 text-center">
+    <div class="col p-3">
       <h3 >About <%= @user.first_name %></h3>
       <br>
       <p><%= @user.bio %></p>
     </div>
   </div>
 
-  <div class="row row-shadow my-5">
-    <span>
-      <div class="col p-3" style="text-align: center">
+  <div class="row row-shadow my-5 text-center">
+      <div class="col p-3">
       <h2>Skills</h2>
+      <br>
         <% @user.skills.each do |skill| %>
           <span id="emoji">&#x266a;</span><%= skill.name %>&nbsp;
         <%end %>
       </div>
-    </span>
   </div>
 
   <div class="row row-shadow my-5">
@@ -140,7 +139,7 @@
       </div>
       <!--Modal end-->
 
-    <div class="col p-3">
+    <div class="col p-3 text-center">
       <h2>Shares</h2>
       <% if current_user == @user %>
         <button type="button" data-toggle="modal" data-target="#modalShare" class="btn-orange-short my-3">Add share</button>
