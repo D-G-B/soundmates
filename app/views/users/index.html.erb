@@ -6,7 +6,7 @@
 </div>
 
 <div id="<%= 'search-bgd' if params[:query] %>" >
-<div class="container">
+  <div class="container">
   <div class="row justify-content-between text-white spacing" style="text-align: center;">
     <div class="value col-lg-3">
       <i class="value-margin fas fa-search" id="icon-value" ></i>
@@ -59,7 +59,7 @@
       <% end %>
     </div>
   <% end %>
-</div>
+
   <% if !params[:query] %>
     <div class="row text-white justify-content-center spacing">
       <h2 class=" font-weight-bold">Browse by music genre </h2>
@@ -224,5 +224,6 @@
         <% end %>
       </div>
     </div>
-    <% end %>
+  <% end %>
+  </div>
 </div>
